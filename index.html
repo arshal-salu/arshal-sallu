@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Arshal.dev | Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Geist:wght@500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"],
+                        display: ["Geist", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #222222;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF5500;
+        }
+
+        .scrollbar-none::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-none {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="bg-[#0A0A0A] text-neutral-100 font-sans selection:bg-[#FF5500]/30 selection:text-white min-h-screen flex flex-col overflow-x-hidden">
+    <!-- Mobile Header -->
+    <header class="lg:hidden sticky top-0 z-50 bg-[#0A0A0A]/85 backdrop-blur-md border-b border-neutral-900 py-4 px-6 flex justify-between items-center">
+        <div class="font-mono font-bold text-lg text-white">
+            <span class="text-[#FF5500]">&lt;</span>ARSHAL.DEV<span class="text-[#FF5500]">/&gt;</span>
+        </div>
+        <a href="#contact" class="bg-[#FF5500] hover:bg-[#E04B00] text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-[0_4px_12px_rgba(255,85,0,0.2)]">
+            Connect
+        </a>
+    </header>
+
+    <!-- Main Page Content -->
+    <main class="w-full max-w-[1300px] mx-auto px-4 md:px-8 py-10 lg:py-16 flex-grow flex flex-col justify-center">
+        <div class="grid grid-cols-1 lg:grid-cols-[3fr_7fr] gap-8 lg:gap-12 items-start w-full">
+            
+            <!-- Left Sidebar - Desktop Sticky, Mobile Normal -->
+            <aside class="w-full lg:sticky lg:top-[40px] z-20">
+                <div class="bg-[#121212] text-white rounded-[2rem] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-neutral-800/80 flex flex-col justify-between overflow-hidden relative lg:max-h-[calc(100vh-80px)] lg:overflow-y-auto scrollbar-none">
+                    <!-- Accent bar at the top -->
+                    <div class="absolute top-0 left-0 right-0 h-2.5 bg-[#FF5500]"></div>
+                    
+                    <div>
+                        <!-- Avatar Image -->
+                        <div class="relative w-28 h-28 mx-auto mb-6 mt-4 group">
+                            <div class="absolute inset-0 bg-[#FF5500] rounded-3xl rotate-6 opacity-20 group-hover:rotate-12 transition-transform duration-300"></div>
+                            <div class="absolute inset-0 bg-[#FF5500]/10 rounded-3xl blur-md"></div>
+                            <label for="avatar-upload" class="relative block w-full h-full bg-neutral-900 rounded-3xl border border-neutral-800 shadow-lg overflow-hidden cursor-pointer group-hover:border-[#FF5500]/40 transition-colors">
+                                <img id="avatar-image" src="./my_avatar.png" alt="Muhammed Arshal V" class="w-full h-full object-cover" />
+                                <!-- Camera Hover Overlay -->
+                                <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                    <span class="material-symbols-outlined text-white text-xl">photo_camera</span>
+                                </div>
+                                <input type="file" id="avatar-upload" accept="image/*" class="hidden" />
+                            </label>
+                        </div>
+
+                        <!-- Info & Status -->
+                        <div class="text-center mb-6">
+                            <h1 class="text-2xl font-bold font-display text-white tracking-tight">Muhammed Arshal V</h1>
+                            <p class="text-sm font-mono text-[#FF5500] font-semibold mt-1">Full Stack Developer</p>
+                            
+                            <div class="mt-4 flex justify-center">
+                                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#FF5500]/10 border border-[#FF5500]/20 rounded-full text-[#FF5500] font-mono text-xs font-semibold">
+                                    <span class="relative flex h-2 w-2">
+                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF5500] opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-[#FF5500]"></span>
+                                    </span>
+                                    Available for hire
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini Bio -->
+                        <p class="text-sm text-neutral-400 text-center leading-relaxed mb-6 font-sans">
+                            Fresher, fast learner, and comfortable owning a project end to end — frontend, backend, and database.
+                        </p>
+
+                        <!-- Navigation Menu -->
+                        <nav class="border-t border-neutral-800/60 py-6 mb-6">
+                            <ul class="space-y-3 font-medium text-sm">
+                                <li>
+                                    <a href="#about" class="nav-link flex items-center gap-3 text-[#FF5500] border-l-2 border-[#FF5500] pl-3 py-1.5 transition-all">
+                                        <span class="material-symbols-outlined text-base">person</span>
+                                        About Me
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#skills" class="nav-link flex items-center gap-3 text-neutral-400 hover:text-[#FF5500] hover:pl-2 pl-0 py-1.5 transition-all">
+                                        <span class="material-symbols-outlined text-base">bolt</span>
+                                        Tech Stack
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#projects" class="nav-link flex items-center gap-3 text-neutral-400 hover:text-[#FF5500] hover:pl-2 pl-0 py-1.5 transition-all">
+                                        <span class="material-symbols-outlined text-base">code_blocks</span>
+                                        Projects
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#contact" class="nav-link flex items-center gap-3 text-neutral-400 hover:text-[#FF5500] hover:pl-2 pl-0 py-1.5 transition-all">
+                                        <span class="material-symbols-outlined text-base">mail</span>
+                                        Contact
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <!-- Social & Contacts -->
+                        <div class="border-t border-neutral-800/60 pt-6 space-y-3.5">
+                            <a href="mailto:arshalsallu@gmail.com" class="flex items-center gap-3 text-sm text-neutral-400 hover:text-[#FF5500] transition-colors">
+                                <span class="material-symbols-outlined text-neutral-500 text-lg">mail</span>
+                                <span class="truncate">arshalsallu@gmail.com</span>
+                            </a>
+                            <a href="tel:+919895919742" class="flex items-center gap-3 text-sm text-neutral-400 hover:text-[#FF5500] transition-colors">
+                                <span class="material-symbols-outlined text-neutral-500 text-lg">call</span>
+                                <span>+91 98959 19742</span>
+                            </a>
+                            <div class="flex items-center gap-3 text-sm text-neutral-400">
+                                <span class="material-symbols-outlined text-neutral-500 text-lg">location_on</span>
+                                <span>Kerala, India</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call To Actions -->
+                    <div class="mt-8 space-y-3">
+                        <a href="#contact" class="w-full bg-[#FF5500] hover:bg-[#E04B00] text-white py-3.5 px-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-[0_10px_20px_-5px_rgba(255,85,0,0.3)] hover:scale-[1.02] active:scale-[0.98]">
+                            <span class="material-symbols-outlined text-lg">chat_bubble</span>
+                            Let's Connect
+                        </a>
+                        <a href="https://github.com/arshal-salu" target="_blank" class="w-full bg-neutral-900 border border-neutral-800 hover:bg-neutral-800 text-neutral-300 py-3.5 px-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98]">
+                            <span class="material-symbols-outlined text-lg">open_in_new</span>
+                            GitHub Profile
+                        </a>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column - Scrollable Content Bento Grid -->
+            <div class="w-full space-y-12 pb-20">
+                
+                <!-- Hero & About Card -->
+                <section id="about" class="scroll-mt-10 lg:scroll-mt-16">
+                    <div class="bg-[#121212] border border-neutral-800/80 rounded-[2rem] p-8 md:p-12 relative overflow-hidden group shadow-lg">
+                        <div class="absolute top-0 right-0 w-80 h-80 bg-[#FF5500]/5 rounded-full blur-[100px] -mr-40 -mt-40 pointer-events-none transition-all group-hover:bg-[#FF5500]/10"></div>
+                        
+                        <div class="flex flex-col space-y-6">
+                            <span class="text-xs uppercase tracking-widest text-[#FF5500] font-mono font-bold">About Me</span>
+                            <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight leading-tight font-display">
+                                Crafting high-performance <span class="text-[#FF5500]">full-stack</span> digital solutions.
+                            </h2>
+                            <p class="text-neutral-400 text-base md:text-lg leading-relaxed max-w-3xl">
+                                I am Muhammed Arshal V, a developer from Kerala, India. I specialize in building complete web applications using modern stacks (Next.js, Nuxt, React), backends, and persistent databases. Fast learner and comfortable owning project lifecycles from architecture to deploy.
+                            </p>
+                            <div class="flex flex-wrap gap-4 pt-2">
+                                <div class="px-4 py-2 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-sm flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-[#FF5500]"></span>
+                                    Frontend, Backend &amp; DB
+                                </div>
+                                <div class="px-4 py-2 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-sm flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-[#FF5500]"></span>
+                                    Full Project Ownership
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tech Stack Toolkit -->
+                <section id="skills" class="scroll-mt-10 lg:scroll-mt-16 space-y-6">
+                    <div class="flex items-center gap-4">
+                        <h2 class="text-2xl font-bold text-white font-display">Technical Toolkit</h2>
+                        <div class="h-[1px] flex-1 bg-neutral-800/80"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                        <!-- Frontend Card -->
+                        <div class="md:col-span-6 bg-[#121212]/90 backdrop-blur-sm border border-neutral-800/80 rounded-[2rem] p-8 hover:border-[#FF5500]/30 transition-all duration-300 relative group shadow-md hover:-translate-y-1">
+                            <div class="absolute top-4 right-4 text-[#FF5500]/10 group-hover:text-[#FF5500]/20 transition-colors">
+                                <span class="material-symbols-outlined text-5xl">desktop_windows</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2 font-display">
+                                <span class="w-2 h-2 rounded-full bg-[#FF5500]"></span>
+                                Frontend
+                            </h3>
+                            <div class="flex flex-wrap gap-2.5">
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">TypeScript</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">JavaScript</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Tailwind CSS</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">HTML5 / CSS3</span>
+                            </div>
+                        </div>
+
+                        <!-- Backend & DB Card -->
+                        <div class="md:col-span-6 bg-[#121212]/90 backdrop-blur-sm border border-neutral-800/80 rounded-[2rem] p-8 hover:border-[#FF5500]/30 transition-all duration-300 relative group shadow-md hover:-translate-y-1">
+                            <div class="absolute top-4 right-4 text-[#FF5500]/10 group-hover:text-[#FF5500]/20 transition-colors">
+                                <span class="material-symbols-outlined text-5xl">database</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2 font-display">
+                                <span class="w-2 h-2 rounded-full bg-[#FF5500]"></span>
+                                Backend &amp; DB
+                            </h3>
+                            <div class="flex flex-wrap gap-2.5">
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">PostgreSQL</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Supabase</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Prisma ORM</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Nitro Server</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">REST APIs</span>
+                            </div>
+                        </div>
+
+                        <!-- Frameworks Card -->
+                        <div class="md:col-span-7 bg-[#121212]/90 backdrop-blur-sm border border-neutral-800/80 rounded-[2rem] p-8 hover:border-[#FF5500]/30 transition-all duration-300 relative group shadow-md hover:-translate-y-1">
+                            <div class="absolute top-4 right-4 text-[#FF5500]/10 group-hover:text-[#FF5500]/20 transition-colors">
+                                <span class="material-symbols-outlined text-5xl">widgets</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2 font-display">
+                                <span class="w-2 h-2 rounded-full bg-[#FF5500]"></span>
+                                Frameworks
+                            </h3>
+                            <div class="flex flex-wrap gap-2.5">
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Next.js</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">React</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Nuxt</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Vue 3</span>
+                            </div>
+                        </div>
+
+                        <!-- Tooling Card -->
+                        <div class="md:col-span-5 bg-[#121212]/90 backdrop-blur-sm border border-neutral-800/80 rounded-[2rem] p-8 hover:border-[#FF5500]/30 transition-all duration-300 relative group shadow-md hover:-translate-y-1">
+                            <div class="absolute top-4 right-4 text-[#FF5500]/10 group-hover:text-[#FF5500]/20 transition-colors">
+                                <span class="material-symbols-outlined text-5xl">build</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2 font-display">
+                                <span class="w-2 h-2 rounded-full bg-[#FF5500]"></span>
+                                Tooling
+                            </h3>
+                            <div class="flex flex-wrap gap-2.5">
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Docker</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Git</span>
+                                <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Vercel</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Featured Projects -->
+                <section id="projects" class="scroll-mt-10 lg:scroll-mt-16 space-y-6">
+                    <div class="flex items-center gap-4">
+                        <h2 class="text-2xl font-bold text-white font-display">Featured Projects</h2>
+                        <div class="h-[1px] flex-1 bg-neutral-800/80"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                        <!-- Project 1 (Nuxt School Manager, col-span 7) -->
+                        <div class="md:col-span-7 bg-[#121212] border border-neutral-800/80 rounded-[2rem] overflow-hidden group hover:border-[#FF5500]/30 transition-all duration-300 flex flex-col justify-between shadow-lg">
+                            <div class="h-56 relative overflow-hidden bg-neutral-900">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    alt="Nuxt School Manager Dashboard"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUxfWWP2N-VBtYM2QoVJ6jxJAfjL56RUDLS5Wg8VgV_i4f9yVF9w_fMm5WKPd8Mri_4ot570kCKZ8s5X8DdJO9fDuzk-ineeVwXP_2I0Y7Dp0GBuLSnXLMRoTmQZF-53ALVV9LN7BOA2lCmmI7cB33BwkyQPwJRRjCHtspF8nZvNASoBRQSVSpb4sN1ESVhU1PRxQuuezJCnoUwhJSmYVC05mcEj4FeVDQp8u9Th0t3Kt-1bZUFbpIWTo39r-SCGS4Kl-tLou-xlA" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent opacity-60"></div>
+                                <div class="absolute bottom-4 left-6 flex gap-2">
+                                    <span class="px-2.5 py-1 bg-[#FF5500] text-white rounded-md text-[10px] font-mono font-bold uppercase tracking-wider">Vue 3</span>
+                                    <span class="px-2.5 py-1 bg-[#FF5500] text-white rounded-md text-[10px] font-mono font-bold uppercase tracking-wider">Nuxt 4</span>
+                                </div>
+                            </div>
+                            <div class="p-8 flex flex-col flex-grow justify-between">
+                                <div>
+                                    <h3 class="text-xl font-bold text-white mb-2 font-display">Nuxt School Manager</h3>
+                                    <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+                                        A full-scale school management system featuring real-time data handling with Supabase database integrations and robust state management.
+                                    </p>
+                                </div>
+                                <a class="inline-flex items-center gap-2 text-[#FF5500] font-bold text-sm hover:gap-4 transition-all"
+                                    href="https://nuxt-app-plum-tau.vercel.app" target="_blank">
+                                    Visit Live Project 
+                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 (Ecrola Engineering, col-span 5) -->
+                        <div class="md:col-span-5 bg-[#121212] border border-neutral-800/80 rounded-[2rem] overflow-hidden group hover:border-[#FF5500]/30 transition-all duration-300 flex flex-col justify-between shadow-lg">
+                            <div class="h-56 relative overflow-hidden bg-neutral-900">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    alt="Ecrola Engineering Corporate Site"
+                                    src="./ecrola_project_preview.png" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent opacity-60"></div>
+                            </div>
+                            <div class="p-8 flex flex-col flex-grow justify-between">
+                                <div>
+                                    <h3 class="text-xl font-bold text-white mb-2 font-display">Ecrola Engineering</h3>
+                                    <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+                                        Modern corporate website built with Next.js 16 and Framer Motion for high-fidelity animations, SEO, and fast performance scores.
+                                    </p>
+                                </div>
+                                <div class="flex flex-col gap-4 pt-6 border-t border-neutral-800/50 mt-auto font-sans">
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex gap-2">
+                                            <span class="px-2.5 py-1 bg-neutral-900 border border-neutral-800 text-neutral-400 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider">React</span>
+                                            <span class="px-2.5 py-1 bg-neutral-900 border border-neutral-800 text-neutral-400 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider">Next 16</span>
+                                        </div>
+                                    </div>
+                                    <a class="inline-flex items-center gap-2 text-[#FF5500] font-bold text-sm hover:gap-4 transition-all"
+                                        href="https://ecrola-engineering.vercel.app" target="_blank">
+                                        Visit Live Project 
+                                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 (BiteGo Delivery App, col-span 12) -->
+                        <div class="md:col-span-12 bg-[#121212] border border-neutral-800/80 rounded-[2rem] grid grid-cols-1 md:grid-cols-12 overflow-hidden hover:border-[#FF5500]/30 transition-all duration-300 group shadow-lg">
+                            <div class="p-8 md:p-10 md:col-span-7 flex flex-col justify-between">
+                                <div>
+                                    <span class="text-xs uppercase tracking-widest text-[#FF5500] font-mono font-bold">E-commerce • FinTech</span>
+                                    <h3 class="text-2xl font-bold text-white mt-2 mb-4 font-display">BiteGo Delivery App</h3>
+                                    <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+                                        A comprehensive food delivery platform with a custom Nitro backend server, Prisma ORM database mapping, and secure Razorpay payment gateway integration for seamless transaction workflows.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2.5 mb-6">
+                                        <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs">Nitro</span>
+                                        <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs">Prisma</span>
+                                        <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs">Razorpay</span>
+                                    </div>
+                                </div>
+                                <a class="inline-flex items-center justify-center bg-[#FF5500] hover:bg-[#E04B00] text-white px-6 py-3 rounded-xl font-bold text-sm hover:shadow-[0_10px_20px_-5px_rgba(255,85,0,0.3)] transition-all w-fit"
+                                    href="https://bitego-in.vercel.app" target="_blank">
+                                    Launch Live Demo
+                                </a>
+                            </div>
+                            <div class="relative min-h-[250px] md:col-span-5 bg-neutral-900 overflow-hidden">
+                                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    alt="BiteGo Mobile App Interface"
+                                    src="./bitego_project_preview.png" />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact & Form -->
+                <section id="contact" class="scroll-mt-10 lg:scroll-mt-16 space-y-6">
+                    <div class="flex items-center gap-4">
+                        <h2 class="text-2xl font-bold text-white font-display">Let's Collaborate</h2>
+                        <div class="h-[1px] flex-1 bg-neutral-800/80"></div>
+                    </div>
+
+                    <div class="bg-[#121212] border border-neutral-800/80 rounded-[2rem] p-8 md:p-12 relative overflow-hidden group shadow-lg">
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#FF5500]/5 rounded-full blur-[100px] pointer-events-none"></div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+                            <!-- Direct text info -->
+                            <div class="flex flex-col justify-between space-y-6">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white tracking-tight mb-4 font-display">
+                                        Ready to create something <span class="text-[#FF5500]">extraordinary?</span>
+                                    </h3>
+                                    <p class="text-neutral-400 text-sm leading-relaxed">
+                                        I am looking for full-time opportunities or exciting contract work. If you have a project in mind, need a developer who can own the lifecycle end to end, or just want to chat tech, feel free to drop a message.
+                                    </p>
+                                </div>
+                                <div class="space-y-4">
+                                    <p class="text-xs font-mono text-neutral-500 uppercase tracking-widest">Connect Directly</p>
+                                    <div class="flex gap-4">
+                                        <a href="mailto:arshalsallu@gmail.com" class="p-3 bg-neutral-900 border border-neutral-800 text-[#FF5500] hover:border-transparent rounded-xl hover:bg-[#FF5500] hover:text-white transition-all shadow-md">
+                                            <span class="material-symbols-outlined text-xl">mail</span>
+                                        </a>
+                                        <a href="tel:+919895919742" class="p-3 bg-neutral-900 border border-neutral-800 text-[#FF5500] hover:border-transparent rounded-xl hover:bg-[#FF5500] hover:text-white transition-all shadow-md">
+                                            <span class="material-symbols-outlined text-xl">call</span>
+                                        </a>
+                                        <a href="https://github.com/arshal-salu" target="_blank" class="p-3 bg-neutral-900 border border-neutral-800 text-[#FF5500] hover:border-transparent rounded-xl hover:bg-[#FF5500] hover:text-white transition-all shadow-md">
+                                            <span class="material-symbols-outlined text-xl">code</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right contact Form -->
+                            <form class="space-y-4" action="mailto:arshalsallu@gmail.com" method="post" enctype="text/plain">
+                                <div>
+                                    <label class="block text-xs font-mono text-neutral-400 uppercase mb-2">Your Name</label>
+                                    <input type="text" name="name" required class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 text-white text-sm focus:border-[#FF5500] focus:ring-1 focus:ring-[#FF5500] outline-none transition-all" placeholder="John Doe">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-mono text-neutral-400 uppercase mb-2">Email Address</label>
+                                    <input type="email" name="email" required class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 text-white text-sm focus:border-[#FF5500] focus:ring-1 focus:ring-[#FF5500] outline-none transition-all" placeholder="john@example.com">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-mono text-neutral-400 uppercase mb-2">Message</label>
+                                    <textarea name="message" rows="4" required class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 text-white text-sm focus:border-[#FF5500] focus:ring-1 focus:ring-[#FF5500] outline-none transition-all resize-none" placeholder="Hey Arshal, I'd love to chat about a project..."></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-[#FF5500] hover:bg-[#E04B00] text-white py-3 px-6 rounded-xl font-bold text-sm transition-all shadow-[0_10px_20px_-5px_rgba(255,85,0,0.3)] hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2">
+                                    Send Message
+                                    <span class="material-symbols-outlined text-sm">send</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-12 bg-neutral-950 border-t border-neutral-900 mt-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center max-w-[1300px] mx-auto px-4 md:px-8 gap-4 text-center md:text-left">
+            <div class="font-mono text-xs text-neutral-400 tracking-wider">
+                <span class="text-[#FF5500]">&lt;</span>ARSHAL.DEV<span class="text-[#FF5500]">/&gt;</span>
+            </div>
+            <p class="text-xs text-neutral-500">
+                © 2026 Muhammed Arshal V. Built with precision.
+            </p>
+            <div class="flex gap-6">
+                <a class="text-neutral-500 hover:text-[#FF5500] text-xs transition-colors font-mono" href="https://github.com/arshal-salu">GitHub</a>
+                <a class="text-neutral-500 hover:text-[#FF5500] text-xs transition-colors font-mono" href="#">LinkedIn</a>
+                <a class="text-neutral-500 hover:text-[#FF5500] text-xs transition-colors font-mono" href="mailto:arshalsallu@gmail.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation Highlighter and Smooth Scroll Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Handle active class toggling on scroll
+            window.addEventListener('scroll', () => {
+                let current = '';
+                const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollPos >= sectionTop - 180) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href === `#${current}`) {
+                        link.classList.remove('text-neutral-400', 'pl-0');
+                        link.classList.add('text-[#FF5500]', 'border-l-2', 'border-[#FF5500]', 'pl-3');
+                    } else {
+                        link.classList.remove('text-[#FF5500]', 'border-l-2', 'border-[#FF5500]', 'pl-3');
+                        link.classList.add('text-neutral-400', 'pl-0');
+                    }
+                });
+            });
+
+            // Smooth scroll for anchors
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetEl = document.querySelector(targetId);
+                    
+                    if (targetEl) {
+                        window.scrollTo({
+                            top: targetEl.offsetTop - 50,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Client-side Avatar Upload and Persistence
+            const avatarUpload = document.getElementById('avatar-upload');
+            const avatarImage = document.getElementById('avatar-image');
+
+            // Load saved avatar if exists
+            const savedAvatar = localStorage.getItem('arshal_avatar');
+            if (savedAvatar) {
+                avatarImage.src = savedAvatar;
+            }
+
+            // Handle upload
+            avatarUpload.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        const dataUrl = event.target.result;
+                        avatarImage.src = dataUrl;
+                        localStorage.setItem('arshal_avatar', dataUrl);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
