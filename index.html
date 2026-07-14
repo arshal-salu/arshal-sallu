@@ -38,16 +38,16 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #0A0A0A;
+            background: #0B0F19;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #222222;
+            background: #1E293B;
             border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #FF5500;
+            background: #0EA5E9;
         }
 
         .scrollbar-none::-webkit-scrollbar {
@@ -57,29 +57,64 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        @keyframes drift-grid {
+            0% { background-position: 0px 0px; }
+            100% { background-position: 32px 32px; }
+        }
+        .bg-dot-grid {
+            background-image: radial-gradient(rgba(56, 189, 248, 0.08) 1.5px, transparent 1.5px);
+            background-size: 32px 32px;
+            animation: drift-grid 28s linear infinite;
+        }
+
+        @keyframes float-glow-1 {
+            0%, 100% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(40px, -60px) scale(1.15); }
+            66% { transform: translate(-30px, 30px) scale(0.9); }
+        }
+        @keyframes float-glow-2 {
+            0%, 100% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-50px, 50px) scale(1.2); }
+        }
+        .animate-glow-1 {
+            animation: float-glow-1 30s ease-in-out infinite;
+        }
+        .animate-glow-2 {
+            animation: float-glow-2 25s ease-in-out infinite;
+        }
     </style>
 </head>
 
-<body class="bg-[#0A0A0A] text-neutral-100 font-sans selection:bg-[#FF5500]/30 selection:text-white min-h-screen overflow-x-hidden">
+<body class="bg-[#0B0F19] text-slate-100 font-sans selection:bg-cyan-500/30 selection:text-white min-h-screen overflow-x-hidden relative">
+
+    <!-- Background Grid and Glows -->
+    <div class="fixed inset-0 bg-dot-grid pointer-events-none z-0"></div>
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- Glow 1 (Indigo) -->
+        <div class="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-[radial-gradient(circle,rgba(99,102,241,0.14)_0%,transparent_70%)] blur-[80px] animate-glow-1"></div>
+        <!-- Glow 2 (Cyan) -->
+        <div class="absolute -bottom-[10%] -right-[10%] w-[60%] h-[60%] bg-[radial-gradient(circle,rgba(6,182,212,0.16)_0%,transparent_70%)] blur-[90px] animate-glow-2"></div>
+    </div>
 
     <!-- Stack Wrapper (Horizontal Stack on desktop / Vertical on mobile) -->
-    <div class="flex flex-col lg:flex-row min-h-screen w-full relative">
+    <div class="flex flex-col lg:flex-row min-h-screen w-full relative z-10">
         
         <!-- Left Sidebar - Fixed 320px on Desktop, Normal Stack on Mobile -->
-        <aside class="w-full lg:w-[320px] lg:fixed lg:top-0 lg:left-0 lg:h-screen lg:z-30 bg-[#121212] text-white border-b lg:border-b-0 lg:border-r border-neutral-800/80 p-6 flex flex-col justify-between overflow-hidden relative">
+        <aside class="w-full lg:w-[320px] lg:fixed lg:top-0 lg:left-0 lg:h-screen lg:z-30 bg-[#070b13]/90 backdrop-blur-md text-white border-b lg:border-b-0 lg:border-r border-slate-800/80 p-4 lg:py-5 lg:px-4 xl:p-6 flex flex-col justify-between overflow-hidden relative">
             <!-- Accent bar at the top -->
-            <div class="absolute top-0 left-0 right-0 h-1 bg-[#FF5500]"></div>
+            <div class="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-cyan-500 to-indigo-500"></div>
             
-            <div class="flex flex-col gap-[20px] mt-2">
+            <div class="flex flex-col gap-3 lg:gap-4 mt-1">
                 <!-- Avatar Image -->
-                <div class="relative w-24 h-24 mx-auto group">
-                    <div class="absolute inset-0 bg-[#FF5500] rounded-[24px] rotate-6 opacity-20 group-hover:rotate-12 transition-transform duration-300"></div>
-                    <div class="absolute inset-0 bg-[#FF5500]/10 rounded-[24px] blur-md"></div>
-                    <label for="avatar-upload" class="relative block w-full h-full bg-neutral-900 rounded-[24px] border border-neutral-800 shadow-lg overflow-hidden cursor-pointer group-hover:border-[#FF5500]/40 transition-colors">
-                        <img id="avatar-image" src="./my_avatar.png" alt="Muhammed Arshal V" class="w-full h-full object-cover" />
-                        <!-- Camera Hover Overlay -->
-                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                            <span class="material-symbols-outlined text-white text-lg">photo_camera</span>
+                <div class="relative w-full max-w-[200px] lg:max-w-[220px] h-40 lg:h-44 xl:h-52 mx-auto group">
+                    <!-- Subtle background glow behind the cutout -->
+                    <div class="absolute inset-x-4 inset-y-6 bg-gradient-to-tr from-cyan-500/10 to-indigo-500/10 rounded-full blur-2xl group-hover:scale-110 transition-transform duration-300 pointer-events-none"></div>
+                    <label for="avatar-upload" class="relative block w-full h-full cursor-pointer">
+                        <img id="avatar-image" src="./my_avatar.png" alt="Muhammed Arshal V" class="w-full h-full object-contain filter drop-shadow-[0_4px_16px_rgba(6,182,212,0.15)] group-hover:drop-shadow-[0_8px_24px_rgba(6,182,212,0.35)] transition-all duration-300" />
+                        <!-- Camera Hover Overlay (round badge at the bottom corner) -->
+                        <div class="absolute bottom-1 right-1 w-9 h-9 bg-slate-900 border border-slate-700/80 rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-cyan-500 hover:text-white hover:border-transparent">
+                            <span class="material-symbols-outlined text-base">photo_camera</span>
                         </div>
                         <input type="file" id="avatar-upload" accept="image/*" class="hidden" />
                     </label>
@@ -87,48 +122,44 @@
 
                 <!-- Info & Status -->
                 <div class="text-center">
-                    <h1 class="text-xl font-bold font-display text-white tracking-tight">Muhammed Arshal V</h1>
-                    <p class="text-xs font-mono text-[#FF5500] font-semibold mt-1">Full Stack Developer</p>
-                    
-                    <div class="mt-3 flex justify-center">
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#FF5500]/10 border border-[#FF5500]/20 rounded-full text-[#FF5500] font-mono text-[10px] font-semibold">
-                            <span class="relative flex h-1.5 w-1.5">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF5500] opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#FF5500]"></span>
-                            </span>
-                            Available for hire
-                        </div>
-                    </div>
+                    <h1 class="text-lg lg:text-xl font-bold font-display text-white tracking-tight flex items-center justify-center gap-1.5">
+                        Muhammed Arshal V
+                        <span class="relative flex h-2 w-2" title="Available for hire">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                    </h1>
+                    <p class="text-xs font-mono bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent font-semibold mt-0.5">Full Stack Developer</p>
                 </div>
 
                 <!-- Mini Bio -->
-                <p class="text-xs text-neutral-400 text-center leading-relaxed font-sans">
+                <p class="text-xs text-slate-400 text-center leading-normal font-sans px-1">
                     Fresher, fast learner, and comfortable owning a project end to end — frontend, backend, and database.
                 </p>
 
                 <!-- Navigation Menu -->
-                <nav class="border-t border-neutral-800/60 pt-4">
-                    <ul class="space-y-2.5 font-medium text-xs">
+                <nav class="border-t border-slate-800/60 pt-3">
+                    <ul class="space-y-1.5 font-medium text-xs">
                         <li>
-                            <a href="#about" class="nav-link flex items-center gap-2.5 text-[#FF5500] border-l-2 border-[#FF5500] pl-2.5 py-1 transition-all">
+                            <a href="#about" class="nav-link flex items-center gap-2.5 text-cyan-400 border-l-2 border-cyan-400 pl-2.5 py-0.5 transition-all">
                                 <span class="material-symbols-outlined text-sm">person</span>
                                 About Me
                             </a>
                         </li>
                         <li>
-                            <a href="#skills" class="nav-link flex items-center gap-2.5 text-neutral-400 hover:text-[#FF5500] hover:pl-2 pl-0 py-1 transition-all">
+                            <a href="#skills" class="nav-link flex items-center gap-2.5 text-slate-400 hover:text-cyan-400 hover:pl-2 pl-0 py-0.5 transition-all">
                                 <span class="material-symbols-outlined text-sm">bolt</span>
                                 Tech Stack
                             </a>
                         </li>
                         <li>
-                            <a href="#projects" class="nav-link flex items-center gap-2.5 text-neutral-400 hover:text-[#FF5500] hover:pl-2 pl-0 py-1 transition-all">
+                            <a href="#projects" class="nav-link flex items-center gap-2.5 text-slate-400 hover:text-cyan-400 hover:pl-2 pl-0 py-0.5 transition-all">
                                 <span class="material-symbols-outlined text-sm">code_blocks</span>
                                 Projects
                             </a>
                         </li>
                         <li>
-                            <a href="#contact" class="nav-link flex items-center gap-2.5 text-neutral-400 hover:text-[#FF5500] hover:pl-2 pl-0 py-1 transition-all">
+                            <a href="#contact" class="nav-link flex items-center gap-2.5 text-slate-400 hover:text-cyan-400 hover:pl-2 pl-0 py-0.5 transition-all">
                                 <span class="material-symbols-outlined text-sm">mail</span>
                                 Contact
                             </a>
@@ -137,29 +168,29 @@
                 </nav>
 
                 <!-- Social & Contacts -->
-                <div class="border-t border-neutral-800/60 pt-4 space-y-2.5">
-                    <a href="mailto:arshalsallu@gmail.com" class="flex items-center gap-2.5 text-xs text-neutral-400 hover:text-[#FF5500] transition-colors">
-                        <span class="material-symbols-outlined text-neutral-500 text-sm">mail</span>
+                <div class="border-t border-slate-800/60 pt-3 space-y-1.5">
+                    <a href="mailto:arshalsallu@gmail.com" class="flex items-center gap-2.5 text-xs text-slate-400 hover:text-cyan-400 transition-colors">
+                        <span class="material-symbols-outlined text-slate-500 text-sm">mail</span>
                         <span class="truncate">arshalsallu@gmail.com</span>
                     </a>
-                    <a href="tel:+919895919742" class="flex items-center gap-2.5 text-xs text-neutral-400 hover:text-[#FF5500] transition-colors">
-                        <span class="material-symbols-outlined text-neutral-500 text-sm">call</span>
+                    <a href="tel:+919895919742" class="flex items-center gap-2.5 text-xs text-slate-400 hover:text-cyan-400 transition-colors">
+                        <span class="material-symbols-outlined text-slate-500 text-sm">call</span>
                         <span>+91 98959 19742</span>
                     </a>
-                    <div class="flex items-center gap-2.5 text-xs text-neutral-400">
-                        <span class="material-symbols-outlined text-neutral-500 text-sm">location_on</span>
+                    <div class="flex items-center gap-2.5 text-xs text-slate-400">
+                        <span class="material-symbols-outlined text-slate-500 text-sm">location_on</span>
                         <span>Kerala, India</span>
                     </div>
                 </div>
             </div>
 
             <!-- Call To Actions -->
-            <div class="mt-6 space-y-2.5">
-                <a href="#contact" class="w-full bg-[#FF5500] hover:bg-[#E04B00] text-white py-3 px-4 rounded-[12px] text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-[0_10px_20px_-5px_rgba(255,85,0,0.3)] hover:scale-[1.02] active:scale-[0.98]">
+            <div class="mt-4 space-y-2 font-sans">
+                <a href="#contact" class="w-full bg-gradient-to-r from-cyan-500 to-indigo-500 hover:from-cyan-600 hover:to-indigo-600 text-white py-2.5 px-3 rounded-[10px] text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-[0_4px_20px_-2px_rgba(6,182,212,0.3)] hover:scale-[1.02] active:scale-[0.98]">
                     <span class="material-symbols-outlined text-base">chat_bubble</span>
                     Let's Connect
                 </a>
-                <a href="https://github.com/arshal-salu" target="_blank" class="w-full bg-neutral-900 border border-neutral-800 hover:bg-neutral-800 text-neutral-300 py-3 px-4 rounded-[12px] text-xs font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98]">
+                <a href="https://github.com/arshal-salu" target="_blank" class="w-full bg-slate-900/60 border border-slate-850 hover:bg-slate-800/80 hover:border-slate-700/80 text-slate-300 py-2.5 px-3 rounded-[10px] text-xs font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98]">
                     <span class="material-symbols-outlined text-base">open_in_new</span>
                     GitHub Profile
                 </a>
@@ -167,32 +198,32 @@
         </aside>
 
         <!-- Right Column - Scrollable Content Frame (Height 100vh on Desktop) -->
-        <div id="main-content" class="w-full lg:ml-[320px] lg:h-screen lg:overflow-y-auto bg-[#0A0A0A] p-6 md:p-10 lg:p-12 flex flex-col gap-[20px]">
+        <div id="main-content" class="w-full lg:ml-[320px] lg:h-screen lg:overflow-y-auto bg-transparent p-6 md:p-10 lg:p-12 flex flex-col gap-[20px] relative z-10">
             
             <!-- Hero & About Card -->
             <section id="about" class="scroll-mt-10 lg:scroll-mt-16">
-                <div class="bg-[#121212] border border-neutral-800/80 rounded-[24px] p-8 md:p-12 relative overflow-hidden group shadow-lg">
-                    <div class="absolute top-0 right-0 w-80 h-80 bg-[#FF5500]/5 rounded-full blur-[100px] -mr-40 -mt-40 pointer-events-none transition-all group-hover:bg-[#FF5500]/10"></div>
+                <div class="bg-slate-900/10 border border-slate-800/60 rounded-[24px] p-8 md:p-12 relative overflow-hidden group shadow-lg hover:border-cyan-500/20 transition-all duration-300">
+                    <div class="absolute top-0 right-0 w-80 h-80 bg-cyan-500/5 rounded-full blur-[100px] -mr-40 -mt-40 pointer-events-none transition-all group-hover:bg-cyan-500/10"></div>
                     
                     <div class="flex flex-col space-y-[20px]">
                         <div class="flex flex-col space-y-1">
-                            <span class="text-xs uppercase tracking-widest text-[#FF5500] font-mono font-bold">FULL STACK DEVELOPER</span>
-                            <h2 class="text-xs font-mono uppercase tracking-[0.2em] text-neutral-400">Portfolio &amp; Showcase</h2>
+                            <span class="text-xs uppercase tracking-widest text-cyan-400 font-mono font-bold">FULL STACK DEVELOPER</span>
+                            <h2 class="text-xs font-mono uppercase tracking-[0.2em] text-slate-400">Portfolio &amp; Showcase</h2>
                         </div>
                         
                         <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-none font-display uppercase">
-                            Crafting High-Performance <span class="text-[#FF5500]">Full-Stack</span> digital solutions.
+                            Crafting High-Performance <span class="bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent font-extrabold">Full-Stack</span> digital solutions.
                         </h1>
-                        <p class="text-neutral-400 text-base md:text-lg leading-relaxed max-w-3xl">
-                            I am Muhammed Arshal V, a developer from Kerala, India. I specialize in building complete web applications using modern stacks (Next.js, Nuxt, React), backends, and persistent databases. Fast learner and comfortable owning project lifecycles from architecture to deploy.
+                        <p class="text-slate-300 text-base md:text-lg leading-relaxed max-w-3xl">
+                            I am Muhammed Arshal V, a developer from Kerala, India. I specialize in building complete web applications using modern stacks (Next.js, React, Nuxt), backends, and persistent databases. Fast learner and comfortable owning project lifecycles from architecture to deploy.
                         </p>
                         <div class="flex flex-wrap gap-4 pt-2">
-                            <div class="px-4 py-2 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-[12px] font-mono text-sm flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-[#FF5500]"></span>
+                            <div class="px-4 py-2 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-[12px] font-mono text-sm flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
                                 Next.js, React &amp; Nuxt
                             </div>
-                            <div class="px-4 py-2 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-[12px] font-mono text-sm flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-[#FF5500]"></span>
+                            <div class="px-4 py-2 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-[12px] font-mono text-sm flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-indigo-455"></span>
                                 PostgreSQL &amp; Supabase
                             </div>
                         </div>
@@ -204,108 +235,106 @@
             <section id="skills" class="scroll-mt-10 lg:scroll-mt-16 space-y-[20px]">
                 <div class="flex items-center gap-4">
                     <h2 class="text-2xl font-bold text-white font-display">Technical Toolkit</h2>
-                    <div class="h-[1px] flex-1 bg-neutral-800/80"></div>
+                    <div class="h-[1px] flex-1 bg-slate-800/80"></div>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-[20px]">
                     <!-- Frontend Card -->
-                    <div class="md:col-span-6 bg-[#121212]/90 backdrop-blur-sm border border-neutral-800/80 rounded-[24px] p-8 hover:border-[#FF5500]/30 transition-all duration-300 relative group shadow-md hover:-translate-y-1">
-                        <div class="absolute top-4 right-4 text-[#FF5500]/10 group-hover:text-[#FF5500]/20 transition-colors">
+                    <div class="md:col-span-6 bg-slate-900/10 border border-slate-800/60 rounded-[24px] p-8 hover:border-cyan-500/30 transition-all duration-300 relative group shadow-md hover:-translate-y-1">
+                        <div class="absolute top-4 right-4 text-cyan-500/10 group-hover:text-cyan-400/20 transition-colors">
                             <span class="material-symbols-outlined text-5xl">desktop_windows</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2 font-display">
-                            <span class="w-2 h-2 rounded-full bg-[#FF5500]"></span>
+                            <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
                             Frontend
                         </h3>
                         <div class="flex flex-wrap gap-2.5">
-                            <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">TypeScript</span>
-                            <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">JavaScript</span>
-                            <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Tailwind CSS</span>
-                            <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">HTML5 / CSS3</span>
+                            <span class="px-3 py-1.5 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-xl font-mono text-xs hover:border-cyan-500/30 hover:text-cyan-300 transition-colors cursor-default">TypeScript</span>
+                            <span class="px-3 py-1.5 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-xl font-mono text-xs hover:border-cyan-500/30 hover:text-cyan-300 transition-colors cursor-default">JavaScript</span>
+                            <span class="px-3 py-1.5 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-xl font-mono text-xs hover:border-cyan-500/30 hover:text-cyan-300 transition-colors cursor-default">Tailwind CSS</span>
+                            <span class="px-3 py-1.5 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-xl font-mono text-xs hover:border-cyan-500/30 hover:text-cyan-300 transition-colors cursor-default">HTML5 / CSS3</span>
                         </div>
                     </div>
 
                     <!-- Backend & DB Card -->
-                    <div class="md:col-span-6 bg-[#121212]/90 backdrop-blur-sm border border-neutral-800/80 rounded-[24px] p-8 hover:border-[#FF5500]/30 transition-all duration-300 relative group shadow-md hover:-translate-y-1">
-                        <div class="absolute top-4 right-4 text-[#FF5500]/10 group-hover:text-[#FF5500]/20 transition-colors">
+                    <div class="md:col-span-6 bg-slate-900/10 border border-slate-800/60 rounded-[24px] p-8 hover:border-indigo-500/30 transition-all duration-300 relative group shadow-md hover:-translate-y-1">
+                        <div class="absolute top-4 right-4 text-indigo-500/10 group-hover:text-indigo-400/20 transition-colors">
                             <span class="material-symbols-outlined text-5xl">database</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2 font-display">
-                            <span class="w-2 h-2 rounded-full bg-[#FF5500]"></span>
+                            <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
                             Backend &amp; DB
                         </h3>
                         <div class="flex flex-wrap gap-2.5">
-                            <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">PostgreSQL</span>
-                            <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Supabase</span>
-                            <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Prisma ORM</span>
-                            <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Nitro Server</span>
-                            <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">REST APIs</span>
+                            <span class="px-3 py-1.5 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-xl font-mono text-xs hover:border-indigo-500/30 hover:text-indigo-350 transition-colors cursor-default">PostgreSQL</span>
+                            <span class="px-3 py-1.5 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-xl font-mono text-xs hover:border-indigo-500/30 hover:text-indigo-350 transition-colors cursor-default">Supabase</span>
+                            <span class="px-3 py-1.5 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-xl font-mono text-xs hover:border-indigo-500/30 hover:text-indigo-355 transition-colors cursor-default">Prisma ORM</span>
+                            <span class="px-3 py-1.5 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-xl font-mono text-xs hover:border-indigo-500/30 hover:text-indigo-355 transition-colors cursor-default">Nitro Server</span>
+                            <span class="px-3 py-1.5 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-xl font-mono text-xs hover:border-indigo-500/30 hover:text-indigo-355 transition-colors cursor-default">REST APIs</span>
                         </div>
                     </div>
 
                     <!-- Frameworks Card -->
-                    <div class="md:col-span-7 bg-[#121212]/90 backdrop-blur-sm border border-neutral-800/80 rounded-[24px] p-8 hover:border-[#FF5500]/30 transition-all duration-300 relative group shadow-md hover:-translate-y-1">
-                        <div class="absolute top-4 right-4 text-[#FF5500]/10 group-hover:text-[#FF5500]/20 transition-colors">
+                    <div class="md:col-span-7 bg-slate-900/10 border border-slate-800/60 rounded-[24px] p-8 hover:border-cyan-500/30 transition-all duration-300 relative group shadow-md hover:-translate-y-1">
+                        <div class="absolute top-4 right-4 text-cyan-500/10 group-hover:text-cyan-400/20 transition-colors">
                             <span class="material-symbols-outlined text-5xl">widgets</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2 font-display">
-                            <span class="w-2 h-2 rounded-full bg-[#FF5500]"></span>
+                            <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
                             Frameworks
                         </h3>
                         <div class="flex flex-wrap gap-2.5">
-                            <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Next.js</span>
-                            <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">React</span>
-                            <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Nuxt</span>
-                            <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Vue 3</span>
+                            <span class="px-3 py-1.5 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-xl font-mono text-xs hover:border-cyan-500/30 hover:text-cyan-300 transition-colors cursor-default">Next.js</span>
+                            <span class="px-3 py-1.5 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-xl font-mono text-xs hover:border-cyan-500/30 hover:text-cyan-300 transition-colors cursor-default">React</span>
+                            <span class="px-3 py-1.5 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-xl font-mono text-xs hover:border-cyan-500/30 hover:text-cyan-300 transition-colors cursor-default">Nuxt</span>
+                            <span class="px-3 py-1.5 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-xl font-mono text-xs hover:border-cyan-500/30 hover:text-cyan-300 transition-colors cursor-default">Vue 3</span>
                         </div>
                     </div>
 
                     <!-- Tooling Card -->
-                    <div class="md:col-span-5 bg-[#121212]/90 backdrop-blur-sm border border-neutral-800/80 rounded-[24px] p-8 hover:border-[#FF5500]/30 transition-all duration-300 relative group shadow-md hover:-translate-y-1">
-                        <div class="absolute top-4 right-4 text-[#FF5500]/10 group-hover:text-[#FF5500]/20 transition-colors">
+                    <div class="md:col-span-5 bg-slate-900/10 border border-slate-800/60 rounded-[24px] p-8 hover:border-indigo-500/30 transition-all duration-300 relative group shadow-md hover:-translate-y-1">
+                        <div class="absolute top-4 right-4 text-indigo-500/10 group-hover:text-indigo-400/20 transition-colors">
                             <span class="material-symbols-outlined text-5xl">build</span>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2 font-display">
-                            <span class="w-2 h-2 rounded-full bg-[#FF5500]"></span>
+                            <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
                             Tooling
                         </h3>
                         <div class="flex flex-wrap gap-2.5">
-                            <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Docker</span>
-                            <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Git</span>
-                            <span class="px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs hover:border-[#FF5500]/40 transition-colors cursor-default">Vercel</span>
+                            <span class="px-3 py-1.5 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-xl font-mono text-xs hover:border-indigo-500/30 hover:text-indigo-350 transition-colors cursor-default">Docker</span>
+                            <span class="px-3 py-1.5 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-xl font-mono text-xs hover:border-indigo-500/30 hover:text-indigo-350 transition-colors cursor-default">Git</span>
+                            <span class="px-3 py-1.5 bg-slate-900/60 border border-slate-800 text-slate-300 rounded-xl font-mono text-xs hover:border-indigo-500/30 hover:text-indigo-350 transition-colors cursor-default">Vercel</span>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Featured Projects -->
+            </section>            <!-- Featured Projects -->
             <section id="projects" class="scroll-mt-10 lg:scroll-mt-16 space-y-[20px]">
                 <div class="flex items-center gap-4">
                     <h2 class="text-2xl font-bold text-white font-display">Featured Projects</h2>
-                    <div class="h-[1px] flex-1 bg-neutral-800/80"></div>
+                    <div class="h-[1px] flex-1 bg-slate-800/80"></div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-[20px]">
                     <!-- Project 1 (Nuxt School Manager, col-span 7) -->
-                    <div class="md:col-span-7 bg-[#121212] border border-neutral-800/80 rounded-[24px] overflow-hidden group hover:border-[#FF5500]/30 transition-all duration-300 flex flex-col justify-between shadow-lg">
-                        <div class="h-56 relative overflow-hidden bg-neutral-900">
+                    <div class="md:col-span-7 bg-slate-900/10 border border-slate-800/60 rounded-[24px] overflow-hidden group hover:border-cyan-500/30 transition-all duration-300 flex flex-col justify-between shadow-lg">
+                        <div class="h-56 relative overflow-hidden bg-slate-950">
                             <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 alt="Nuxt School Manager Dashboard"
                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUxfWWP2N-VBtYM2QoVJ6jxJAfjL56RUDLS5Wg8VgV_i4f9yVF9w_fMm5WKPd8Mri_4ot570kCKZ8s5X8DdJO9fDuzk-ineeVwXP_2I0Y7Dp0GBuLSnXLMRoTmQZF-53ALVV9LN7BOA2lCmmI7cB33BwkyQPwJRRjCHtspF8nZvNASoBRQSVSpb4sN1ESVhU1PRxQuuezJCnoUwhJSmYVC05mcEj4FeVDQp8u9Th0t3Kt-1bZUFbpIWTo39r-SCGS4Kl-tLou-xlA" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent opacity-60"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
                             <div class="absolute bottom-4 left-6 flex gap-2">
-                                <span class="px-2.5 py-1 bg-[#FF5500] text-white rounded-md text-[10px] font-mono font-bold uppercase tracking-wider">Vue 3</span>
-                                <span class="px-2.5 py-1 bg-[#FF5500] text-white rounded-md text-[10px] font-mono font-bold uppercase tracking-wider">Nuxt 4</span>
+                                <span class="px-2.5 py-1 bg-cyan-500/80 backdrop-blur-md text-white rounded-md text-[10px] font-mono font-bold uppercase tracking-wider font-sans">Vue 3</span>
+                                <span class="px-2.5 py-1 bg-indigo-500/80 backdrop-blur-md text-white rounded-md text-[10px] font-mono font-bold uppercase tracking-wider font-sans">Nuxt 4</span>
                             </div>
                         </div>
                         <div class="p-8 flex flex-col flex-grow justify-between">
                             <div>
                                 <h3 class="text-xl font-bold text-white mb-2 font-display">Nuxt School Manager</h3>
-                                <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6 font-sans">
                                     A full-scale school management system featuring real-time data handling with Supabase database integrations and robust state management.
                                 </p>
                             </div>
-                            <a class="inline-flex items-center gap-2 text-[#FF5500] font-bold text-sm hover:gap-4 transition-all"
+                            <a class="inline-flex items-center gap-2 text-cyan-400 font-bold text-sm hover:gap-4 hover:text-cyan-300 transition-all font-sans"
                                 href="https://nuxt-app-plum-tau.vercel.app" target="_blank">
                                 Visit Live Project 
                                 <span class="material-symbols-outlined text-sm">arrow_forward</span>
@@ -314,28 +343,28 @@
                     </div>
 
                     <!-- Project 2 (Ecrola Engineering, col-span 5) -->
-                    <div class="md:col-span-5 bg-[#121212] border border-neutral-800/80 rounded-[24px] overflow-hidden group hover:border-[#FF5500]/30 transition-all duration-300 flex flex-col justify-between shadow-lg">
-                        <div class="h-56 relative overflow-hidden bg-neutral-900">
+                    <div class="md:col-span-5 bg-slate-900/10 border border-slate-800/60 rounded-[24px] overflow-hidden group hover:border-indigo-500/30 transition-all duration-300 flex flex-col justify-between shadow-lg">
+                        <div class="h-56 relative overflow-hidden bg-slate-950">
                             <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 alt="Ecrola Engineering Corporate Site"
                                 src="./ecrola_project_preview.png" />
-                            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent opacity-60"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
                         </div>
                         <div class="p-8 flex flex-col flex-grow justify-between">
                             <div>
                                 <h3 class="text-xl font-bold text-white mb-2 font-display">Ecrola Engineering</h3>
-                                <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6 font-sans">
                                     Modern corporate website built with Next.js 16 and Framer Motion for high-fidelity animations, SEO, and fast performance scores.
                                 </p>
                             </div>
-                            <div class="flex flex-col gap-4 pt-6 border-t border-neutral-800/50 mt-auto font-sans">
+                            <div class="flex flex-col gap-4 pt-6 border-t border-slate-800/50 mt-auto font-sans">
                                 <div class="flex justify-between items-center">
                                     <div class="flex gap-2">
-                                        <span class="px-2.5 py-1 bg-neutral-900 border border-neutral-800 text-neutral-400 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider">React</span>
-                                        <span class="px-2.5 py-1 bg-neutral-900 border border-neutral-800 text-neutral-400 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider">Next 16</span>
+                                        <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 text-slate-400 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider">React</span>
+                                        <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 text-slate-400 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider">Next 16</span>
                                     </div>
                                 </div>
-                                <a class="inline-flex items-center gap-2 text-[#FF5500] font-bold text-sm hover:gap-4 transition-all"
+                                <a class="inline-flex items-center gap-2 text-indigo-400 font-bold text-sm hover:gap-4 hover:text-indigo-300 transition-all"
                                     href="https://ecrola-engineering.vercel.app" target="_blank">
                                     Visit Live Project 
                                     <span class="material-symbols-outlined text-sm">arrow_forward</span>
@@ -345,26 +374,26 @@
                     </div>
 
                     <!-- Project 3 (BiteGo Delivery App, col-span 12) -->
-                    <div class="md:col-span-12 bg-[#121212] border border-neutral-800/80 rounded-[24px] grid grid-cols-1 md:grid-cols-12 overflow-hidden hover:border-[#FF5500]/30 transition-all duration-300 group shadow-lg">
+                    <div class="md:col-span-12 bg-slate-900/10 border border-slate-800/60 rounded-[24px] grid grid-cols-1 md:grid-cols-12 overflow-hidden hover:border-cyan-500/30 transition-all duration-300 group shadow-lg">
                         <div class="p-8 md:p-10 md:col-span-7 flex flex-col justify-between">
                             <div>
-                                <span class="text-xs uppercase tracking-widest text-[#FF5500] font-mono font-bold">E-commerce • FinTech</span>
+                                <span class="text-xs uppercase tracking-widest text-cyan-400 font-mono font-bold">E-commerce • FinTech</span>
                                 <h3 class="text-2xl font-bold text-white mt-2 mb-4 font-display">BiteGo Delivery App</h3>
-                                <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6 font-sans">
                                     A comprehensive food delivery platform with a custom Nitro backend server, Prisma ORM database mapping, and secure Razorpay payment gateway integration for seamless transaction workflows.
                                 </p>
                                 <div class="flex flex-wrap gap-2.5 mb-6">
-                                    <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs">Nitro</span>
-                                    <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs">Prisma</span>
-                                    <span class="px-3 py-1 bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-xl font-mono text-xs">Razorpay</span>
+                                    <span class="px-3 py-1 bg-slate-900/60 border border-slate-800 text-slate-350 rounded-xl font-mono text-xs hover:border-cyan-500/30 hover:text-cyan-300 transition-colors cursor-default">Nitro</span>
+                                    <span class="px-3 py-1 bg-slate-900/60 border border-slate-800 text-slate-355 rounded-xl font-mono text-xs hover:border-cyan-500/30 hover:text-cyan-300 transition-colors cursor-default">Prisma</span>
+                                    <span class="px-3 py-1 bg-slate-900/60 border border-slate-800 text-slate-355 rounded-xl font-mono text-xs hover:border-cyan-500/30 hover:text-cyan-300 transition-colors cursor-default">Razorpay</span>
                                 </div>
                             </div>
-                            <a class="inline-flex items-center justify-center bg-[#FF5500] hover:bg-[#E04B00] text-white px-6 py-3 rounded-xl font-bold text-sm hover:shadow-[0_10px_20px_-5px_rgba(255,85,0,0.3)] transition-all w-fit"
+                            <a class="inline-flex items-center justify-center bg-gradient-to-r from-cyan-500 to-indigo-500 hover:from-cyan-600 hover:to-indigo-600 text-white px-6 py-3 rounded-xl font-bold text-sm hover:shadow-[0_4px_20px_-2px_rgba(6,182,212,0.3)] transition-all w-fit font-sans"
                                 href="https://bitego-in.vercel.app" target="_blank">
                                 Launch Live Demo
                             </a>
                         </div>
-                        <div class="relative min-h-[250px] md:col-span-5 bg-neutral-900 overflow-hidden">
+                        <div class="relative min-h-[250px] md:col-span-5 bg-slate-950 overflow-hidden">
                             <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 alt="BiteGo Mobile App Interface"
                                 src="./bitego_project_preview.png" />
@@ -377,33 +406,33 @@
             <section id="contact" class="scroll-mt-10 lg:scroll-mt-16 space-y-[20px]">
                 <div class="flex items-center gap-4">
                     <h2 class="text-2xl font-bold text-white font-display">Let's Collaborate</h2>
-                    <div class="h-[1px] flex-1 bg-neutral-800/80"></div>
+                    <div class="h-[1px] flex-1 bg-slate-800/80"></div>
                 </div>
 
-                <div class="bg-[#121212] border border-neutral-800/80 rounded-[24px] p-8 md:p-12 relative overflow-hidden group shadow-lg">
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#FF5500]/5 rounded-full blur-[100px] pointer-events-none"></div>
+                <div class="bg-slate-900/10 border border-slate-800/60 rounded-[24px] p-8 md:p-12 relative overflow-hidden group shadow-lg hover:border-cyan-500/20 transition-all duration-300">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none"></div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
                         <!-- Direct text info -->
                         <div class="flex flex-col justify-between space-y-6">
                             <div>
                                 <h3 class="text-2xl font-bold text-white tracking-tight mb-4 font-display">
-                                    Ready to create something <span class="text-[#FF5500]">extraordinary?</span>
+                                    Ready to create something <span class="bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent font-extrabold font-display">extraordinary?</span>
                                 </h3>
-                                <p class="text-neutral-400 text-sm leading-relaxed">
+                                <p class="text-slate-400 text-sm leading-relaxed font-sans">
                                     I am looking for full-time opportunities or exciting contract work. If you have a project in mind, need a developer who can own the lifecycle end to end, or just want to chat tech, feel free to drop a message.
                                 </p>
                             </div>
                             <div class="space-y-4">
-                                <p class="text-xs font-mono text-neutral-500 uppercase tracking-widest">Connect Directly</p>
+                                <p class="text-xs font-mono text-slate-500 uppercase tracking-widest">Connect Directly</p>
                                 <div class="flex gap-4">
-                                    <a href="mailto:arshalsallu@gmail.com" class="p-3 bg-neutral-900 border border-neutral-800 text-[#FF5500] hover:border-transparent rounded-xl hover:bg-[#FF5500] hover:text-white transition-all shadow-md">
+                                    <a href="mailto:arshalsallu@gmail.com" class="p-3 bg-slate-900 border border-slate-800 text-cyan-400 hover:border-transparent rounded-xl hover:bg-cyan-500 hover:text-white transition-all shadow-md">
                                         <span class="material-symbols-outlined text-xl">mail</span>
                                     </a>
-                                    <a href="tel:+919895919742" class="p-3 bg-neutral-900 border border-neutral-800 text-[#FF5500] hover:border-transparent rounded-xl hover:bg-[#FF5500] hover:text-white transition-all shadow-md">
+                                    <a href="tel:+919895919742" class="p-3 bg-slate-900 border border-slate-800 text-cyan-400 hover:border-transparent rounded-xl hover:bg-cyan-500 hover:text-white transition-all shadow-md">
                                         <span class="material-symbols-outlined text-xl">call</span>
                                     </a>
-                                    <a href="https://github.com/arshal-salu" target="_blank" class="p-3 bg-neutral-900 border border-neutral-800 text-[#FF5500] hover:border-transparent rounded-xl hover:bg-[#FF5500] hover:text-white transition-all shadow-md">
+                                    <a href="https://github.com/arshal-salu" target="_blank" class="p-3 bg-slate-900 border border-slate-800 text-cyan-400 hover:border-transparent rounded-xl hover:bg-cyan-500 hover:text-white transition-all shadow-md">
                                         <span class="material-symbols-outlined text-xl">code</span>
                                     </a>
                                 </div>
@@ -411,20 +440,20 @@
                         </div>
 
                         <!-- Right contact Form -->
-                        <form class="space-y-4" action="mailto:arshalsallu@gmail.com" method="post" enctype="text/plain">
+                        <form class="space-y-4 font-sans" action="mailto:arshalsallu@gmail.com" method="post" enctype="text/plain">
                             <div>
-                                <label class="block text-xs font-mono text-neutral-400 uppercase mb-2">Your Name</label>
-                                <input type="text" name="name" required class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 text-white text-sm focus:border-[#FF5500] focus:ring-1 focus:ring-[#FF5500] outline-none transition-all" placeholder="John Doe">
+                                <label class="block text-xs font-mono text-slate-400 uppercase mb-2">Your Name</label>
+                                <input type="text" name="name" required class="w-full bg-slate-900/60 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all placeholder-slate-600" placeholder="John Doe">
                             </div>
                             <div>
-                                <label class="block text-xs font-mono text-neutral-400 uppercase mb-2">Email Address</label>
-                                <input type="email" name="email" required class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 text-white text-sm focus:border-[#FF5500] focus:ring-1 focus:ring-[#FF5500] outline-none transition-all" placeholder="john@example.com">
+                                <label class="block text-xs font-mono text-slate-400 uppercase mb-2">Email Address</label>
+                                <input type="email" name="email" required class="w-full bg-slate-900/60 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all placeholder-slate-600" placeholder="john@example.com">
                             </div>
                             <div>
-                                <label class="block text-xs font-mono text-neutral-400 uppercase mb-2">Message</label>
-                                <textarea name="message" rows="4" required class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 text-white text-sm focus:border-[#FF5500] focus:ring-1 focus:ring-[#FF5500] outline-none transition-all resize-none" placeholder="Hey Arshal, I'd love to chat about a project..."></textarea>
+                                <label class="block text-xs font-mono text-slate-400 uppercase mb-2">Message</label>
+                                <textarea name="message" rows="4" required class="w-full bg-slate-900/60 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all resize-none placeholder-slate-600" placeholder="Hey Arshal, I'd love to chat about a project..."></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-[#FF5500] hover:bg-[#E04B00] text-white py-3 px-6 rounded-xl font-bold text-sm transition-all shadow-[0_10px_20px_-5px_rgba(255,85,0,0.3)] hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2">
+                            <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-indigo-500 hover:from-cyan-600 hover:to-indigo-600 text-white py-3 px-6 rounded-xl font-bold text-sm transition-all shadow-[0_4px_20px_-2px_rgba(6,182,212,0.3)] hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2">
                                 Send Message
                                     <span class="material-symbols-outlined text-sm">send</span>
                             </button>
@@ -434,18 +463,18 @@
             </section>
 
             <!-- Footer -->
-            <footer class="w-full py-12 bg-neutral-950 border-t border-neutral-900 mt-auto">
+            <footer class="w-full py-12 bg-transparent border-t border-slate-900 mt-auto">
                 <div class="flex flex-col md:flex-row justify-between items-center max-w-[1300px] mx-auto px-4 md:px-8 gap-4 text-center md:text-left">
-                    <div class="font-mono text-xs text-neutral-400 tracking-wider">
-                        <span class="text-[#FF5500]">&lt;</span>ARSHAL.DEV<span class="text-[#FF5500]">/&gt;</span>
+                    <div class="font-mono text-xs text-slate-400 tracking-wider">
+                        <span class="text-cyan-400">&lt;</span>ARSHAL.DEV<span class="text-cyan-400">/&gt;</span>
                     </div>
-                    <p class="text-xs text-neutral-500">
+                    <p class="text-xs text-slate-500 font-sans">
                         © 2026 Muhammed Arshal V. Built with precision.
                     </p>
                     <div class="flex gap-6">
-                        <a class="text-neutral-500 hover:text-[#FF5500] text-xs transition-colors font-mono" href="https://github.com/arshal-salu">GitHub</a>
-                        <a class="text-neutral-500 hover:text-[#FF5500] text-xs transition-colors font-mono" href="#">LinkedIn</a>
-                        <a class="text-neutral-500 hover:text-[#FF5500] text-xs transition-colors font-mono" href="mailto:arshalsallu@gmail.com">Email</a>
+                        <a class="text-slate-500 hover:text-cyan-400 text-xs transition-colors font-mono" href="https://github.com/arshal-salu">GitHub</a>
+                        <a class="text-slate-500 hover:text-cyan-400 text-xs transition-colors font-mono" href="#">LinkedIn</a>
+                        <a class="text-slate-500 hover:text-cyan-400 text-xs transition-colors font-mono" href="mailto:arshalsallu@gmail.com">Email</a>
                     </div>
                 </div>
             </footer>
@@ -476,11 +505,11 @@
                 navLinks.forEach(link => {
                     const href = link.getAttribute('href');
                     if (href === `#${current}`) {
-                        link.classList.remove('text-neutral-400', 'pl-0');
-                        link.classList.add('text-[#FF5500]', 'border-l-2', 'border-[#FF5500]', 'pl-3');
+                        link.classList.remove('text-slate-400', 'pl-0');
+                        link.classList.add('text-cyan-400', 'border-l-2', 'border-cyan-400', 'pl-3');
                     } else {
-                        link.classList.remove('text-[#FF5500]', 'border-l-2', 'border-[#FF5500]', 'pl-3');
-                        link.classList.add('text-neutral-400', 'pl-0');
+                        link.classList.remove('text-cyan-400', 'border-l-2', 'border-cyan-400', 'pl-3');
+                        link.classList.add('text-slate-400', 'pl-0');
                     }
                 });
             }
