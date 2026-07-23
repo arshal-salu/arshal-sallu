@@ -902,6 +902,28 @@
             if (typingTextEl) {
                 setTimeout(handleType, typingSpeed);
             }
+ 
+            // WhatsApp Contact Form Integration
+            const contactForm = document.querySelector('#contact form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    
+                    const name = this.querySelector('input[name="name"]').value;
+                    const email = this.querySelector('input[name="email"]').value;
+                    const message = this.querySelector('textarea[name="message"]').value;
+                    
+                    const formattedMessage = `*New Portfolio Message*\n\n` + 
+                                             `*Name:* ${name}\n` +
+                                             `*Email:* ${email}\n\n` +
+                                             `*Message:* ${message}`;
+                    
+                    const encodedMessage = encodeURIComponent(formattedMessage);
+                    const whatsappUrl = `https://wa.me/919895919742?text=${encodedMessage}`;
+                    
+                    window.open(whatsappUrl, '_blank');
+                });
+            }
 
             // 3D Interactive Rotating Globe and Skills tag cloud script
             window.addEventListener('load', () => {
