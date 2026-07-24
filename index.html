@@ -2024,15 +2024,9 @@ void main() {
                         <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">03 / The Solution</h2>
                         <div class="h-[1px] w-12 bg-slate-850"></div>
                         
-                        <!-- Split layout with supporting screenshot -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                            <p id="cs-solution" class="text-xs sm:text-sm leading-relaxed text-slate-300 font-sans">
-                                Explanation of how the application solves the problem.
-                            </p>
-                            <div class="border border-slate-800/80 rounded-xl overflow-hidden shadow-lg bg-slate-950/40 hover-zoom aspect-video">
-                                <img id="cs-solution-image" class="w-full h-full object-contain" src="" alt="Solution view" />
-                            </div>
-                        </div>
+                        <p id="cs-solution" class="text-xs sm:text-sm leading-relaxed text-slate-300 font-sans max-w-4xl">
+                            Explanation of how the application solves the problem.
+                        </p>
                     </section>
                 </div>
 
@@ -2402,8 +2396,11 @@ void main() {
             document.getElementById('cs-overview').textContent = data.overview;
             document.getElementById('cs-problem').textContent = data.problem;
             document.getElementById('cs-solution').textContent = data.solution;
-            document.getElementById('cs-solution-image').src = data.solutionImage;
-            document.getElementById('cs-solution-image').alt = data.title + " Solution";
+            const solImg = document.getElementById('cs-solution-image');
+            if (solImg) {
+                solImg.src = data.solutionImage;
+                solImg.alt = data.title + " Solution";
+            }
             document.getElementById('cs-challenges').innerHTML = data.challenges;
 
             // Badges
