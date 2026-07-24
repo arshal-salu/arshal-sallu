@@ -312,11 +312,22 @@
             color: #FFFFFF;
         }
 
+        /* Scroll Reveal animations */
+        .reveal-hidden {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Case Study Overlay Styles */
         .case-study-reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .case-study-reveal.active {
@@ -324,32 +335,137 @@
             transform: translateY(0);
         }
 
-        /* Stagger delays for animated items */
-        .reveal-delay-50 { transition-delay: 50ms; }
-        .reveal-delay-100 { transition-delay: 100ms; }
-        .reveal-delay-150 { transition-delay: 150ms; }
-        .reveal-delay-200 { transition-delay: 200ms; }
-        .reveal-delay-250 { transition-delay: 250ms; }
-        .reveal-delay-300 { transition-delay: 300ms; }
-        .reveal-delay-400 { transition-delay: 400ms; }
-        .reveal-delay-500 { transition-delay: 500ms; }
-
-        /* Glowing animation for tech badges */
-        @keyframes border-glow {
-            0%, 100% { border-color: rgba(56, 189, 248, 0.2); box-shadow: 0 0 5px rgba(56, 189, 248, 0.05); }
-            50% { border-color: rgba(56, 189, 248, 0.6); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+        /* Keyboard Focus Outline */
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 2px solid rgba(6, 182, 212, 0.8) !important;
+            outline-offset: 2px !important;
         }
 
-        .badge-glow:hover {
-            animation: border-glow 2s infinite ease-in-out;
+        /* Global premium button transitions */
+        a[href="#projects"], a[href="#contact"], button[type="submit"], #detail-project-link, #view-case-study-btn, #cs-live-demo-link, #cs-github-link, .project-row, #case-study-overlay button, #case-study-overlay footer button {
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
 
-        /* Hover Zoom for Images */
-        .hover-zoom img {
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        /* Button scale, glow & active state transitions */
+        a[href="#projects"]:hover, a[href="#contact"]:hover, button[type="submit"]:hover, #detail-project-link:hover, #view-case-study-btn:hover, #cs-live-demo-link:hover, #cs-github-link:hover, #case-study-overlay footer button:hover {
+            transform: translateY(-2px) scale(1.03) !important;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.05), 0 4px 12px rgba(0, 0, 0, 0.5) !important;
         }
-        .hover-zoom:hover img {
-            transform: scale(1.04);
+        
+        a[href="#projects"]:active, a[href="#contact"]:active, button[type="submit"]:active, #detail-project-link:active, #view-case-study-btn:active, #cs-live-demo-link:active, #cs-github-link:active, #case-study-overlay footer button:active {
+            transform: translateY(0px) scale(0.97) !important;
+        }
+
+        /* Arrow/Icon slide on hover */
+        #detail-project-link:hover .material-symbols-outlined, 
+        #cs-live-demo-link:hover .material-symbols-outlined, 
+        #cs-github-link:hover .material-symbols-outlined, 
+        button[type="submit"]:hover .material-symbols-outlined {
+            transform: translateX(4px);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        #detail-project-link .material-symbols-outlined, 
+        #cs-live-demo-link .material-symbols-outlined, 
+        #cs-github-link .material-symbols-outlined, 
+        button[type="submit"] .material-symbols-outlined {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Project Rows Micro-interactions */
+        .project-row {
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        .project-row:hover {
+            transform: translateY(-3px) scale(1.01) !important;
+            background-color: rgba(30, 41, 59, 0.4) !important;
+            border-color: rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7) !important;
+        }
+        .project-row:active {
+            transform: translateY(-1px) scale(0.99) !important;
+        }
+        .project-row span.font-display {
+            transition: color 0.3s ease;
+        }
+
+        /* Browser Mockup Image Zoom & Brightness */
+        .group\/image {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .group\/image:hover #detail-project-image {
+            transform: scale(1.03);
+            filter: brightness(1.05);
+        }
+        #detail-project-image {
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Tech Stack Badges animations */
+        #detail-project-tags span, #cs-hero-badges span, #cs-tech span {
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #detail-project-tags span:hover, #cs-hero-badges span:hover, #cs-tech span:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 0.08);
+            color: #FFFFFF;
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.15);
+        }
+
+        /* Navigation Links animations */
+        nav a {
+            position: relative;
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+        nav a:hover {
+            color: #FFFFFF !important;
+            transform: scale(1.1);
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #06b6d4; /* cyan accent */
+            border-radius: 9999px;
+            transform: translateX(-50%);
+            transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        nav a:hover::after, nav a.active::after {
+            width: 14px;
+        }
+
+        /* Social Icons custom lift, rotate, and glow */
+        aside .flex.gap-\[12px\] a {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        aside .flex.gap-\[12px\] a:hover {
+            transform: translateY(-3px) rotate(2deg) scale(1.05) !important;
+            box-shadow: 0 4px 12px rgba(255, 61, 0, 0.25) !important;
+        }
+
+        /* Contact Form custom focus effects */
+        form input, form textarea {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            border: 1px solid transparent !important;
+        }
+        form input:focus, form textarea:focus {
+            border-color: rgba(6, 182, 212, 0.4) !important;
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.15) !important;
+            background-color: #242222 !important;
+        }
+        
+        /* Placeholder transition */
+        form input::placeholder, form textarea::placeholder {
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+        form input:focus::placeholder, form textarea:focus::placeholder {
+            transform: translateX(4px);
+            opacity: 0.5;
         }
 
         /* Scroll Progress Bar */
@@ -357,13 +473,56 @@
             height: 3px;
             width: 0%;
             background: linear-gradient(90deg, #06b6d4, #3b82f6);
-            transition: width 0.1s ease-out;
+            border-radius: 9999px;
+            transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* Lightbox Styles */
         #case-study-lightbox {
             backdrop-filter: blur(12px);
             transition: opacity 0.3s ease;
+        }
+
+        /* Project Gallery Custom Cursor/Zoom overlay */
+        #cs-gallery div {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        #cs-gallery div:hover {
+            transform: translateY(-2px) scale(1.02) !important;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8) !important;
+        }
+        #cs-gallery div::after {
+            content: 'zoom_in';
+            font-family: 'Material Symbols Outlined';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(7, 9, 19, 0.4);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        #cs-gallery div:hover::after {
+            opacity: 1;
+        }
+
+        /* Accessibility: respect user choice on animations */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-delay: 0s !important;
+                animation-duration: 0s !important;
+                animation-iteration-count: 1 !important;
+                transition-delay: 0s !important;
+                transition-duration: 0s !important;
+                scroll-behavior: auto !important;
+                transform: none !important;
+            }
         }
     </style>
 </head>
@@ -1009,7 +1168,23 @@
                     const encodedMessage = encodeURIComponent(formattedMessage);
                     const whatsappUrl = `https://wa.me/919895919742?text=${encodedMessage}`;
                     
-                    window.open(whatsappUrl, '_blank');
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalHTML = submitBtn.innerHTML;
+                    
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = `
+                        <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Sending...
+                    `;
+                    
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalHTML;
+                        window.open(whatsappUrl, '_blank');
+                    }, 1000);
                 });
             }
 
@@ -2329,6 +2504,12 @@ void main() {
 
             // Show overlay modal
             const overlay = document.getElementById('case-study-overlay');
+            const mainContent = overlay.querySelector('main');
+            if (mainContent) {
+                mainContent.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease';
+                mainContent.style.transform = 'translateY(30px)';
+                mainContent.style.opacity = '0';
+            }
             overlay.classList.remove('hidden');
             // Lock background scroll
             document.body.style.overflow = 'hidden';
@@ -2336,6 +2517,10 @@ void main() {
             // Trigger transition
             setTimeout(() => {
                 overlay.classList.add('opacity-100');
+                if (mainContent) {
+                    mainContent.style.transform = 'translateY(0)';
+                    mainContent.style.opacity = '1';
+                }
                 // Reset scroll position to top
                 overlay.scrollTop = 0;
                 updateProgressBar();
@@ -2345,6 +2530,11 @@ void main() {
 
         function closeCaseStudy() {
             const overlay = document.getElementById('case-study-overlay');
+            const mainContent = overlay.querySelector('main');
+            if (mainContent) {
+                mainContent.style.transform = 'translateY(30px)';
+                mainContent.style.opacity = '0';
+            }
             overlay.classList.remove('opacity-100');
             // Unlock body scroll
             document.body.style.overflow = '';
@@ -2466,6 +2656,55 @@ void main() {
                 csRevealObserver.observe(el);
             });
         }
+
+        // Active Navigation scroll highlighter & Section Reveals
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            const observerOptions = {
+                root: document.getElementById('main-content') || null,
+                threshold: 0.25,
+                rootMargin: '-10% 0px -50% 0px'
+            };
+
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active', 'text-white');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active', 'text-white');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(sec => sectionObserver.observe(sec));
+
+            // Section reveals scroll trigger
+            const revealElements = Array.from(document.querySelectorAll('section, footer')).filter(el => !el.closest('#case-study-overlay'));
+            revealElements.forEach(el => {
+                el.classList.add('reveal-hidden');
+            });
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, {
+                root: document.getElementById('main-content') || null,
+                threshold: 0.08,
+                rootMargin: '0px 0px -5% 0px'
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        });
     </script>
 </body>
 </html>
