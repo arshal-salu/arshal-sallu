@@ -377,9 +377,9 @@
             border: 1px solid rgba(255, 255, 255, 0.03);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
-        .project-row:hover {
+        .project-row:hover, .project-row.active {
             transform: translateY(-3px) scale(1.01) !important;
-            background-color: rgba(30, 41, 59, 0.4) !important;
+            background-color: #161414 !important;
             border-color: rgba(255, 255, 255, 0.08) !important;
             box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7) !important;
         }
@@ -813,7 +813,7 @@
                 <!-- Selector Grid (Bottom) -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
                     <!-- Row 1 -->
-                    <div class="project-row cursor-pointer flex flex-col p-5 rounded-xl bg-transparent hover:bg-slate-900/50 transition-all duration-300"
+                    <div class="project-row cursor-pointer flex flex-col p-5 rounded-xl bg-transparent hover:bg-[#161414] transition-all duration-300"
                         data-project-id="nuxt-school-manager">
                         <div class="flex items-center mb-2">
                             <span class="text-sm font-bold text-white font-display">Nuxt School Manager</span>
@@ -822,7 +822,7 @@
                     </div>
 
                     <!-- Row 2 -->
-                    <div class="project-row cursor-pointer flex flex-col p-5 rounded-xl bg-transparent hover:bg-slate-900/50 transition-all duration-300"
+                    <div class="project-row cursor-pointer flex flex-col p-5 rounded-xl bg-transparent hover:bg-[#161414] transition-all duration-300"
                         data-project-id="erola-engineering">
                         <div class="flex items-center mb-2">
                             <span class="text-sm font-bold text-slate-300 font-display transition-colors">Erola Engineering</span>
@@ -831,7 +831,7 @@
                     </div>
 
                     <!-- Row 3 -->
-                    <div class="project-row cursor-pointer flex flex-col p-5 rounded-xl bg-transparent hover:bg-slate-900/50 transition-all duration-300"
+                    <div class="project-row cursor-pointer flex flex-col p-5 rounded-xl bg-transparent hover:bg-[#161414] transition-all duration-300"
                         data-project-id="bitego-delivery-app">
                         <div class="flex items-center mb-2">
                             <span class="text-sm font-bold text-slate-300 font-display transition-colors">BiteGo Delivery App</span>
@@ -987,7 +987,7 @@
 
                 // Update Row Visuals
                 projectRows.forEach(row => {
-                    row.classList.remove('active', 'bg-slate-900/40');
+                    row.classList.remove('active', 'bg-[#161414]');
                     row.classList.add('bg-transparent');
 
                     const text = row.querySelector('span.font-display');
@@ -997,7 +997,7 @@
                     }
                 });
 
-                clickedRow.classList.add('active', 'bg-slate-900/40');
+                clickedRow.classList.add('active', 'bg-[#161414]');
                 clickedRow.classList.remove('bg-transparent');
 
                 const activeText = clickedRow.querySelector('span.font-display');
@@ -1074,10 +1074,10 @@
                 });
             }
 
-            // Initialize first project selection (all rows start transparent by default)
+            // Initialize first project selection
             const firstRow = document.querySelector('.project-row[data-project-id="nuxt-school-manager"]');
             if (firstRow) {
-                // Remove default highlight on row but populate showcase
+                firstRow.classList.add('active', 'bg-[#161414]');
                 const project = projectsData['nuxt-school-manager'];
                 if (project) {
                     const text = firstRow.querySelector('span.font-display');
