@@ -311,6 +311,60 @@
         #skills-grid-display.globe-hovered .tech-card-animate span {
             color: #FFFFFF;
         }
+
+        /* Case Study Overlay Styles */
+        .case-study-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .case-study-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger delays for animated items */
+        .reveal-delay-50 { transition-delay: 50ms; }
+        .reveal-delay-100 { transition-delay: 100ms; }
+        .reveal-delay-150 { transition-delay: 150ms; }
+        .reveal-delay-200 { transition-delay: 200ms; }
+        .reveal-delay-250 { transition-delay: 250ms; }
+        .reveal-delay-300 { transition-delay: 300ms; }
+        .reveal-delay-400 { transition-delay: 400ms; }
+        .reveal-delay-500 { transition-delay: 500ms; }
+
+        /* Glowing animation for tech badges */
+        @keyframes border-glow {
+            0%, 100% { border-color: rgba(56, 189, 248, 0.2); box-shadow: 0 0 5px rgba(56, 189, 248, 0.05); }
+            50% { border-color: rgba(56, 189, 248, 0.6); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+        }
+
+        .badge-glow:hover {
+            animation: border-glow 2s infinite ease-in-out;
+        }
+
+        /* Hover Zoom for Images */
+        .hover-zoom img {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hover-zoom:hover img {
+            transform: scale(1.04);
+        }
+
+        /* Scroll Progress Bar */
+        #case-study-progress-bar {
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, #06b6d4, #3b82f6);
+            transition: width 0.1s ease-out;
+        }
+
+        /* Lightbox Styles */
+        #case-study-lightbox {
+            backdrop-filter: blur(12px);
+            transition: opacity 0.3s ease;
+        }
     </style>
 </head>
 
@@ -560,7 +614,12 @@
                                 <h3 id="detail-project-title"
                                     class="text-2xl font-bold text-white tracking-tight mt-1 font-display">Nuxt School Manager</h3>
                             </div>
-                            <div>
+                            <div class="flex items-center gap-3">
+                                <button id="view-case-study-btn"
+                                    class="inline-flex items-center gap-1.5 bg-slate-900/60 hover:bg-slate-800/80 text-white font-bold px-5 py-2.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-xs shadow-md border border-slate-850">
+                                    View Case Study
+                                    <span class="material-symbols-outlined text-sm">article</span>
+                                </button>
                                 <a id="detail-project-link"
                                     class="inline-flex items-center gap-1.5 bg-white hover:bg-slate-200 text-[#000] font-bold px-5 py-2.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-xs shadow-md"
                                     href="https://nuxt-app-plum-tau.vercel.app" target="_blank">
@@ -761,7 +820,9 @@
                 }
             };
 
+            let currentProjectId = 'nuxt-school-manager';
             function selectProject(id, clickedRow) {
+                currentProjectId = id;
                 const project = projectsData[id];
                 if (!project) return;
 
@@ -846,6 +907,13 @@
                     selectProject(id, row);
                 });
             });
+
+            const viewCaseStudyBtn = document.getElementById('view-case-study-btn');
+            if (viewCaseStudyBtn) {
+                viewCaseStudyBtn.addEventListener('click', () => {
+                    openCaseStudy(currentProjectId);
+                });
+            }
 
             // Initialize first project selection (all rows start transparent by default)
             const firstRow = document.querySelector('.project-row[data-project-id="nuxt-school-manager"]');
@@ -1676,6 +1744,727 @@ void main() {
             window.addEventListener('resize', updatePlacement);
             updatePlacement();
             requestAnimationFrame(loop);
+        }
+    </script>
+    <!-- Case Study Fullscreen Overlay Modal -->
+    <div id="case-study-overlay" class="fixed inset-0 z-[100] bg-[#070913]/98 backdrop-blur-md overflow-y-auto hidden opacity-0 transition-all duration-500 flex-col scroll-smooth">
+        <!-- Persistent sticky blur header -->
+        <header class="sticky top-0 z-[110] w-full backdrop-blur-md border-b border-slate-900/60 bg-[#070913]/85 px-6 py-4 flex items-center justify-between">
+            <button onclick="closeCaseStudy()" class="flex items-center gap-2 text-slate-400 hover:text-white font-mono text-xs transition-colors group">
+                <span class="material-symbols-outlined text-sm transform group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+                BACK TO PORTFOLIO
+            </button>
+            <span id="header-project-title" class="text-sm font-bold text-white tracking-tight font-display hidden sm:inline text-slate-400 uppercase tracking-widest">Case Study</span>
+            <button onclick="closeCaseStudy()" class="w-8 h-8 rounded-full border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition-colors">
+                <span class="material-symbols-outlined text-lg">close</span>
+            </button>
+            <!-- Progress indicator at bottom of header -->
+            <div class="absolute bottom-0 left-0 w-full h-[2px] bg-slate-900">
+                <div id="case-study-progress-bar"></div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="w-full max-w-[1200px] mx-auto px-6 py-12 md:py-20 flex-1 space-y-16 md:space-y-24">
+            
+            <!-- Section 1: Hero Section -->
+            <section class="case-study-reveal space-y-8">
+                <!-- Large Project Mockup Image Frame -->
+                <div class="w-full border border-slate-800/80 rounded-2xl overflow-hidden shadow-2xl bg-slate-950/40 hover-zoom">
+                    <!-- Browser toolbar mock -->
+                    <div class="h-9 bg-slate-900/60 border-b border-slate-800/60 flex items-center px-4 relative">
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></span>
+                        </div>
+                        <div class="absolute left-1/2 -translate-x-1/2 w-48 sm:w-64 bg-slate-950/40 border border-slate-800/40 rounded-md py-1 px-3 text-[10px] text-slate-400 font-mono text-center truncate flex items-center justify-center gap-1">
+                            <span class="material-symbols-outlined text-[10px] text-slate-500">lock</span>
+                            <span id="cs-browser-url">project.vercel.app</span>
+                        </div>
+                    </div>
+                    <!-- Mockup image display -->
+                    <div class="w-full aspect-[16/9] md:aspect-[21/9] bg-slate-950/30 flex items-center justify-center overflow-hidden">
+                        <img id="cs-hero-image" class="w-full h-full object-cover" src="" alt="Project Hero Screenshot" />
+                    </div>
+                </div>
+
+                <!-- Text metadata -->
+                <div class="space-y-4 max-w-4xl">
+                    <span id="cs-hero-category" class="text-xs text-cyan-400 font-mono font-bold uppercase tracking-widest">Category</span>
+                    <h1 id="cs-hero-title" class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight font-display uppercase leading-tight">Project Title</h1>
+                    <p id="cs-hero-tagline" class="text-lg sm:text-xl text-slate-300 leading-relaxed font-sans max-w-3xl">Short tagline goes here.</p>
+                    
+                    <!-- Badges -->
+                    <div id="cs-hero-badges" class="flex flex-wrap gap-2 pt-2">
+                        <!-- badges generated dynamically -->
+                    </div>
+
+                    <!-- Action buttons -->
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a id="cs-live-demo-link" href="#" target="_blank" class="inline-flex items-center gap-2 bg-white hover:bg-slate-200 text-[#000] font-bold px-6 py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm shadow-lg">
+                            Live Demo
+                            <span class="material-symbols-outlined text-sm">open_in_new</span>
+                        </a>
+                        <a id="cs-github-link" href="#" target="_blank" class="inline-flex items-center gap-2 bg-[#1A1A1A] hover:bg-[#252525] text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm border border-slate-800 shadow-md">
+                            GitHub Repository
+                            <span class="material-symbols-outlined text-sm font-bold">code</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Project Overview & Results & Role Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12 md:gap-16">
+                <!-- Left Column -->
+                <div class="space-y-12 md:space-y-16">
+                    <!-- Overview -->
+                    <section class="case-study-reveal space-y-4">
+                        <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">01 / Project Overview</h2>
+                        <div class="h-[1px] w-12 bg-slate-850"></div>
+                        <p id="cs-overview" class="text-sm sm:text-base leading-relaxed text-slate-300 font-sans">
+                            Detailed overview content.
+                        </p>
+                    </section>
+
+                    <!-- Section 3: The Problem -->
+                    <section class="case-study-reveal space-y-4">
+                        <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">02 / The Problem</h2>
+                        <div class="h-[1px] w-12 bg-slate-850"></div>
+                        
+                        <!-- Beautiful Glass Card -->
+                        <div class="relative bg-slate-900/30 border border-slate-800/80 rounded-2xl p-6 md:p-8 overflow-hidden backdrop-blur-md flex gap-4 md:gap-6">
+                            <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-2xl">warning</span>
+                            </div>
+                            <div class="space-y-2">
+                                <h3 class="text-base font-bold text-white font-display font-semibold">The Challenge & Disconnections</h3>
+                                <p id="cs-problem" class="text-xs sm:text-sm leading-relaxed text-slate-300 font-sans">
+                                    Description of the problem solved.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 4: The Solution -->
+                    <section class="case-study-reveal space-y-4">
+                        <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">03 / The Solution</h2>
+                        <div class="h-[1px] w-12 bg-slate-850"></div>
+                        
+                        <!-- Split layout with supporting screenshot -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                            <p id="cs-solution" class="text-xs sm:text-sm leading-relaxed text-slate-300 font-sans">
+                                Explanation of how the application solves the problem.
+                            </p>
+                            <div class="border border-slate-800/80 rounded-xl overflow-hidden shadow-lg bg-slate-950/40 hover-zoom aspect-video">
+                                <img id="cs-solution-image" class="w-full h-full object-cover" src="" alt="Solution view" />
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Column (Sticky side elements) -->
+                <div class="space-y-12">
+                    <!-- Section 5: My Role -->
+                    <section class="case-study-reveal space-y-4">
+                        <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest font-semibold">My Role</h2>
+                        <div class="h-[1px] w-12 bg-slate-850 mb-6"></div>
+                        <div id="cs-roles" class="flex flex-col gap-3">
+                            <!-- Role cards generated dynamically -->
+                        </div>
+                    </section>
+
+                    <!-- Section 11: Results -->
+                    <section class="case-study-reveal space-y-4">
+                        <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest font-semibold">Key Achievements</h2>
+                        <div class="h-[1px] w-12 bg-slate-850 mb-6"></div>
+                        <div id="cs-results" class="flex flex-col gap-3">
+                            <!-- Results checklist generated dynamically -->
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Section 6: Key Features -->
+            <section class="case-study-reveal space-y-8">
+                <div class="flex flex-col items-center text-center space-y-3">
+                    <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">04 / Core Features</h2>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white font-display">POWERFUL PRODUCT CAPABILITIES</h3>
+                    <div class="h-[1px] w-24 bg-slate-850"></div>
+                </div>
+
+                <div id="cs-features" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- feature cards generated dynamically -->
+                </div>
+            </section>
+
+            <!-- Section 7: Technology Stack -->
+            <section class="case-study-reveal space-y-8">
+                <div class="flex flex-col items-center text-center space-y-3">
+                    <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">05 / Architecture & Tooling</h2>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white font-display">THE TECH STACK</h3>
+                    <div class="h-[1px] w-24 bg-slate-850"></div>
+                </div>
+
+                <div id="cs-tech" class="flex flex-wrap items-center justify-center gap-3 max-w-4xl mx-auto font-sans">
+                    <!-- Tech badges generated dynamically -->
+                </div>
+            </section>
+
+            <!-- Section 8 & 9: Challenges & Lessons Learned -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+                <!-- Challenges -->
+                <section class="case-study-reveal space-y-4">
+                    <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">06 / Engineering Challenges</h2>
+                    <div class="h-[1px] w-12 bg-slate-850 mb-6"></div>
+                    <div class="bg-red-950/10 border border-red-900/30 rounded-2xl p-6 md:p-8 space-y-6">
+                        <div class="flex items-center gap-3 text-red-400">
+                            <span class="material-symbols-outlined text-2xl">construction</span>
+                            <span class="font-bold text-sm tracking-wide font-mono">DEBUG_SESSION.LOG</span>
+                        </div>
+                        <div id="cs-challenges" class="space-y-4 font-sans text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            <!-- Challenges populated dynamically -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Lessons Learned -->
+                <section class="case-study-reveal space-y-4">
+                    <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">07 / What I Learned</h2>
+                    <div class="h-[1px] w-12 bg-slate-850 mb-6"></div>
+                    <div id="cs-learnings" class="space-y-6 relative pl-6 border-l border-slate-800/80">
+                        <!-- timeline items populated dynamically -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Section 10: Project Gallery -->
+            <section class="case-study-reveal space-y-8">
+                <div class="flex flex-col items-center text-center space-y-3">
+                    <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">08 / Visual Gallery</h2>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white font-display font-display">PROJECT SCREENSHOTS</h3>
+                    <div class="h-[1px] w-24 bg-slate-850"></div>
+                </div>
+
+                <div id="cs-gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Gallery thumbnails generated dynamically -->
+                </div>
+            </section>
+
+            <!-- Section 12: Navigation / Next-Prev Switcher -->
+            <footer class="case-study-reveal border-t border-slate-900 pt-16 flex flex-col items-center gap-12">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl">
+                    <!-- Prev project link -->
+                    <button onclick="navigateProject('prev')" class="flex flex-col items-start p-6 rounded-xl border border-slate-900 bg-[#070913]/30 hover:bg-slate-900/40 hover:border-slate-800 transition-all duration-300 text-left group">
+                        <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-2">Previous Project</span>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-slate-400 group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                            <span id="cs-nav-prev-title" class="font-bold text-white font-display text-base">Project Name</span>
+                        </div>
+                    </button>
+                    <!-- Next project link -->
+                    <button onclick="navigateProject('next')" class="flex flex-col items-end p-6 rounded-xl border border-slate-900 bg-[#070913]/30 hover:bg-slate-900/40 hover:border-slate-800 transition-all duration-300 text-right group">
+                        <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-2">Next Project</span>
+                        <div class="flex items-center gap-2">
+                            <span id="cs-nav-next-title" class="font-bold text-white font-display text-base">Project Name</span>
+                            <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Main CTA back to site -->
+                <button onclick="closeCaseStudy()" class="bg-transparent hover:bg-slate-900/80 text-white border border-slate-850 hover:border-slate-700 font-bold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm shadow-md flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">home</span>
+                    Back to Portfolio
+                </button>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="case-study-lightbox" class="fixed inset-0 z-[200] bg-black/95 flex flex-col items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <header class="absolute top-0 left-0 w-full px-6 py-4 flex items-center justify-between z-10 bg-gradient-to-b from-black/80 to-transparent">
+            <span id="lightbox-counter" class="text-xs font-mono text-slate-400">1 / 4</span>
+            <button onclick="closeLightbox()" class="w-10 h-10 rounded-full bg-slate-900/60 border border-slate-800/80 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+                <span class="material-symbols-outlined text-xl">close</span>
+            </button>
+        </header>
+        <button onclick="navigateLightbox('prev')" class="absolute left-4 w-12 h-12 rounded-full bg-slate-900/60 border border-slate-850 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">chevron_left</span>
+        </button>
+        <img id="lightbox-image" class="max-w-[90%] max-h-[80vh] object-contain rounded-lg shadow-2xl transition-transform duration-300" src="" alt="Lightbox View" />
+        <button onclick="navigateLightbox('next')" class="absolute right-4 w-12 h-12 rounded-full bg-slate-900/60 border border-slate-850 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+            <span class="material-symbols-outlined text-2xl">chevron_right</span>
+        </button>
+    </div>
+    <!-- Case Study & Lightbox Controller Script -->
+    <script>
+        const caseStudiesData = {
+            'nuxt-school-manager': {
+                title: 'Nuxt School Manager',
+                category: 'Vue 3 / Nuxt',
+                tagline: 'A centralized School Management platform simplifying academic operations, student profiles, and real-time attendance tracking.',
+                browserUrl: 'nuxt-school-manager.vercel.app',
+                heroImage: 'images/ChatGPT Image Jul 18, 2026, 07_07_02 AM.png',
+                liveDemoUrl: 'https://nuxt-app-plum-tau.vercel.app',
+                githubUrl: 'https://github.com/arshal-salu/arshal-sallu',
+                overview: 'A modern school management platform built to simplify academic administration by centralizing student, teacher, attendance, and class management into a single application. Designed specifically for educational staff looking to digitize registers and track historical class records.',
+                problem: 'Schools often rely on multiple disconnected legacy platforms or manual paper processes. This fragmentation causes database record inconsistencies, slows admin lookup times, and makes compiling student attendance rates extremely slow for administrative reporting.',
+                solution: 'Developed a centralized school management web system utilizing Nuxt.js, PostgreSQL, and Prisma ORM. The platform centralizes admin records under one database dashboard, introducing secure session-based authentication to partition permissions.',
+                solutionImage: 'images/school_manager_gallery_1.png',
+                roles: ['UI/UX Development', 'Frontend Development', 'Backend Development', 'Database Design', 'API Integration', 'Authentication', 'Deployment'],
+                results: [
+                    'Reduces Administrative Workload: Streamlines daily registration, saving hours of manual data entry for faculty.',
+                    'Organizes Academic Workflows: Centralizes scheduling, grades, and records under a single interface.',
+                    'Accelerates Data Reporting: Compiles real-time attendance ratios and class counts instantly for admins.'
+                ],
+                features: [
+                    { title: 'Student Management', desc: 'Complete registry for adding, editing, and listing student enrollments and records.', icon: 'person' },
+                    { title: 'Teacher Management', desc: 'Control panel to assign courses, manage profiles, and track active faculty members.', icon: 'badge' },
+                    { title: 'Attendance Tracking', desc: 'Real-time digital registers tracking absences and calculating student attendance percentages.', icon: 'checklist' },
+                    { title: 'Admin Dashboard', desc: 'Interactive visualization displaying class divisions, enrollment counts, and attendance metrics.', icon: 'monitoring' },
+                    { title: 'Secure Authentication', desc: 'Form logins matching hashed user passwords and verifying session credentials.', icon: 'vpn_key' },
+                    { title: 'Role-Based Access', desc: 'Route guards and server checks restricting view/edit privileges according to user roles.', icon: 'admin_panel_settings' },
+                    { title: 'Responsive Design', desc: 'Mobile-friendly views optimizing dashboard grids for administration on any mobile device.', icon: 'devices' },
+                    { title: 'CRUD Operations', desc: 'Clean interface components to perform standard database record operations with validation.', icon: 'database' }
+                ],
+                techStack: ['Nuxt 3', 'Vue 3', 'Tailwind CSS', 'PostgreSQL', 'Prisma ORM', 'Nitro Server', 'Supabase', 'Vercel'],
+                challenges: `
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">1. Relational Database Modeling</h4>
+                            <p class="text-xs text-slate-300">Designing schema relationships between Students, Teachers, Classes, and Attendance records required careful configuration in Prisma to prevent cascade issues. Resolved by building detailed entity-relationship diagrams and utilizing Prisma's migration tools to enforce strong referential integrity constraint boundaries.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">2. Role-Based Authentication Routing</h4>
+                            <p class="text-xs text-slate-300">Restricting administrative routes from student read access. Resolved by creating dynamic server-side middleware that intercepts requests, decodes session tokens, and validates access privileges before resolving routes.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">3. Database Query Optimization</h4>
+                            <p class="text-xs text-slate-300">Slow dashboards due to fetching nested relations on large classes. Resolved by selecting specific fields in Prisma queries and utilizing indexed foreign keys to speed up analytics calculation loading times by 70%.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">4. Reusable Input Components</h4>
+                            <p class="text-xs text-slate-300">Maintaining input form consistency across multiple directory tabs. Resolved by creating generic form layout structures and modal wrappers in Vue 3 that receive fields via props.</p>
+                        </div>
+                    </div>
+                `,
+                learnings: [
+                    { title: 'Technical Skill: Database Architecture', desc: 'Formulating performant queries and indexing foreign keys to accelerate dashboard analytics.' },
+                    { title: 'Technical Skill: Prisma ORM Integration', desc: 'Utilizing Prisma\'s type safety to catch query bugs during compile time.' },
+                    { title: 'Technical Skill: Authentication Systems', desc: 'Establishing secure cookie-based session flows and middleware controls.' },
+                    { title: 'Technical Skill: API Development', desc: 'Writing unified REST API endpoints inside Nitro server routes.' },
+                    { title: 'Technical Skill: Large-Scale Project Structure', desc: 'Structuring modular Vue stores and composables for shared state.' },
+                    { title: 'Future Improvement: Parent Portal', desc: 'Dedicated logins for parents to check grades, attendance, and message teachers directly.' },
+                    { title: 'Future Improvement: Online Exams', desc: 'Integrated exam builder with automated multiple-choice grading and timers.' },
+                    { title: 'Future Improvement: Notification System', desc: 'Instant SMS or Email alerts to parents for absent students.' },
+                    { title: 'Future Improvement: Report Generation', desc: 'PDF exports of grade reports, class analytics, and attendance summaries.' },
+                    { title: 'Future Improvement: Mobile Application', desc: 'Native Android and iOS app versions using Tailwind and Capacitor.' }
+                ],
+                gallery: [
+                    'images/ChatGPT Image Jul 18, 2026, 07_07_02 AM.png',
+                    'images/school_manager_gallery_1.png',
+                    'images/school_manager_gallery_2.png',
+                    'images/ChatGPT Image Jul 21, 2026, 01_03_16 PM.png'
+                ]
+            },
+            'erola-engineering': {
+                title: 'Ecrola Engineering Website',
+                category: 'React / Next.js',
+                tagline: 'A high-performance, responsive corporate portfolio designed to showcase premium engineering services and optimize lead capture.',
+                browserUrl: 'ecrola-engineering.vercel.app',
+                heroImage: 'images/ChatGPT Image Jul 24, 2026, 05_37_04 AM.png',
+                liveDemoUrl: 'https://ecrola-engineering.vercel.app',
+                githubUrl: 'https://github.com/arshal-salu/arshal-sallu',
+                overview: 'A responsive corporate engineering website designed to showcase company services, projects, and contact information with a modern user experience. Built to present business capabilities and facilitate professional client leads.',
+                problem: 'The engineering company required a professional online presence that effectively represented its services across all devices. Previous platforms loaded slowly and lacked layout alignment on mobile screen viewports.',
+                solution: 'Designed and built a fully responsive corporate website focused on high performance, accessibility, SEO metrics, and premium UI/UX, using Next.js for optimized loading.',
+                solutionImage: 'images/ecrola_gallery_1.png',
+                roles: ['UI/UX Development', 'Frontend Development', 'API Integration', 'Deployment'],
+                results: [
+                    'Improves Corporate Credibility: Provides a high-fidelity digital storefront that builds client trust.',
+                    'Enhances Lead Generation: Clean layouts and responsive forms make contacting engineering reps easy.',
+                    'Optimizes User Engagement: Near-perfect Lighthouse speed scores reduce visitor bounce rates.'
+                ],
+                features: [
+                    { title: 'Responsive Layout', desc: 'Multi-column layout that shifts into stacked viewports on mobile devices.', icon: 'devices' },
+                    { title: 'Service Showcase', desc: 'Grid showcases detailing specialized automation, mechanical, and civil services.', icon: 'precision_manufacturing' },
+                    { title: 'Project Gallery', desc: 'Clean interactive galleries to classify and present engineering contract case histories.', icon: 'photo_library' },
+                    { title: 'Contact Forms', desc: 'Input validated inquiry forms with automated notification routing.', icon: 'contact_page' },
+                    { title: 'SEO Optimization', desc: 'Custom metadata, header structures, and open-graph properties for search bots.', icon: 'search' },
+                    { title: 'Fast Performance', desc: 'Lightweight image assets and code chunking ensuring low load times.', icon: 'bolt' },
+                    { title: 'Modern Animations', desc: 'Fade-ups and hover scales providing a sleek, professional product feel.', icon: 'palette' },
+                    { title: 'Mobile Friendly', desc: 'Interactive hamburger navigation drawer and optimized spacing for mobile fingers.', icon: 'smartphone' }
+                ],
+                techStack: ['React', 'Next.js 14', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
+                challenges: `
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">1. Responsive Multi-Column Grids</h4>
+                            <p class="text-xs text-slate-300">Grid content containing varying description text sizes would overflow or break alignment. Resolved by writing custom auto-fit Tailwind grid columns and flex alignment classes to ensure spacing is consistent.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">2. Large Asset Load Optimization</h4>
+                            <p class="text-xs text-slate-300">High-resolution project images took seconds to download, lowering performance scores. Resolved by implementing Next.js next/image for WebP format conversion and lazy loading assets.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">3. Consistent UI/UX across devices</h4>
+                            <p class="text-xs text-slate-300">Animations behaving erratically on touch screens. Resolved by modifying animation listeners to switch off complex mouse-hover gestures on mobile browsers.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">4. Cross-Device Form Validation</h4>
+                            <p class="text-xs text-slate-300">Contact form layout formatting breaking under Safari mobile viewports. Resolved by removing default browser inputs styling and overriding with custom Tailwind styling resets.</p>
+                        </div>
+                    </div>
+                `,
+                learnings: [
+                    { title: 'Technical Skill: Responsive Web Design', desc: 'Designing responsive grid components using container-queries and media properties.' },
+                    { title: 'Technical Skill: UI Consistency principles', desc: 'Formatting clean typography hierarchies, font weights, and spacing systems.' },
+                    { title: 'Technical Skill: Performance Optimization', desc: 'Analyzing bundle splits and pre-rendering styles to optimize First Contentful Paint.' },
+                    { title: 'Technical Skill: Professional client workflow', desc: 'Managing code deployment setups and coordinate staging environments.' },
+                    { title: 'Future Improvement: CMS Integration', desc: 'Headless CMS implementation to let non-technical staff publish new projects.' },
+                    { title: 'Future Improvement: Multi-language Support', desc: 'Direct translation integrations to support international clientele.' },
+                    { title: 'Future Improvement: Blog System', desc: 'Engineering insights blog system to share industrial developments and boost SEO.' },
+                    { title: 'Future Improvement: Project Filtering', desc: 'Interactive filters to sort project portfolios by engineering field.' },
+                    { title: 'Future Improvement: Analytics Dashboard', desc: 'Simple site visitor analytics dashboard for internal marketing teams.' }
+                ],
+                gallery: [
+                    'images/ChatGPT Image Jul 24, 2026, 05_37_04 AM.png',
+                    'images/ecrola_gallery_1.png',
+                    'images/ecrola_gallery_2.png',
+                    'ecrola_project_preview.png'
+                ]
+            },
+            'bitego-delivery-app': {
+                title: 'BiteGo Food Delivery',
+                category: 'Nitro / Prisma',
+                tagline: 'A fast and intuitive food ordering web application with robust payment integrations and modern checkout flows.',
+                browserUrl: 'bitego-in.vercel.app',
+                heroImage: 'images/ChatGPT Image Jul 21, 2026, 01_14_52 PM.png',
+                liveDemoUrl: 'https://bitego-in.vercel.app',
+                githubUrl: 'https://github.com/arshal-salu/arshal-sallu',
+                overview: 'A modern food ordering platform that enables users to browse restaurants, place orders, and complete secure online payments through a seamless user experience. Built to handle cart management and process orders quickly.',
+                problem: 'Customers need a fast, intuitive, and secure platform for ordering food online. Businesses require safe online payment flows that block client price editing and track order records.',
+                solution: 'Developed a responsive food delivery platform featuring menus, shopping cart states, and Razorpay payment integration. Signature verification on a Nitro server checks transactions before database registration.',
+                solutionImage: 'images/bitego_gallery_1.png',
+                roles: ['UI/UX Development', 'Frontend Development', 'Backend Development', 'Database Design', 'API Integration', 'Authentication', 'Deployment'],
+                results: [
+                    'Prevents Transaction Fraud: Server validation verifies cryptographic signatures before confirming checkout pricing.',
+                    'Improves Checkout Conversions: Smooth cart flows and modern checkouts reduce customer abandonment rates.',
+                    'Automated Order Operations: Saves transaction details directly to PostgreSQL database upon checkout.'
+                ],
+                features: [
+                    { title: 'Restaurant Listings', desc: 'Category-filtered directories displaying active menus, pricing, and restaurant status.', icon: 'restaurant_menu' },
+                    { title: 'Shopping Cart', desc: 'Persistent, client-side cart allowing quick item updates and dynamic total updates.', icon: 'shopping_cart' },
+                    { title: 'Razorpay Integration', desc: 'Secure online payment processing with automatic receipt generation.', icon: 'payments' },
+                    { title: 'Authentication', desc: 'Safe user sign-in to save addresses and view order history.', icon: 'lock_open' },
+                    { title: 'Order Flow', desc: 'Seamless transition from menu browsing, to cart selection, checkout, and payment.', icon: 'double_arrow' },
+                    { title: 'Responsive UI', desc: 'Optimized mobile ordering interface for on-the-go food delivery orders.', icon: 'smartphone' },
+                    { title: 'Secure Checkout', desc: 'Encryption checks and input sanitization preventing injection on fields.', icon: 'verified_user' },
+                    { title: 'User Dashboard', desc: 'Dedicated client panel showing past orders, transaction statuses, and profiles.', icon: 'dashboard' }
+                ],
+                techStack: ['Vanilla JS', 'Tailwind CSS', 'Nitro Server', 'Prisma ORM', 'PostgreSQL', 'Razorpay SDK', 'Vercel'],
+                challenges: `
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">1. Razorpay Payment Integration Signature Validation</h4>
+                            <p class="text-xs text-slate-300">Preventing client-side price modification before gateway checkout. Resolved by creating orders on the Nitro server, passing order IDs to Razorpay, and checking payment signatures on webhook arrival.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">2. Secure Webhook Verification</h4>
+                            <p class="text-xs text-slate-300">Processing webhooks from Razorpay without opening API vulnerability. Resolved by verifying the webhook signature using the crypto library on server routes.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">3. Environment Variable Security</h4>
+                            <p class="text-xs text-slate-300">Leaking payment keys inside compiled client code. Resolved by restricting secret keys to Vercel production variables and passing them exclusively through server routes.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">4. Checkout Flow State Coordination</h4>
+                            <p class="text-xs text-slate-300">Syncing active local storage shopping cart counts with database pricing models. Resolved by writing database validation hooks that recalculate totals before authorizing Razorpay checkouts.</p>
+                        </div>
+                    </div>
+                `,
+                learnings: [
+                    { title: 'Technical Skill: Payment gateway integration', desc: 'Direct experience handling webhook events and signature verification.' },
+                    { title: 'Technical Skill: Backend security', desc: 'Sanitizing API payloads and securing server-side payment logic.' },
+                    { title: 'Technical Skill: API handling', desc: 'Designing unified REST API endpoints inside Nitro server routes.' },
+                    { title: 'Technical Skill: Deployment strategies', desc: 'Configuring environment variables and deploying the production stack to Vercel.' },
+                    { title: 'Technical Skill: Production debugging', desc: 'Analyzing logs, verifying webhook endpoints, and auditing database connections.' },
+                    { title: 'Future Improvement: Live Order Tracking', desc: 'Live map interfaces showing delivery rider progress and status updates.' },
+                    { title: 'Future Improvement: Restaurant Dashboard', desc: 'Custom control portal for kitchens to manage incoming orders and menu items.' },
+                    { title: 'Future Improvement: Push Notifications', desc: 'Real-time updates notifying customers when order preparation starts or delivery is near.' },
+                    { title: 'Future Improvement: Coupon System', desc: 'Dynamic discount code checker that validates user promo offers against carts.' },
+                    { title: 'Future Improvement: AI Food Recommendations', desc: 'Machine learning recommendation script that highlights popular items based on customer habits.' }
+                ],
+                gallery: [
+                    'images/ChatGPT Image Jul 21, 2026, 01_14_52 PM.png',
+                    'images/bitego_gallery_1.png',
+                    'images/bitego_gallery_2.png',
+                    'bitego_project_preview.png'
+                ]
+            }
+        };
+
+        let currentCaseStudyId = null;
+        let currentLightboxIndex = 0;
+        let currentLightboxGallery = [];
+
+        function openCaseStudy(id) {
+            const data = caseStudiesData[id];
+            if (!data) return;
+
+            currentCaseStudyId = id;
+
+            // Populate data
+            document.getElementById('header-project-title').textContent = data.title;
+            document.getElementById('cs-browser-url').textContent = data.browserUrl;
+            document.getElementById('cs-hero-image').src = data.heroImage;
+            document.getElementById('cs-hero-image').alt = data.title;
+            document.getElementById('cs-hero-category').textContent = data.category;
+            document.getElementById('cs-hero-title').textContent = data.title;
+            document.getElementById('cs-hero-tagline').textContent = data.tagline;
+            document.getElementById('cs-live-demo-link').href = data.liveDemoUrl;
+            document.getElementById('cs-github-link').href = data.githubUrl;
+            document.getElementById('cs-overview').textContent = data.overview;
+            document.getElementById('cs-problem').textContent = data.problem;
+            document.getElementById('cs-solution').textContent = data.solution;
+            document.getElementById('cs-solution-image').src = data.solutionImage;
+            document.getElementById('cs-solution-image').alt = data.title + " Solution";
+            document.getElementById('cs-challenges').innerHTML = data.challenges;
+
+            // Badges
+            const badgesContainer = document.getElementById('cs-hero-badges');
+            badgesContainer.innerHTML = '';
+            data.techStack.slice(0, 4).forEach(tech => {
+                const span = document.createElement('span');
+                span.className = 'text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-slate-300';
+                span.textContent = tech;
+                badgesContainer.appendChild(span);
+            });
+
+            // Roles
+            const rolesContainer = document.getElementById('cs-roles');
+            rolesContainer.innerHTML = '';
+            data.roles.forEach((role, idx) => {
+                const div = document.createElement('div');
+                div.className = 'flex items-center gap-2.5 p-3.5 rounded-xl border border-slate-900 bg-slate-950/20 text-slate-300 text-xs font-medium backdrop-blur-sm case-study-reveal reveal-delay-' + (idx * 50);
+                div.innerHTML = `<span class="material-symbols-outlined text-emerald-400 text-base">check_circle</span>${role}`;
+                rolesContainer.appendChild(div);
+            });
+
+            // Achievements / Results
+            const resultsContainer = document.getElementById('cs-results');
+            resultsContainer.innerHTML = '';
+            data.results.forEach((res, idx) => {
+                const div = document.createElement('div');
+                div.className = 'flex items-center gap-2.5 p-3.5 rounded-xl border border-slate-900 bg-slate-950/20 text-slate-300 text-xs font-medium backdrop-blur-sm case-study-reveal reveal-delay-' + (idx * 50);
+                div.innerHTML = `<span class="material-symbols-outlined text-cyan-400 text-base">done</span>${res}`;
+                resultsContainer.appendChild(div);
+            });
+
+            // Features
+            const featuresContainer = document.getElementById('cs-features');
+            featuresContainer.innerHTML = '';
+            data.features.forEach((feat, idx) => {
+                const div = document.createElement('div');
+                div.className = 'p-6 rounded-2xl border border-slate-900/60 bg-slate-950/20 backdrop-blur-sm hover:border-slate-800/80 transition-all duration-300 space-y-3 hover:translate-y-[-4px] case-study-reveal reveal-delay-' + ((idx % 3) * 100);
+                div.innerHTML = `
+                    <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400">
+                        <span class="material-symbols-outlined text-xl">${feat.icon}</span>
+                    </div>
+                    <h4 class="font-bold text-white font-display text-sm tracking-tight">${feat.title}</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed font-sans">${feat.desc}</p>
+                `;
+                featuresContainer.appendChild(div);
+            });
+
+            // Tech Stack
+            const techContainer = document.getElementById('cs-tech');
+            techContainer.innerHTML = '';
+            data.techStack.forEach((tech, idx) => {
+                const span = document.createElement('span');
+                span.className = 'text-xs font-mono px-4 py-2 rounded-xl bg-slate-900/40 border border-slate-900 text-slate-300 cursor-default hover:text-white transition-colors badge-glow case-study-reveal reveal-delay-' + ((idx % 4) * 100);
+                span.textContent = tech;
+                techContainer.appendChild(span);
+            });
+
+            // Learnings
+            const learningsContainer = document.getElementById('cs-learnings');
+            learningsContainer.innerHTML = '';
+            data.learnings.forEach((learn, idx) => {
+                const div = document.createElement('div');
+                div.className = 'relative pl-6 pb-6 last:pb-0 case-study-reveal reveal-delay-' + (idx * 100);
+                div.innerHTML = `
+                    <div class="absolute left-[-29px] top-[4px] w-4.5 h-4.5 rounded-full bg-slate-900 border-2 border-cyan-400 flex items-center justify-center z-10 shadow-sm">
+                        <div class="w-1.5 h-1.5 rounded-full bg-cyan-400"></div>
+                    </div>
+                    <h4 class="font-bold text-white font-display text-sm tracking-tight mb-1">${learn.title}</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed font-sans">${learn.desc}</p>
+                `;
+                learningsContainer.appendChild(div);
+            });
+
+            // Gallery
+            const galleryContainer = document.getElementById('cs-gallery');
+            galleryContainer.innerHTML = '';
+            data.gallery.forEach((imgSrc, idx) => {
+                const div = document.createElement('div');
+                div.className = 'aspect-video rounded-xl border border-slate-900 bg-slate-950/20 overflow-hidden cursor-pointer hover-zoom shadow-md case-study-reveal reveal-delay-' + (idx * 50);
+                div.innerHTML = `<img class="w-full h-full object-cover" src="${imgSrc}" alt="Gallery ${idx + 1}" />`;
+                div.addEventListener('click', () => {
+                    openLightbox(idx, data.gallery);
+                });
+                galleryContainer.appendChild(div);
+            });
+
+            // Set nav titles
+            const keys = Object.keys(caseStudiesData);
+            const currIdx = keys.indexOf(id);
+            const prevKey = keys[(currIdx - 1 + keys.length) % keys.length];
+            const nextKey = keys[(currIdx + 1) % keys.length];
+
+            document.getElementById('cs-nav-prev-title').textContent = caseStudiesData[prevKey].title;
+            document.getElementById('cs-nav-next-title').textContent = caseStudiesData[nextKey].title;
+
+            // Show overlay modal
+            const overlay = document.getElementById('case-study-overlay');
+            overlay.classList.remove('hidden');
+            // Lock background scroll
+            document.body.style.overflow = 'hidden';
+
+            // Trigger transition
+            setTimeout(() => {
+                overlay.classList.add('opacity-100');
+                // Reset scroll position to top
+                overlay.scrollTop = 0;
+                updateProgressBar();
+                triggerRevealOnOpen();
+            }, 50);
+        }
+
+        function closeCaseStudy() {
+            const overlay = document.getElementById('case-study-overlay');
+            overlay.classList.remove('opacity-100');
+            // Unlock body scroll
+            document.body.style.overflow = '';
+
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+                // Clear reveal classes
+                document.querySelectorAll('.case-study-reveal').forEach(el => {
+                    el.classList.remove('active');
+                });
+            }, 500);
+        }
+
+        function navigateProject(dir) {
+            const keys = Object.keys(caseStudiesData);
+            const currIdx = keys.indexOf(currentCaseStudyId);
+            let nextIdx;
+            if (dir === 'prev') {
+                nextIdx = (currIdx - 1 + keys.length) % keys.length;
+            } else {
+                nextIdx = (currIdx + 1) % keys.length;
+            }
+
+            const overlay = document.getElementById('case-study-overlay');
+            overlay.style.opacity = '0.7';
+
+            setTimeout(() => {
+                openCaseStudy(keys[nextIdx]);
+                overlay.style.opacity = '1';
+            }, 200);
+        }
+
+        // Progress Bar Logic
+        function updateProgressBar() {
+            const overlay = document.getElementById('case-study-overlay');
+            const scrollHeight = overlay.scrollHeight - overlay.clientHeight;
+            if (scrollHeight <= 0) return;
+            const scrolled = (overlay.scrollTop / scrollHeight) * 100;
+            document.getElementById('case-study-progress-bar').style.width = scrolled + '%';
+        }
+
+        document.getElementById('case-study-overlay').addEventListener('scroll', updateProgressBar);
+
+        // Lightbox logic
+        function openLightbox(idx, gallery) {
+            currentLightboxIndex = idx;
+            currentLightboxGallery = gallery;
+
+            const lightbox = document.getElementById('case-study-lightbox');
+            const image = document.getElementById('lightbox-image');
+            
+            image.src = gallery[idx];
+            document.getElementById('lightbox-counter').textContent = (idx + 1) + ' / ' + gallery.length;
+
+            lightbox.classList.remove('hidden');
+            setTimeout(() => {
+                lightbox.classList.add('opacity-100');
+            }, 50);
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('case-study-lightbox');
+            lightbox.classList.remove('opacity-100');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+            }, 300);
+        }
+
+        function navigateLightbox(dir) {
+            if (dir === 'prev') {
+                currentLightboxIndex = (currentLightboxIndex - 1 + currentLightboxGallery.length) % currentLightboxGallery.length;
+            } else {
+                currentLightboxIndex = (currentLightboxIndex + 1) % currentLightboxGallery.length;
+            }
+
+            const image = document.getElementById('lightbox-image');
+            image.style.transform = 'scale(0.95)';
+            image.style.opacity = '0.5';
+
+            setTimeout(() => {
+                image.src = currentLightboxGallery[currentLightboxIndex];
+                document.getElementById('lightbox-counter').textContent = (currentLightboxIndex + 1) + ' / ' + currentLightboxGallery.length;
+                image.style.transform = 'scale(1)';
+                image.style.opacity = '1';
+            }, 150);
+        }
+
+        // Key bindings for escape / navigation
+        window.addEventListener('keydown', e => {
+            const lightbox = document.getElementById('case-study-lightbox');
+            const overlay = document.getElementById('case-study-overlay');
+
+            if (lightbox && !lightbox.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') navigateLightbox('prev');
+                if (e.key === 'ArrowRight') navigateLightbox('next');
+            } else if (overlay && !overlay.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeCaseStudy();
+                if (e.key === 'ArrowLeft') navigateProject('prev');
+                if (e.key === 'ArrowRight') navigateProject('next');
+            }
+        });
+
+        // Intersection Observer for Scroll Reveal
+        const csRevealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            root: document.getElementById('case-study-overlay'),
+            threshold: 0.15
+        });
+
+        function triggerRevealOnOpen() {
+            const revealEls = document.querySelectorAll('.case-study-reveal');
+            revealEls.forEach(el => {
+                csRevealObserver.observe(el);
+            });
         }
     </script>
 </body>
