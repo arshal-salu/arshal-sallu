@@ -2418,7 +2418,7 @@ void main() {
             rolesContainer.innerHTML = '';
             data.roles.forEach((role, idx) => {
                 const div = document.createElement('div');
-                div.className = 'flex items-center gap-2.5 p-3.5 rounded-xl border border-slate-900 bg-slate-950/20 text-slate-300 text-xs font-medium backdrop-blur-sm case-study-reveal reveal-delay-' + (idx * 50);
+                div.className = 'flex items-center gap-2.5 p-3.5 rounded-xl border border-slate-900 bg-slate-950/20 text-slate-300 text-xs font-medium backdrop-blur-sm hover:bg-[#161414] hover:text-white transition-all duration-300 case-study-reveal reveal-delay-' + (idx * 50);
                 div.innerHTML = `<span class="material-symbols-outlined text-emerald-400 text-base">check_circle</span>${role}`;
                 rolesContainer.appendChild(div);
             });
@@ -2428,7 +2428,7 @@ void main() {
             resultsContainer.innerHTML = '';
             data.results.forEach((res, idx) => {
                 const div = document.createElement('div');
-                div.className = 'flex items-center gap-2.5 p-3.5 rounded-xl border border-slate-900 bg-slate-950/20 text-slate-300 text-xs font-medium backdrop-blur-sm case-study-reveal reveal-delay-' + (idx * 50);
+                div.className = 'flex items-center gap-2.5 p-3.5 rounded-xl border border-slate-900 bg-slate-950/20 text-slate-300 text-xs font-medium backdrop-blur-sm hover:bg-[#161414] hover:text-white transition-all duration-300 case-study-reveal reveal-delay-' + (idx * 50);
                 div.innerHTML = `<span class="material-symbols-outlined text-cyan-400 text-base">done</span>${res}`;
                 resultsContainer.appendChild(div);
             });
@@ -2438,7 +2438,7 @@ void main() {
             featuresContainer.innerHTML = '';
             data.features.forEach((feat, idx) => {
                 const div = document.createElement('div');
-                div.className = 'p-6 rounded-2xl border border-slate-900/60 bg-slate-950/20 backdrop-blur-sm hover:border-slate-800/80 transition-all duration-300 space-y-3 hover:translate-y-[-4px] case-study-reveal reveal-delay-' + ((idx % 3) * 100);
+                div.className = 'p-6 rounded-2xl border border-slate-900/60 bg-slate-950/20 backdrop-blur-sm hover:bg-[#161414] hover:border-slate-800/80 transition-all duration-300 space-y-3 hover:translate-y-[-4px] case-study-reveal reveal-delay-' + ((idx % 3) * 100);
                 div.innerHTML = `
                     <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400">
                         <span class="material-symbols-outlined text-xl">${feat.icon}</span>
