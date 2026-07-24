@@ -377,7 +377,7 @@
             border: 1px solid rgba(255, 255, 255, 0.03);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
-        .project-row:hover, .project-row.active {
+        .project-row:hover {
             transform: translateY(-3px) scale(1.01) !important;
             background-color: #161414 !important;
             border-color: rgba(255, 255, 255, 0.08) !important;
@@ -987,8 +987,7 @@
 
                 // Update Row Visuals
                 projectRows.forEach(row => {
-                    row.classList.remove('active', 'bg-[#161414]');
-                    row.classList.add('bg-transparent');
+                    row.classList.remove('active');
 
                     const text = row.querySelector('span.font-display');
                     if (text) {
@@ -997,8 +996,7 @@
                     }
                 });
 
-                clickedRow.classList.add('active', 'bg-[#161414]');
-                clickedRow.classList.remove('bg-transparent');
+                clickedRow.classList.add('active');
 
                 const activeText = clickedRow.querySelector('span.font-display');
                 if (activeText) {
@@ -1077,7 +1075,7 @@
             // Initialize first project selection
             const firstRow = document.querySelector('.project-row[data-project-id="nuxt-school-manager"]');
             if (firstRow) {
-                firstRow.classList.add('active', 'bg-[#161414]');
+                firstRow.classList.add('active');
                 const project = projectsData['nuxt-school-manager'];
                 if (project) {
                     const text = firstRow.querySelector('span.font-display');
