@@ -5,23 +5,26 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
+
     <!-- Primary Meta Tags -->
     <meta name="title" content="Arshal.dev | Full Stack Developer" />
-    <meta name="description" content="Crafting high-performance digital solutions. Based in Kerala, India. Ready to Work." />
+    <meta name="description"
+        content="Crafting high-performance digital solutions. Based in Kerala, India. Ready to Work." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://arshal-sallu.vercel.app/" />
     <meta property="og:title" content="Arshal.dev | Full Stack Developer" />
-    <meta property="og:description" content="Crafting high-performance digital solutions. Based in Kerala, India. Ready to Work." />
+    <meta property="og:description"
+        content="Crafting high-performance digital solutions. Based in Kerala, India. Ready to Work." />
     <meta property="og:image" content="https://arshal-sallu.vercel.app/og-image.jpg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://arshal-sallu.vercel.app/" />
     <meta property="twitter:title" content="Arshal.dev | Full Stack Developer" />
-    <meta property="twitter:description" content="Crafting high-performance digital solutions. Based in Kerala, India. Ready to Work." />
+    <meta property="twitter:description"
+        content="Crafting high-performance digital solutions. Based in Kerala, India. Ready to Work." />
     <meta property="twitter:image" content="https://arshal-sallu.vercel.app/og-image.jpg" />
 
     <title>Arshal.dev | Full Stack Developer</title>
@@ -305,9 +308,11 @@
             opacity: 0.95 !important;
             transform: translateY(0) scale(1.03);
         }
+
         #skills-grid-display.globe-hovered .tech-card-animate img {
             filter: grayscale(0.2) opacity(0.9);
         }
+
         #skills-grid-display.globe-hovered .tech-card-animate span {
             color: #FFFFFF;
         }
@@ -318,6 +323,7 @@
             transform: translateY(24px);
             transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .reveal-visible {
             opacity: 1;
             transform: translateY(0);
@@ -336,38 +342,64 @@
         }
 
         /* Keyboard Focus Outline */
-        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
             outline: 2px solid rgba(6, 182, 212, 0.8) !important;
             outline-offset: 2px !important;
         }
 
         /* Global premium button transitions */
-        a[href="#projects"], a[href="#contact"], button[type="submit"], #detail-project-link, #view-case-study-btn, #cs-live-demo-link, #cs-github-link, .project-row, #case-study-overlay button, #case-study-overlay footer button {
+        a[href="#projects"],
+        a[href="#contact"],
+        button[type="submit"],
+        #detail-project-link,
+        #view-case-study-btn,
+        #cs-live-demo-link,
+        #cs-github-link,
+        .project-row,
+        #case-study-overlay button,
+        #case-study-overlay footer button {
             transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
 
         /* Button scale, glow & active state transitions */
-        a[href="#projects"]:hover, a[href="#contact"]:hover, button[type="submit"]:hover, #detail-project-link:hover, #view-case-study-btn:hover, #cs-live-demo-link:hover, #cs-github-link:hover, #case-study-overlay footer button:hover {
+        a[href="#projects"]:hover,
+        a[href="#contact"]:hover,
+        button[type="submit"]:hover,
+        #detail-project-link:hover,
+        #view-case-study-btn:hover,
+        #cs-live-demo-link:hover,
+        #cs-github-link:hover,
+        #case-study-overlay footer button:hover {
             transform: translateY(-2px) scale(1.03) !important;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.05), 0 4px 12px rgba(0, 0, 0, 0.5) !important;
         }
-        
-        a[href="#projects"]:active, a[href="#contact"]:active, button[type="submit"]:active, #detail-project-link:active, #view-case-study-btn:active, #cs-live-demo-link:active, #cs-github-link:active, #case-study-overlay footer button:active {
+
+        a[href="#projects"]:active,
+        a[href="#contact"]:active,
+        button[type="submit"]:active,
+        #detail-project-link:active,
+        #view-case-study-btn:active,
+        #cs-live-demo-link:active,
+        #cs-github-link:active,
+        #case-study-overlay footer button:active {
             transform: translateY(0px) scale(0.97) !important;
         }
 
         /* Arrow/Icon slide on hover */
-        #detail-project-link:hover .material-symbols-outlined, 
-        #cs-live-demo-link:hover .material-symbols-outlined, 
-        #cs-github-link:hover .material-symbols-outlined, 
+        #detail-project-link:hover .material-symbols-outlined,
+        #cs-live-demo-link:hover .material-symbols-outlined,
+        #cs-github-link:hover .material-symbols-outlined,
         button[type="submit"]:hover .material-symbols-outlined {
             transform: translateX(4px);
             transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
-        #detail-project-link .material-symbols-outlined, 
-        #cs-live-demo-link .material-symbols-outlined, 
-        #cs-github-link .material-symbols-outlined, 
+
+        #detail-project-link .material-symbols-outlined,
+        #cs-live-demo-link .material-symbols-outlined,
+        #cs-github-link .material-symbols-outlined,
         button[type="submit"] .material-symbols-outlined {
             transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -377,15 +409,18 @@
             border: 1px solid rgba(255, 255, 255, 0.03);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
+
         .project-row:hover {
             transform: translateY(-3px) scale(1.01) !important;
             background-color: #161414 !important;
             border-color: rgba(255, 255, 255, 0.08) !important;
             box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7) !important;
         }
+
         .project-row:active {
             transform: translateY(-1px) scale(0.99) !important;
         }
+
         .project-row span.font-display {
             transition: color 0.3s ease;
         }
@@ -394,19 +429,26 @@
         .group\/image {
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .group\/image:hover #detail-project-image {
             transform: scale(1.03);
             filter: brightness(1.05);
         }
+
         #detail-project-image {
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* Tech Stack Badges animations */
-        #detail-project-tags span, #cs-hero-badges span, #cs-tech span {
+        #detail-project-tags span,
+        #cs-hero-badges span,
+        #cs-tech span {
             transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        #detail-project-tags span:hover, #cs-hero-badges span:hover, #cs-tech span:hover {
+
+        #detail-project-tags span:hover,
+        #cs-hero-badges span:hover,
+        #cs-tech span:hover {
             transform: scale(1.05);
             background-color: #161414 !important;
             color: #FFFFFF;
@@ -419,10 +461,12 @@
             position: relative;
             transition: color 0.25s ease, transform 0.25s ease;
         }
+
         nav a:hover {
             color: #FFFFFF !important;
             transform: scale(1.1);
         }
+
         nav a::after {
             content: '';
             position: absolute;
@@ -430,12 +474,15 @@
             left: 50%;
             width: 0;
             height: 2px;
-            background-color: #06b6d4; /* cyan accent */
+            background-color: #06b6d4;
+            /* cyan accent */
             border-radius: 9999px;
             transform: translateX(-50%);
             transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        nav a:hover::after, nav a.active::after {
+
+        nav a:hover::after,
+        nav a.active::after {
             width: 14px;
         }
 
@@ -443,27 +490,34 @@
         aside .flex.gap-\[12px\] a {
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
+
         aside .flex.gap-\[12px\] a:hover {
             transform: translateY(-3px) rotate(2deg) scale(1.05) !important;
             box-shadow: 0 4px 12px rgba(255, 61, 0, 0.25) !important;
         }
 
         /* Contact Form custom focus effects */
-        form input, form textarea {
+        form input,
+        form textarea {
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
             border: 1px solid transparent !important;
         }
-        form input:focus, form textarea:focus {
+
+        form input:focus,
+        form textarea:focus {
             border-color: rgba(6, 182, 212, 0.4) !important;
             box-shadow: 0 0 15px rgba(6, 182, 212, 0.15) !important;
             background-color: #242222 !important;
         }
-        
+
         /* Placeholder transition */
-        form input::placeholder, form textarea::placeholder {
+        form input::placeholder,
+        form textarea::placeholder {
             transition: transform 0.25s ease, opacity 0.25s ease;
         }
-        form input:focus::placeholder, form textarea:focus::placeholder {
+
+        form input:focus::placeholder,
+        form textarea:focus::placeholder {
             transform: translateX(4px);
             opacity: 0.5;
         }
@@ -490,10 +544,12 @@
             border-radius: 12px;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
+
         #cs-gallery div:hover {
             transform: translateY(-2px) scale(1.02) !important;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8) !important;
         }
+
         #cs-gallery div::after {
             content: 'zoom_in';
             font-family: 'Material Symbols Outlined';
@@ -508,6 +564,7 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
+
         #cs-gallery div:hover::after {
             opacity: 1;
         }
@@ -536,7 +593,8 @@
 
 
     <!-- Stack Wrapper (Grid Layout: 320px Left Column, 1fr Right Column) -->
-    <div class="grid grid-cols-1 lg:grid-cols-[320px_1fr] min-h-screen lg:h-screen w-full max-w-[1280px] mx-auto relative z-10 bg-transparent lg:overflow-hidden">
+    <div
+        class="grid grid-cols-1 lg:grid-cols-[320px_1fr] min-h-screen lg:h-screen w-full max-w-[1280px] mx-auto relative z-10 bg-transparent lg:overflow-hidden">
 
         <!-- Left Sidebar - Sticky 320px Width -->
         <aside
@@ -573,7 +631,8 @@
                 </div>
 
                 <!-- Bio Text -->
-                <p class="text-[12px] text-[#666666] leading-[1.6] text-center mt-[16px] font-sans font-medium uppercase tracking-wider">
+                <p
+                    class="text-[12px] text-[#666666] leading-[1.6] text-center mt-[16px] font-sans font-medium uppercase tracking-wider">
                     Full Stack Web Developer &bull; Seeking Internship
                 </p>
 
@@ -604,7 +663,8 @@
                     style="background-color: rgba(255, 255, 255, 0.03);">
                     <!-- Home -->
                     <div class="relative group">
-                        <a href="#about" class="flex items-center justify-center hover:text-white transition-colors py-1"
+                        <a href="#about"
+                            class="flex items-center justify-center hover:text-white transition-colors py-1"
                             title="Home">
                             <span class="material-symbols-outlined text-[22px]">home</span>
                         </a>
@@ -616,7 +676,8 @@
 
                     <!-- Tools -->
                     <div class="relative group">
-                        <a href="#skills" class="flex items-center justify-center hover:text-white transition-colors py-1"
+                        <a href="#skills"
+                            class="flex items-center justify-center hover:text-white transition-colors py-1"
                             title="Tools">
                             <span class="material-symbols-outlined text-[22px]">build</span>
                         </a>
@@ -628,7 +689,8 @@
 
                     <!-- Projects -->
                     <div class="relative group">
-                        <a href="#projects" class="flex items-center justify-center hover:text-white transition-colors py-1"
+                        <a href="#projects"
+                            class="flex items-center justify-center hover:text-white transition-colors py-1"
                             title="Projects">
                             <span class="material-symbols-outlined text-[22px]">folder_open</span>
                         </a>
@@ -640,7 +702,8 @@
 
                     <!-- Contact -->
                     <div class="relative group">
-                        <a href="#contact" class="flex items-center justify-center hover:text-white transition-colors py-1"
+                        <a href="#contact"
+                            class="flex items-center justify-center hover:text-white transition-colors py-1"
                             title="Contact">
                             <span class="material-symbols-outlined text-[22px]">mail</span>
                         </a>
@@ -653,7 +716,8 @@
             </header>
 
             <!-- Hero & About Section -->
-            <section id="about" class="scroll-mt-10 lg:scroll-mt-16 py-12 md:py-16 relative w-full flex flex-col items-center justify-center min-h-[480px] overflow-hidden">
+            <section id="about"
+                class="scroll-mt-10 lg:scroll-mt-16 py-12 md:py-16 relative w-full flex flex-col items-center justify-center min-h-[480px] overflow-hidden">
                 <!-- LightRays WebGL background -->
                 <div id="light-rays-bg" class="absolute inset-0 z-0 pointer-events-none opacity-40"></div>
 
@@ -664,7 +728,8 @@
                         <span class="text-white">Building Fast,</span><br>
                         <span class="text-white">Scalable &</span><br>
                         <span
-                            style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">AI-Driven Web Experiences.</span>
+                            style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">AI-Driven
+                            Web Experiences.</span>
                     </h1>
 
                     <!-- Typing Effect for Hero values -->
@@ -676,7 +741,8 @@
 
                     <p class="text-sm sm:text-base leading-relaxed font-sans max-w-2xl text-center"
                         style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">
-                        I create production-ready web applications that combine modern frontend technologies, reliable backend systems, and intelligent AI integrations to solve real-world problems.
+                        I create production-ready web applications that combine modern frontend technologies, reliable
+                        backend systems, and intelligent AI integrations to solve real-world problems.
                     </p>
 
                     <!-- Call To Actions -->
@@ -696,9 +762,11 @@
             <!-- Tech Stack Toolkit (My Skills 3D TagCloud Sphere) -->
             <section id="skills" class="scroll-mt-10 lg:scroll-mt-16 w-full space-y-[20px]">
                 <div class="flex flex-col items-center gap-2 text-center w-full mb-4">
-                    <h2 class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.05] font-display uppercase animate-fade-in">
+                    <h2
+                        class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.05] font-display uppercase animate-fade-in">
                         <span class="text-white">My</span>
-                        <span style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">Skills</span>
+                        <span
+                            style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">Skills</span>
                     </h2>
                     <div class="h-[1px] w-24 bg-slate-800/80 mt-4"></div>
                 </div>
@@ -706,7 +774,8 @@
                 <div class="w-full flex flex-col items-center justify-center relative">
 
                     <!-- Category Tabs -->
-                    <div class="flex flex-wrap items-center justify-center gap-6 w-full max-w-2xl font-sans text-sm relative z-20 mb-6 mt-2">
+                    <div
+                        class="flex flex-wrap items-center justify-center gap-6 w-full max-w-2xl font-sans text-sm relative z-20 mb-6 mt-2">
                         <button class="skill-tab-btn" data-category="frontend">Frontend</button>
                         <button class="skill-tab-btn" data-category="backend">Backend</button>
                         <button class="skill-tab-btn" data-category="frameworks">Frameworks</button>
@@ -714,29 +783,33 @@
                     </div>
 
                     <!-- Shared Relative Wrapper to prevent canvas from being cleared by innerHTML -->
-                    <div class="relative w-full flex items-center justify-center min-h-[320px] sm:min-h-[380px] md:min-h-[600px] z-10">
+                    <div
+                        class="relative w-full flex items-center justify-center min-h-[320px] sm:min-h-[380px] md:min-h-[600px] z-10">
                         <canvas id="skills-globe-canvas" class="absolute pointer-events-none z-0"></canvas>
                         <!-- TagCloud Sphere container -->
-                        <div class="skills-sphere flex items-center justify-center relative z-10 w-full h-[320px] sm:h-[380px] md:h-[600px]">
+                        <div
+                            class="skills-sphere flex items-center justify-center relative z-10 w-full h-[320px] sm:h-[380px] md:h-[600px]">
                         </div>
                     </div>
 
                     <!-- Tech grid display below the globe -->
-                    <div id="skills-grid-display" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 w-full max-w-4xl mt-12">
+                    <div id="skills-grid-display"
+                        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 w-full max-w-4xl mt-12">
                     </div>
                 </div>
             </section> <!-- Featured Projects -->
             <section id="projects" class="scroll-mt-10 lg:scroll-mt-16 space-y-[20px]">
                 <div class="flex flex-col items-center gap-2 text-center w-full mb-4">
-                    <h2 class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.05] font-display uppercase animate-fade-in">
+                    <h2
+                        class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.05] font-display uppercase animate-fade-in">
                         <span class="text-white">Featured</span>
-                        <span style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">Projects</span>
+                        <span
+                            style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">Projects</span>
                     </h2>
                     <div class="h-[1px] w-24 bg-slate-800/80 mt-4"></div>
                 </div>
 
-                <div id="master-detail-showcase"
-                    class="w-full space-y-6 transition-all duration-300 ease-out">
+                <div id="master-detail-showcase" class="w-full space-y-6 transition-all duration-300 ease-out">
                     <!-- Browser Mockup Image Frame -->
                     <div
                         class="w-full border border-slate-800/80 rounded-xl overflow-hidden shadow-2xl bg-slate-950/40">
@@ -759,8 +832,7 @@
                         <div
                             class="w-full h-80 sm:h-96 md:h-[450px] bg-slate-950/30 flex items-center justify-center overflow-hidden relative group/image">
                             <img id="detail-project-image" class="w-full h-full object-contain rounded"
-                                src="images/ChatGPT Image Jul 18, 2026, 07_07_02 AM.png"
-                                alt="Project Preview" />
+                                src="images/ChatGPT Image Jul 18, 2026, 07_07_02 AM.png" alt="Project Preview" />
                         </div>
                     </div>
 
@@ -769,9 +841,11 @@
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                             <div>
                                 <span id="detail-project-category"
-                                    class="text-xs text-slate-300 font-mono font-bold uppercase tracking-wider">Vue 3 / Nuxt</span>
+                                    class="text-xs text-slate-300 font-mono font-bold uppercase tracking-wider">Vue 3 /
+                                    Nuxt</span>
                                 <h3 id="detail-project-title"
-                                    class="text-2xl font-bold text-white tracking-tight mt-1 font-display">Nuxt School Manager</h3>
+                                    class="text-2xl font-bold text-white tracking-tight mt-1 font-display">Nuxt School
+                                    Manager</h3>
                             </div>
                             <div class="flex items-center gap-3">
                                 <button id="view-case-study-btn"
@@ -789,23 +863,25 @@
                         </div>
 
                         <div class="space-y-2 pt-2">
-                             <h4 class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Overview</h4>
-                             <p id="detail-project-description" class="text-xs sm:text-sm leading-relaxed font-sans text-white">
-                                 A full-scale school management system featuring real-time data handling with Supabase database integrations and robust state management.
-                             </p>
+                            <h4 class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Overview</h4>
+                            <p id="detail-project-description"
+                                class="text-xs sm:text-sm leading-relaxed font-sans text-white">
+                                A full-scale school management system featuring real-time data handling with Supabase
+                                database integrations and robust state management.
+                            </p>
                         </div>
 
                         <div class="space-y-2">
-                             <h4 class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Technologies</h4>
-                             <div id="detail-project-tags" class="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                                  <span class="text-xs font-mono text-slate-300">Vue 3</span>
-                                  <span class="text-slate-600 text-xs">&bull;</span>
-                                  <span class="text-xs font-mono text-slate-300">Nuxt 3</span>
-                                  <span class="text-slate-600 text-xs">&bull;</span>
-                                  <span class="text-xs font-mono text-slate-300">Supabase</span>
-                                  <span class="text-slate-600 text-xs">&bull;</span>
-                                  <span class="text-xs font-mono text-slate-300">Tailwind CSS</span>
-                             </div>
+                            <h4 class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Technologies</h4>
+                            <div id="detail-project-tags" class="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                                <span class="text-xs font-mono text-slate-300">Vue 3</span>
+                                <span class="text-slate-600 text-xs">&bull;</span>
+                                <span class="text-xs font-mono text-slate-300">Nuxt 3</span>
+                                <span class="text-slate-600 text-xs">&bull;</span>
+                                <span class="text-xs font-mono text-slate-300">Supabase</span>
+                                <span class="text-slate-600 text-xs">&bull;</span>
+                                <span class="text-xs font-mono text-slate-300">Tailwind CSS</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -825,7 +901,8 @@
                     <div class="project-row cursor-pointer flex flex-col p-5 rounded-xl bg-transparent hover:bg-[#161414] transition-all duration-300"
                         data-project-id="erola-engineering">
                         <div class="flex items-center mb-2">
-                            <span class="text-sm font-bold text-slate-300 font-display transition-colors">Erola Engineering</span>
+                            <span class="text-sm font-bold text-slate-300 font-display transition-colors">Erola
+                                Engineering</span>
                         </div>
                         <span class="text-xs font-mono text-slate-500">React / Next.js</span>
                     </div>
@@ -834,7 +911,8 @@
                     <div class="project-row cursor-pointer flex flex-col p-5 rounded-xl bg-transparent hover:bg-[#161414] transition-all duration-300"
                         data-project-id="bitego-delivery-app">
                         <div class="flex items-center mb-2">
-                            <span class="text-sm font-bold text-slate-300 font-display transition-colors">BiteGo Delivery App</span>
+                            <span class="text-sm font-bold text-slate-300 font-display transition-colors">BiteGo
+                                Delivery App</span>
                         </div>
                         <span class="text-xs font-mono text-slate-500">Nitro / Prisma</span>
                     </div>
@@ -844,27 +922,31 @@
             <!-- Contact & Form -->
             <section id="contact" class="scroll-mt-10 lg:scroll-mt-16 space-y-[20px]">
                 <div class="flex flex-col items-center gap-2 text-center w-full mb-4">
-                    <h2 class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.05] font-display uppercase animate-fade-in">
+                    <h2
+                        class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.05] font-display uppercase animate-fade-in">
                         <span class="text-white">Let's Work</span>
-                        <span style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">Together</span>
+                        <span
+                            style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">Together</span>
                     </h2>
                     <div class="h-[1px] w-24 bg-slate-800/80 mt-4"></div>
                 </div>
 
                 <div class="w-full relative">
 
-                    <form class="space-y-6 font-sans w-full relative z-10" action="mailto:arshalsallu@gmail.com" method="post"
-                        enctype="text/plain">
+                    <form class="space-y-6 font-sans w-full relative z-10" action="mailto:arshalsallu@gmail.com"
+                        method="post" enctype="text/plain">
                         <!-- Name and Email grid row -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">Your Name</label>
+                                <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">Your
+                                    Name</label>
                                 <input type="text" name="name" required
                                     class="w-full bg-[#2E2B2B] border border-transparent rounded-xl px-4 py-3.5 text-white text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-700/50 focus:border-slate-600/50 transition-all duration-300"
                                     placeholder="John Doe">
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">Email Address</label>
+                                <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">Email
+                                    Address</label>
                                 <input type="email" name="email" required
                                     class="w-full bg-[#2E2B2B] border border-transparent rounded-xl px-4 py-3.5 text-white text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-700/50 focus:border-slate-600/50 transition-all duration-300"
                                     placeholder="john@example.com">
@@ -953,7 +1035,7 @@
                 'nuxt-school-manager': {
                     title: 'Nuxt School Manager',
                     category: 'Vue 3 / Nuxt',
-                    image: 'images/School-Management-Portal-07-24-2026_09_31_AM.png',
+                    image: 'images/ChatGPT Image Jul 18, 2026, 07_07_02 AM.png',
                     accentColor: 'cyan',
                     description: 'A full-scale school management system featuring real-time data handling with Supabase database integrations and robust state management.',
                     tags: ['Vue 3', 'Nuxt 3', 'Supabase', 'Tailwind CSS', 'State Management'],
@@ -962,7 +1044,7 @@
                 'erola-engineering': {
                     title: 'Erola Engineering',
                     category: 'React / Next.js',
-                    image: 'images/ecrola_gallery_1.png',
+                    image: 'images/ChatGPT Image Jul 24, 2026, 05_37_04 AM.png',
                     accentColor: 'indigo',
                     description: 'Modern corporate website built with Next.js 16 and Framer Motion for high-fidelity animations, SEO optimization, and exceptional web performance scores.',
                     tags: ['React', 'Next.js 16', 'Framer Motion', 'Tailwind CSS', 'SEO Optimization'],
@@ -971,7 +1053,7 @@
                 'bitego-delivery-app': {
                     title: 'BiteGo Delivery App',
                     category: 'Nitro / Prisma',
-                    image: 'images/bitego_gallery_1.png',
+                    image: 'images/ChatGPT Image Jul 21, 2026, 01_14_52 PM.png',
                     accentColor: 'cyan',
                     description: 'A comprehensive food delivery platform with a custom Nitro backend server, Prisma ORM database mapping, and secure Razorpay payment gateway integration.',
                     tags: ['Nitro Server', 'Prisma ORM', 'Razorpay API', 'Postgres Database', 'Tailwind CSS'],
@@ -1147,28 +1229,28 @@
             if (typingTextEl) {
                 setTimeout(handleType, typingSpeed);
             }
- 
+
             // WhatsApp Contact Form Integration
             const contactForm = document.querySelector('#contact form');
             if (contactForm) {
                 contactForm.addEventListener('submit', function (e) {
                     e.preventDefault();
-                    
+
                     const name = this.querySelector('input[name="name"]').value;
                     const email = this.querySelector('input[name="email"]').value;
                     const message = this.querySelector('textarea[name="message"]').value;
-                    
-                    const formattedMessage = `*New Portfolio Message*\n\n` + 
-                                             `*Name:* ${name}\n` +
-                                             `*Email:* ${email}\n\n` +
-                                             `*Message:* ${message}`;
-                    
+
+                    const formattedMessage = `*New Portfolio Message*\n\n` +
+                        `*Name:* ${name}\n` +
+                        `*Email:* ${email}\n\n` +
+                        `*Message:* ${message}`;
+
                     const encodedMessage = encodeURIComponent(formattedMessage);
                     const whatsappUrl = `https://wa.me/919895919742?text=${encodedMessage}`;
-                    
+
                     const submitBtn = this.querySelector('button[type="submit"]');
                     const originalHTML = submitBtn.innerHTML;
-                    
+
                     submitBtn.disabled = true;
                     submitBtn.innerHTML = `
                         <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -1177,7 +1259,7 @@
                         </svg>
                         Sending...
                     `;
-                    
+
                     setTimeout(() => {
                         submitBtn.disabled = false;
                         submitBtn.innerHTML = originalHTML;
@@ -1327,13 +1409,13 @@
                     if (gridDisplay) {
                         // Clear existing cards
                         gridDisplay.innerHTML = '';
-                        
+
                         // Populate with matching tech cards
                         filtered.forEach((skill, index) => {
                             const card = document.createElement('div');
                             card.className = 'tech-card-animate flex items-center gap-3 p-2 bg-transparent border-transparent rounded-xl transition-all duration-300 group/card';
                             card.style.transitionDelay = `${index * 40}ms`; // Stagger delay
-                            
+
                             const img = document.createElement('img');
                             img.src = skill.icon;
                             img.className = 'w-6 h-6 object-contain filter grayscale opacity-60 group-hover/card:grayscale-0 group-hover/card:opacity-100 group-hover/card:scale-110 transition-all duration-300';
@@ -1352,7 +1434,7 @@
                         if (gridDisplay._observer) {
                             gridDisplay._observer.disconnect();
                         }
-                        
+
                         const observer = new IntersectionObserver((entries) => {
                             entries.forEach(entry => {
                                 const cards = entry.target.querySelectorAll('.tech-card-animate');
@@ -1920,15 +2002,24 @@ void main() {
         }
     </script>
     <!-- Case Study Fullscreen Overlay Modal -->
-    <div id="case-study-overlay" class="fixed inset-0 z-[100] bg-[#070913]/98 backdrop-blur-md overflow-y-auto hidden opacity-0 transition-all duration-500 flex-col scroll-smooth">
+    <div id="case-study-overlay"
+        class="fixed inset-0 z-[100] bg-[#070913] backdrop-blur-md overflow-y-auto hidden opacity-0 transition-all duration-500 flex-col scroll-smooth"
+        style="background-color: #070913;">
         <!-- Persistent sticky blur header -->
-        <header class="sticky top-0 z-[110] w-full backdrop-blur-md border-b border-slate-900/60 bg-[#070913]/85 px-6 py-4 flex items-center justify-between">
-            <button onclick="closeCaseStudy()" class="flex items-center gap-2 text-slate-400 hover:text-white font-mono text-xs transition-colors group">
-                <span class="material-symbols-outlined text-sm transform group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+        <header
+            class="sticky top-0 z-[110] w-full backdrop-blur-md border-b border-slate-900/60 bg-[#070913]/85 px-6 py-4 flex items-center justify-between"
+            style="background-color: rgba(7, 9, 19, 0.85);">
+            <button onclick="closeCaseStudy()"
+                class="flex items-center gap-2 text-slate-400 hover:text-white font-mono text-xs transition-colors group">
+                <span
+                    class="material-symbols-outlined text-sm transform group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
                 BACK TO PORTFOLIO
             </button>
-            <span id="header-project-title" class="text-sm font-bold text-white tracking-tight font-display hidden sm:inline text-slate-400 uppercase tracking-widest">Case Study</span>
-            <button onclick="closeCaseStudy()" class="w-8 h-8 rounded-full border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition-colors">
+            <span id="header-project-title"
+                class="text-sm font-bold text-white tracking-tight font-display hidden sm:inline text-slate-400 uppercase tracking-widest">Case
+                Study</span>
+            <button onclick="closeCaseStudy()"
+                class="w-8 h-8 rounded-full border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition-colors">
                 <span class="material-symbols-outlined text-lg">close</span>
             </button>
             <!-- Progress indicator at bottom of header -->
@@ -1939,11 +2030,12 @@ void main() {
 
         <!-- Main Content Area -->
         <main class="w-full max-w-[1200px] mx-auto px-6 py-12 md:py-20 flex-1 space-y-16 md:space-y-24">
-            
+
             <!-- Section 1: Hero Section -->
             <section class="case-study-reveal space-y-8">
                 <!-- Large Project Mockup Image Frame -->
-                <div class="w-full border border-slate-800/80 rounded-2xl overflow-hidden shadow-2xl bg-slate-950/40 hover-zoom">
+                <div
+                    class="w-full border border-slate-800/80 rounded-2xl overflow-hidden shadow-2xl bg-slate-950/40 hover-zoom">
                     <!-- Browser toolbar mock -->
                     <div class="h-9 bg-slate-900/60 border-b border-slate-800/60 flex items-center px-4 relative">
                         <div class="flex items-center gap-1.5">
@@ -1951,23 +2043,31 @@ void main() {
                             <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></span>
                             <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></span>
                         </div>
-                        <div class="absolute left-1/2 -translate-x-1/2 w-48 sm:w-64 bg-slate-950/40 border border-slate-800/40 rounded-md py-1 px-3 text-[10px] text-slate-400 font-mono text-center truncate flex items-center justify-center gap-1">
+                        <div
+                            class="absolute left-1/2 -translate-x-1/2 w-48 sm:w-64 bg-slate-950/40 border border-slate-800/40 rounded-md py-1 px-3 text-[10px] text-slate-400 font-mono text-center truncate flex items-center justify-center gap-1">
                             <span class="material-symbols-outlined text-[10px] text-slate-500">lock</span>
                             <span id="cs-browser-url">project.vercel.app</span>
                         </div>
                     </div>
                     <!-- Mockup image display -->
-                    <div class="w-full aspect-[16/9] md:aspect-[21/9] bg-slate-950/30 flex items-center justify-center overflow-hidden">
-                        <img id="cs-hero-image" class="w-full h-full object-contain" src="" alt="Project Hero Screenshot" />
+                    <div
+                        class="w-full aspect-[16/9] md:aspect-[21/9] bg-slate-950/30 flex items-center justify-center overflow-hidden">
+                        <img id="cs-hero-image" class="w-full h-full object-contain" src=""
+                            alt="Project Hero Screenshot" />
                     </div>
                 </div>
 
                 <!-- Text metadata -->
                 <div class="space-y-4 max-w-4xl">
-                    <span id="cs-hero-category" class="text-xs text-cyan-400 font-mono font-bold uppercase tracking-widest">Category</span>
-                    <h1 id="cs-hero-title" class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight font-display uppercase leading-tight">Project Title</h1>
-                    <p id="cs-hero-tagline" class="text-lg sm:text-xl text-slate-300 leading-relaxed font-sans max-w-3xl">Short tagline goes here.</p>
-                    
+                    <span id="cs-hero-category"
+                        class="text-xs text-cyan-400 font-mono font-bold uppercase tracking-widest">Category</span>
+                    <h1 id="cs-hero-title"
+                        class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight font-display uppercase leading-tight">
+                        Project Title</h1>
+                    <p id="cs-hero-tagline"
+                        class="text-lg sm:text-xl text-slate-300 leading-relaxed font-sans max-w-3xl">Short tagline goes
+                        here.</p>
+
                     <!-- Badges -->
                     <div id="cs-hero-badges" class="flex flex-wrap gap-2 pt-2">
                         <!-- badges generated dynamically -->
@@ -1975,11 +2075,13 @@ void main() {
 
                     <!-- Action buttons -->
                     <div class="flex flex-wrap gap-4 pt-4">
-                        <a id="cs-live-demo-link" href="#" target="_blank" class="inline-flex items-center gap-2 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm border border-slate-850 shadow-md">
+                        <a id="cs-live-demo-link" href="javascript:void(0)" target="_blank"
+                            class="inline-flex items-center gap-2 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm border border-slate-850 shadow-md">
                             Live Demo
                             <span class="material-symbols-outlined text-sm">open_in_new</span>
                         </a>
-                        <a id="cs-github-link" href="#" target="_blank" class="inline-flex items-center gap-2 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm border border-slate-850 shadow-md">
+                        <a id="cs-github-link" href="javascript:void(0)" target="_blank"
+                            class="inline-flex items-center gap-2 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm border border-slate-850 shadow-md">
                             GitHub Repository
                             <span class="material-symbols-outlined text-sm font-bold">code</span>
                         </a>
@@ -1993,7 +2095,8 @@ void main() {
                 <div class="space-y-12 md:space-y-16">
                     <!-- Overview -->
                     <section class="case-study-reveal space-y-4">
-                        <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">01 / Project Overview</h2>
+                        <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">01 / Project Overview
+                        </h2>
                         <div class="h-[1px] w-12 bg-slate-850"></div>
                         <p id="cs-overview" class="text-sm sm:text-base leading-relaxed text-slate-300 font-sans">
                             Detailed overview content.
@@ -2004,14 +2107,17 @@ void main() {
                     <section class="case-study-reveal space-y-4">
                         <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">02 / The Problem</h2>
                         <div class="h-[1px] w-12 bg-slate-850"></div>
-                        
+
                         <!-- Beautiful Glass Card -->
-                        <div class="relative bg-slate-900/30 border border-slate-800/80 rounded-2xl p-6 md:p-8 overflow-hidden backdrop-blur-md flex gap-4 md:gap-6">
-                            <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center shrink-0">
+                        <div
+                            class="relative bg-slate-900/30 border border-slate-800/80 rounded-2xl p-6 md:p-8 overflow-hidden backdrop-blur-md flex gap-4 md:gap-6">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center shrink-0">
                                 <span class="material-symbols-outlined text-2xl">warning</span>
                             </div>
                             <div class="space-y-2">
-                                <h3 class="text-base font-bold text-white font-display font-semibold">The Challenge & Disconnections</h3>
+                                <h3 class="text-base font-bold text-white font-display font-semibold">The Challenge &
+                                    Disconnections</h3>
                                 <p id="cs-problem" class="text-xs sm:text-sm leading-relaxed text-slate-300 font-sans">
                                     Description of the problem solved.
                                 </p>
@@ -2023,10 +2129,27 @@ void main() {
                     <section class="case-study-reveal space-y-4">
                         <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">03 / The Solution</h2>
                         <div class="h-[1px] w-12 bg-slate-850"></div>
-                        
-                        <p id="cs-solution" class="text-xs sm:text-sm leading-relaxed text-slate-300 font-sans max-w-4xl">
-                            Explanation of how the application solves the problem.
-                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center pt-2">
+                            <p id="cs-solution"
+                                class="text-xs sm:text-sm leading-relaxed text-slate-300 font-sans">
+                                Explanation of how the application solves the problem.
+                            </p>
+                            <!-- Supporting screenshot frame -->
+                            <div class="w-full border border-slate-800/80 rounded-xl overflow-hidden shadow-2xl bg-slate-950/40">
+                                <!-- Browser Header/Toolbar -->
+                                <div class="h-7 bg-slate-900/60 border-b border-slate-800/60 flex items-center px-3 relative">
+                                    <div class="flex items-center gap-1">
+                                        <span class="w-2 h-2 rounded-full bg-[#ff5f56]"></span>
+                                        <span class="w-2 h-2 rounded-full bg-[#ffbd2e]"></span>
+                                        <span class="w-2 h-2 rounded-full bg-[#27c93f]"></span>
+                                    </div>
+                                </div>
+                                <div class="w-full aspect-video bg-slate-950/30 flex items-center justify-center overflow-hidden">
+                                    <img id="cs-solution-image" class="w-full h-full object-cover" src="" alt="Solution Screenshot" />
+                                </div>
+                            </div>
+                        </div>
                     </section>
                 </div>
 
@@ -2034,7 +2157,8 @@ void main() {
                 <div class="space-y-12">
                     <!-- Section 5: My Role -->
                     <section class="case-study-reveal space-y-4">
-                        <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest font-semibold">My Role</h2>
+                        <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest font-semibold">My Role
+                        </h2>
                         <div class="h-[1px] w-12 bg-slate-850 mb-6"></div>
                         <div id="cs-roles" class="flex flex-col gap-3">
                             <!-- Role cards generated dynamically -->
@@ -2043,7 +2167,8 @@ void main() {
 
                     <!-- Section 11: Results -->
                     <section class="case-study-reveal space-y-4">
-                        <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest font-semibold">Key Achievements</h2>
+                        <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest font-semibold">Key
+                            Achievements</h2>
                         <div class="h-[1px] w-12 bg-slate-850 mb-6"></div>
                         <div id="cs-results" class="flex flex-col gap-3">
                             <!-- Results checklist generated dynamically -->
@@ -2056,7 +2181,8 @@ void main() {
             <section class="case-study-reveal space-y-8">
                 <div class="flex flex-col items-center text-center space-y-3">
                     <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">04 / Core Features</h2>
-                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white font-display">POWERFUL PRODUCT CAPABILITIES</h3>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white font-display">POWERFUL PRODUCT
+                        CAPABILITIES</h3>
                     <div class="h-[1px] w-24 bg-slate-850"></div>
                 </div>
 
@@ -2068,7 +2194,8 @@ void main() {
             <!-- Section 7: Technology Stack -->
             <section class="case-study-reveal space-y-8">
                 <div class="flex flex-col items-center text-center space-y-3">
-                    <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">05 / Architecture & Tooling</h2>
+                    <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">05 / Architecture & Tooling
+                    </h2>
                     <h3 class="text-2xl sm:text-3xl font-extrabold text-white font-display">THE TECH STACK</h3>
                     <div class="h-[1px] w-24 bg-slate-850"></div>
                 </div>
@@ -2082,14 +2209,16 @@ void main() {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
                 <!-- Challenges -->
                 <section class="case-study-reveal space-y-4">
-                    <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">06 / Engineering Challenges</h2>
+                    <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">06 / Engineering Challenges
+                    </h2>
                     <div class="h-[1px] w-12 bg-slate-850 mb-6"></div>
                     <div class="bg-red-950/10 border border-red-900/30 rounded-2xl p-6 md:p-8 space-y-6">
                         <div class="flex items-center gap-3 text-red-400">
                             <span class="material-symbols-outlined text-2xl">construction</span>
                             <span class="font-bold text-sm tracking-wide font-mono">DEBUG_SESSION.LOG</span>
                         </div>
-                        <div id="cs-challenges" class="space-y-4 font-sans text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        <div id="cs-challenges"
+                            class="space-y-4 font-sans text-xs sm:text-sm text-slate-300 leading-relaxed">
                             <!-- Challenges populated dynamically -->
                         </div>
                     </div>
@@ -2109,7 +2238,8 @@ void main() {
             <section class="case-study-reveal space-y-8">
                 <div class="flex flex-col items-center text-center space-y-3">
                     <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">08 / Visual Gallery</h2>
-                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white font-display font-display">PROJECT SCREENSHOTS</h3>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white font-display font-display">PROJECT
+                        SCREENSHOTS</h3>
                     <div class="h-[1px] w-24 bg-slate-850"></div>
                 </div>
 
@@ -2122,25 +2252,34 @@ void main() {
             <footer class="case-study-reveal border-t border-slate-900 pt-16 flex flex-col items-center gap-12">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl">
                     <!-- Prev project link -->
-                    <button onclick="navigateProject('prev')" class="flex flex-col items-start p-6 rounded-xl border border-slate-900 bg-[#070913]/30 hover:bg-slate-900/40 hover:border-slate-800 transition-all duration-300 text-left group">
-                        <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-2">Previous Project</span>
+                    <button onclick="navigateProject('prev')"
+                        class="flex flex-col items-start p-6 rounded-xl border border-slate-900 bg-[#070913]/30 hover:bg-slate-900/40 hover:border-slate-800 transition-all duration-300 text-left group">
+                        <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-2">Previous
+                            Project</span>
                         <div class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-slate-400 group-hover:-translate-x-1 transition-transform">arrow_back</span>
-                            <span id="cs-nav-prev-title" class="font-bold text-white font-display text-base">Project Name</span>
+                            <span
+                                class="material-symbols-outlined text-slate-400 group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                            <span id="cs-nav-prev-title" class="font-bold text-white font-display text-base">Project
+                                Name</span>
                         </div>
                     </button>
                     <!-- Next project link -->
-                    <button onclick="navigateProject('next')" class="flex flex-col items-end p-6 rounded-xl border border-slate-900 bg-[#070913]/30 hover:bg-slate-900/40 hover:border-slate-800 transition-all duration-300 text-right group">
-                        <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-2">Next Project</span>
+                    <button onclick="navigateProject('next')"
+                        class="flex flex-col items-end p-6 rounded-xl border border-slate-900 bg-[#070913]/30 hover:bg-slate-900/40 hover:border-slate-800 transition-all duration-300 text-right group">
+                        <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-2">Next
+                            Project</span>
                         <div class="flex items-center gap-2">
-                            <span id="cs-nav-next-title" class="font-bold text-white font-display text-base">Project Name</span>
-                            <span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            <span id="cs-nav-next-title" class="font-bold text-white font-display text-base">Project
+                                Name</span>
+                            <span
+                                class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform">arrow_forward</span>
                         </div>
                     </button>
                 </div>
 
                 <!-- Main CTA back to site -->
-                <button onclick="closeCaseStudy()" class="bg-transparent hover:bg-slate-900/80 text-white border border-slate-850 hover:border-slate-700 font-bold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm shadow-md flex items-center gap-2">
+                <button onclick="closeCaseStudy()"
+                    class="bg-transparent hover:bg-slate-900/80 text-white border border-slate-850 hover:border-slate-700 font-bold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm shadow-md flex items-center gap-2">
                     <span class="material-symbols-outlined text-sm">home</span>
                     Back to Portfolio
                 </button>
@@ -2150,18 +2289,25 @@ void main() {
     </div>
 
     <!-- Lightbox Modal -->
-    <div id="case-study-lightbox" class="fixed inset-0 z-[200] bg-black/95 flex flex-col items-center justify-center hidden opacity-0 transition-opacity duration-300">
-        <header class="absolute top-0 left-0 w-full px-6 py-4 flex items-center justify-between z-10 bg-gradient-to-b from-black/80 to-transparent">
+    <div id="case-study-lightbox"
+        class="fixed inset-0 z-[200] bg-black/95 flex flex-col items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <header
+            class="absolute top-0 left-0 w-full px-6 py-4 flex items-center justify-between z-10 bg-gradient-to-b from-black/80 to-transparent">
             <span id="lightbox-counter" class="text-xs font-mono text-slate-400">1 / 4</span>
-            <button onclick="closeLightbox()" class="w-10 h-10 rounded-full bg-slate-900/60 border border-slate-800/80 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+            <button onclick="closeLightbox()"
+                class="w-10 h-10 rounded-full bg-slate-900/60 border border-slate-800/80 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
                 <span class="material-symbols-outlined text-xl">close</span>
             </button>
         </header>
-        <button onclick="navigateLightbox('prev')" class="absolute left-4 w-12 h-12 rounded-full bg-slate-900/60 border border-slate-850 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+        <button onclick="navigateLightbox('prev')"
+            class="absolute left-4 w-12 h-12 rounded-full bg-slate-900/60 border border-slate-850 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
             <span class="material-symbols-outlined text-2xl">chevron_left</span>
         </button>
-        <img id="lightbox-image" class="max-w-[90%] max-h-[80vh] object-contain rounded-lg shadow-2xl transition-transform duration-300" src="" alt="Lightbox View" />
-        <button onclick="navigateLightbox('next')" class="absolute right-4 w-12 h-12 rounded-full bg-slate-900/60 border border-slate-850 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+        <img id="lightbox-image"
+            class="max-w-[90%] max-h-[80vh] object-contain rounded-lg shadow-2xl transition-transform duration-300"
+            src="" alt="Lightbox View" />
+        <button onclick="navigateLightbox('next')"
+            class="absolute right-4 w-12 h-12 rounded-full bg-slate-900/60 border border-slate-850 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
             <span class="material-symbols-outlined text-2xl">chevron_right</span>
         </button>
     </div>
@@ -2173,30 +2319,25 @@ void main() {
                 category: 'Vue 3 / Nuxt',
                 tagline: 'A centralized School Management platform simplifying academic operations, student profiles, and real-time attendance tracking.',
                 browserUrl: 'nuxt-school-manager.vercel.app',
-                heroImage: 'images/School-Management-Portal-07-24-2026_09_31_AM.png',
+                heroImage: 'images/ChatGPT Image Jul 18, 2026, 07_07_02 AM.png',
                 liveDemoUrl: 'https://nuxt-app-plum-tau.vercel.app',
                 githubUrl: 'https://github.com/arshal-salu/arshal-sallu',
                 overview: 'A modern school management platform built to simplify academic administration by centralizing student, teacher, attendance, and class management into a single application. Designed specifically for educational staff looking to digitize registers and track historical class records.',
-                problem: 'Schools often rely on multiple disconnected legacy platforms or manual paper processes. This fragmentation causes database record inconsistencies, slows admin lookup times, and makes compiling student attendance rates extremely slow for administrative reporting.',
-                solution: 'Developed a centralized school management web system utilizing Nuxt.js, PostgreSQL, and Prisma ORM. The platform centralizes admin records under one database dashboard, introducing secure session-based authentication to partition permissions.',
-                solutionImage: 'images/School-Management-Portal-07-24-2026_09_31_AM.png',
-                roles: ['UI/UX Development', 'Frontend Development', 'Backend Development', 'Database Design', 'API Integration', 'Authentication', 'Deployment'],
-                results: [
-                    'Reduces Administrative Workload: Streamlines daily registration, saving hours of manual data entry for faculty.',
-                    'Organizes Academic Workflows: Centralizes scheduling, grades, and records under a single interface.',
-                    'Accelerates Data Reporting: Compiles real-time attendance ratios and class counts instantly for admins.'
-                ],
+                problem: 'Schools struggle with managing students, teachers, attendance, classes, and academic records across multiple disconnected systems.',
+                solution: 'Built a centralized School Management System using Nuxt.js, PostgreSQL, and Prisma to manage students, teachers, attendance, authentication, and administrative workflows from a single dashboard.',
+                solutionImage: 'images/ChatGPT Image Jul 18, 2026, 07_07_02 AM.png',
+                roles: ['UI Development', 'Backend Development', 'Database Design', 'Authentication', 'Deployment'],
+                results: ['Fully Responsive', 'Secure Authentication', 'Optimized Database', 'Modern UI', 'Production Ready'],
                 features: [
                     { title: 'Student Management', desc: 'Complete registry for adding, editing, and listing student enrollments and records.', icon: 'person' },
                     { title: 'Teacher Management', desc: 'Control panel to assign courses, manage profiles, and track active faculty members.', icon: 'badge' },
                     { title: 'Attendance Tracking', desc: 'Real-time digital registers tracking absences and calculating student attendance percentages.', icon: 'checklist' },
-                    { title: 'Admin Dashboard', desc: 'Interactive visualization displaying class divisions, enrollment counts, and attendance metrics.', icon: 'monitoring' },
-                    { title: 'Secure Authentication', desc: 'Form logins matching hashed user passwords and verifying session credentials.', icon: 'vpn_key' },
-                    { title: 'Role-Based Access', desc: 'Route guards and server checks restricting view/edit privileges according to user roles.', icon: 'admin_panel_settings' },
-                    { title: 'Responsive Design', desc: 'Mobile-friendly views optimizing dashboard grids for administration on any mobile device.', icon: 'devices' },
-                    { title: 'CRUD Operations', desc: 'Clean interface components to perform standard database record operations with validation.', icon: 'database' }
+                    { title: 'Dashboard', desc: 'Interactive visualization displaying class divisions, enrollment counts, and attendance metrics.', icon: 'monitoring' },
+                    { title: 'Authentication', desc: 'Form logins matching hashed user passwords and verifying session credentials.', icon: 'vpn_key' },
+                    { title: 'Role Based Access', desc: 'Route guards and server checks restricting view/edit privileges according to user roles.', icon: 'admin_panel_settings' },
+                    { title: 'Responsive UI', desc: 'Mobile-friendly views optimizing dashboard grids for administration on any mobile device.', icon: 'devices' }
                 ],
-                techStack: ['Nuxt 3', 'Vue 3', 'Tailwind CSS', 'PostgreSQL', 'Prisma ORM', 'Nitro Server', 'Supabase', 'Vercel'],
+                techStack: ['Nuxt.js', 'Vue 3', 'PostgreSQL', 'Prisma ORM', 'Tailwind CSS', 'Supabase', 'Vercel'],
                 challenges: `
                     <div class="space-y-4">
                         <div>
@@ -2211,10 +2352,6 @@ void main() {
                             <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">3. Database Query Optimization</h4>
                             <p class="text-xs text-slate-300">Slow dashboards due to fetching nested relations on large classes. Resolved by selecting specific fields in Prisma queries and utilizing indexed foreign keys to speed up analytics calculation loading times by 70%.</p>
                         </div>
-                        <div>
-                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">4. Reusable Input Components</h4>
-                            <p class="text-xs text-slate-300">Maintaining input form consistency across multiple directory tabs. Resolved by creating generic form layout structures and modal wrappers in Vue 3 that receive fields via props.</p>
-                        </div>
                     </div>
                 `,
                 learnings: [
@@ -2222,18 +2359,13 @@ void main() {
                     { title: 'Technical Skill: Prisma ORM Integration', desc: 'Utilizing Prisma\'s type safety to catch query bugs during compile time.' },
                     { title: 'Technical Skill: Authentication Systems', desc: 'Establishing secure cookie-based session flows and middleware controls.' },
                     { title: 'Technical Skill: API Development', desc: 'Writing unified REST API endpoints inside Nitro server routes.' },
-                    { title: 'Technical Skill: Large-Scale Project Structure', desc: 'Structuring modular Vue stores and composables for shared state.' },
-                    { title: 'Future Improvement: Parent Portal', desc: 'Dedicated logins for parents to check grades, attendance, and message teachers directly.' },
-                    { title: 'Future Improvement: Online Exams', desc: 'Integrated exam builder with automated multiple-choice grading and timers.' },
-                    { title: 'Future Improvement: Notification System', desc: 'Instant SMS or Email alerts to parents for absent students.' },
-                    { title: 'Future Improvement: Report Generation', desc: 'PDF exports of grade reports, class analytics, and attendance summaries.' },
-                    { title: 'Future Improvement: Mobile Application', desc: 'Native Android and iOS app versions using Tailwind and Capacitor.' }
+                    { title: 'Technical Skill: Large-Scale Project Structure', desc: 'Structuring modular Vue stores and composables for shared state.' }
                 ],
                 gallery: [
-                    'images/School-Management-Portal-07-24-2026_09_31_AM.png',
-                    'images/School-Management-Portal-07-24-2026_09_32_AM.png',
-                    'images/School-Management-Portal-07-24-2026_09_33_AM.png',
-                    'images/School-Management-Portal-07-24-2026_09_34_AM.png'
+                    'images/ChatGPT Image Jul 24, 2026, 11_54_19 AM.png',
+                    'images/ChatGPT Image Jul 24, 2026, 11_54_27 AM.png',
+                    'images/ChatGPT Image Jul 24, 2026, 11_55_33 AM.png',
+                    'images/ChatGPT Image Jul 24, 2026, 11_56_55 AM.png'
                 ]
             },
             'erola-engineering': {
@@ -2241,130 +2373,93 @@ void main() {
                 category: 'React / Next.js',
                 tagline: 'A high-performance, responsive corporate portfolio designed to showcase premium engineering services and optimize lead capture.',
                 browserUrl: 'ecrola-engineering.vercel.app',
-                heroImage: 'images/ecrola_gallery_1.png',
+                heroImage: 'images/ChatGPT Image Jul 24, 2026, 05_37_04 AM.png',
                 liveDemoUrl: 'https://ecrola-engineering.vercel.app',
                 githubUrl: 'https://github.com/arshal-salu/arshal-sallu',
-                overview: 'A responsive corporate engineering website designed to showcase company services, projects, and contact information with a modern user experience. Built to present business capabilities and facilitate professional client leads.',
-                problem: 'The engineering company required a professional online presence that effectively represented its services across all devices. Previous platforms loaded slowly and lacked layout alignment on mobile screen viewports.',
-                solution: 'Designed and built a fully responsive corporate website focused on high performance, accessibility, SEO metrics, and premium UI/UX, using Next.js for optimized loading.',
+                overview: 'Designed and developed a modern corporate presence for Ecrola Engineering. Built to showcase engineering services, project milestones, and client contact tools with a premium layout that works seamlessly across all platforms.',
+                problem: 'The company required a professional online presence that effectively showcased engineering services while remaining responsive across all devices.',
+                solution: 'Designed and developed a modern responsive corporate website with improved navigation, service presentation, SEO optimization, and premium user experience.',
                 solutionImage: 'images/ecrola_gallery_1.png',
-                roles: ['UI/UX Development', 'Frontend Development', 'API Integration', 'Deployment'],
-                results: [
-                    'Improves Corporate Credibility: Provides a high-fidelity digital storefront that builds client trust.',
-                    'Enhances Lead Generation: Clean layouts and responsive forms make contacting engineering reps easy.',
-                    'Optimizes User Engagement: Near-perfect Lighthouse speed scores reduce visitor bounce rates.'
-                ],
+                roles: ['UI Development', 'Frontend Development', 'API Integration', 'Deployment'],
+                results: ['Fully Responsive', 'Modern UI', 'SEO Friendly', 'Fast Performance', 'Production Ready'],
                 features: [
-                    { title: 'Responsive Layout', desc: 'Multi-column layout that shifts into stacked viewports on mobile devices.', icon: 'devices' },
-                    { title: 'Service Showcase', desc: 'Grid showcases detailing specialized automation, mechanical, and civil services.', icon: 'precision_manufacturing' },
-                    { title: 'Project Gallery', desc: 'Clean interactive galleries to classify and present engineering contract case histories.', icon: 'photo_library' },
-                    { title: 'Contact Forms', desc: 'Input validated inquiry forms with automated notification routing.', icon: 'contact_page' },
-                    { title: 'SEO Optimization', desc: 'Custom metadata, header structures, and open-graph properties for search bots.', icon: 'search' },
-                    { title: 'Fast Performance', desc: 'Lightweight image assets and code chunking ensuring low load times.', icon: 'bolt' },
-                    { title: 'Modern Animations', desc: 'Fade-ups and hover scales providing a sleek, professional product feel.', icon: 'palette' },
-                    { title: 'Mobile Friendly', desc: 'Interactive hamburger navigation drawer and optimized spacing for mobile fingers.', icon: 'smartphone' }
+                    { title: 'Responsive Design', desc: 'Fully responsive layouts adapting seamlessly to mobile, tablet, and desktop viewports.', icon: 'devices' },
+                    { title: 'Modern UI', desc: 'A clean, dark industrial aesthetic featuring glassmorphism and subtle animations.', icon: 'palette' },
+                    { title: 'Service Showcase', desc: 'Custom presentation components highlighting specific mechanical and automation capabilities.', icon: 'precision_manufacturing' },
+                    { title: 'Contact Forms', desc: 'Input-validated contact channels routing inquiries directly to company representatives.', icon: 'contact_page' },
+                    { title: 'SEO Friendly', desc: 'Engineered metadata, page layouts, and head elements configured for crawl bots.', icon: 'search' },
+                    { title: 'Fast Performance', desc: 'Optimized script execution speeds, code chunking, and lazy loaded resources.', icon: 'bolt' }
                 ],
-                techStack: ['React', 'Next.js 14', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
+                techStack: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
                 challenges: `
                     <div class="space-y-4">
                         <div>
-                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">1. Responsive Multi-Column Grids</h4>
-                            <p class="text-xs text-slate-300">Grid content containing varying description text sizes would overflow or break alignment. Resolved by writing custom auto-fit Tailwind grid columns and flex alignment classes to ensure spacing is consistent.</p>
+                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">1. Balancing Design with Responsiveness</h4>
+                            <p class="text-xs text-slate-300">Translating detailed, high-fidelity UI specifications into fluid responsive layouts without design compromises. Resolved by implementing custom container queries and modular flex/grid classes to retain spacing proportions.</p>
                         </div>
                         <div>
-                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">2. Large Asset Load Optimization</h4>
-                            <p class="text-xs text-slate-300">High-resolution project images took seconds to download, lowering performance scores. Resolved by implementing Next.js next/image for WebP format conversion and lazy loading assets.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">3. Consistent UI/UX across devices</h4>
-                            <p class="text-xs text-slate-300">Animations behaving erratically on touch screens. Resolved by modifying animation listeners to switch off complex mouse-hover gestures on mobile browsers.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">4. Cross-Device Form Validation</h4>
-                            <p class="text-xs text-slate-300">Contact form layout formatting breaking under Safari mobile viewports. Resolved by removing default browser inputs styling and overriding with custom Tailwind styling resets.</p>
+                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">2. Cross-Device Performance Tuning</h4>
+                            <p class="text-xs text-slate-300">Preventing layout shifting and render blocking from large structural graphics assets. Resolved by applying Next.js next/image formatting, WebP file compression, and style hydration deferment.</p>
                         </div>
                     </div>
                 `,
                 learnings: [
-                    { title: 'Technical Skill: Responsive Web Design', desc: 'Designing responsive grid components using container-queries and media properties.' },
-                    { title: 'Technical Skill: UI Consistency principles', desc: 'Formatting clean typography hierarchies, font weights, and spacing systems.' },
-                    { title: 'Technical Skill: Performance Optimization', desc: 'Analyzing bundle splits and pre-rendering styles to optimize First Contentful Paint.' },
-                    { title: 'Technical Skill: Professional client workflow', desc: 'Managing code deployment setups and coordinate staging environments.' },
-                    { title: 'Future Improvement: CMS Integration', desc: 'Headless CMS implementation to let non-technical staff publish new projects.' },
-                    { title: 'Future Improvement: Multi-language Support', desc: 'Direct translation integrations to support international clientele.' },
-                    { title: 'Future Improvement: Blog System', desc: 'Engineering insights blog system to share industrial developments and boost SEO.' },
-                    { title: 'Future Improvement: Project Filtering', desc: 'Interactive filters to sort project portfolios by engineering field.' },
-                    { title: 'Future Improvement: Analytics Dashboard', desc: 'Simple site visitor analytics dashboard for internal marketing teams.' }
+                    { title: 'Technical Skill: Responsive Design Systems', desc: 'Establishing robust structural grids and scalable sizing units across device bounds.' },
+                    { title: 'Technical Skill: Performance Optimization', desc: 'Analyzing bundle sizes, asset latency, and pre-rendering techniques.' },
+                    { title: 'Technical Skill: Professional UI/UX standards', desc: 'Applying design patterns, typography rules, and interactive feedback.' }
                 ],
                 gallery: [
-                    'images/ecrola_gallery_1.png',
-                    'images/ecrola_gallery_2.png'
+                    'images/ChatGPT Image Jul 25, 2026, 05_19_16 AM.png',
+                    'images/ChatGPT Image Jul 25, 2026, 05_18_07 AM.png',
+                    'images/ChatGPT Image Jul 25, 2026, 05_16_43 AM.png',
+                    'images/ChatGPT Image Jul 25, 2026, 05_12_25 AM.png'
                 ]
             },
             'bitego-delivery-app': {
                 title: 'BiteGo Food Delivery',
                 category: 'Nitro / Prisma',
-                tagline: 'A fast and intuitive food ordering web application with robust payment integrations and modern checkout flows.',
+                tagline: 'A modern food ordering web platform featuring restaurant listings, persistent cart actions, and secure Razorpay payment integrations.',
                 browserUrl: 'bitego-in.vercel.app',
-                heroImage: 'images/bitego_gallery_1.png',
+                heroImage: 'images/ChatGPT Image Jul 21, 2026, 01_14_52 PM.png',
                 liveDemoUrl: 'https://bitego-in.vercel.app',
                 githubUrl: 'https://github.com/arshal-salu/arshal-sallu',
-                overview: 'A modern food ordering platform that enables users to browse restaurants, place orders, and complete secure online payments through a seamless user experience. Built to handle cart management and process orders quickly.',
-                problem: 'Customers need a fast, intuitive, and secure platform for ordering food online. Businesses require safe online payment flows that block client price editing and track order records.',
-                solution: 'Developed a responsive food delivery platform featuring menus, shopping cart states, and Razorpay payment integration. Signature verification on a Nitro server checks transactions before database registration.',
+                overview: 'A complete food delivery web platform that enables consumers to select restaurant menus, handle cart details, and complete secure card/UPI transactions under a unified system.',
+                problem: 'Customers need a fast and intuitive platform to browse restaurants, place food orders, and complete secure online payments.',
+                solution: 'Built a modern food ordering platform with restaurant browsing, shopping cart, Razorpay payment integration, authentication, and responsive interfaces.',
                 solutionImage: 'images/bitego_gallery_1.png',
-                roles: ['UI/UX Development', 'Frontend Development', 'Backend Development', 'Database Design', 'API Integration', 'Authentication', 'Deployment'],
-                results: [
-                    'Prevents Transaction Fraud: Server validation verifies cryptographic signatures before confirming checkout pricing.',
-                    'Improves Checkout Conversions: Smooth cart flows and modern checkouts reduce customer abandonment rates.',
-                    'Automated Order Operations: Saves transaction details directly to PostgreSQL database upon checkout.'
-                ],
+                roles: ['UI Development', 'Backend Development', 'Database Design', 'Authentication', 'Deployment'],
+                results: ['Fully Responsive', 'Secure Authentication', 'Optimized Database', 'Modern UI', 'Razorpay Payments Integrated'],
                 features: [
-                    { title: 'Restaurant Listings', desc: 'Category-filtered directories displaying active menus, pricing, and restaurant status.', icon: 'restaurant_menu' },
-                    { title: 'Shopping Cart', desc: 'Persistent, client-side cart allowing quick item updates and dynamic total updates.', icon: 'shopping_cart' },
-                    { title: 'Razorpay Integration', desc: 'Secure online payment processing with automatic receipt generation.', icon: 'payments' },
+                    { title: 'Restaurant Listings', desc: 'Active lists displaying menus, dish items, pricing tags, and opening status.', icon: 'restaurant_menu' },
+                    { title: 'Shopping Cart', desc: 'Responsive local storage carts aggregating items and totals dynamically.', icon: 'shopping_cart' },
+                    { title: 'Razorpay Payments', desc: 'Gateway integration verifying secure customer transaction credentials.', icon: 'payments' },
                     { title: 'Authentication', desc: 'Safe user sign-in to save addresses and view order history.', icon: 'lock_open' },
-                    { title: 'Order Flow', desc: 'Seamless transition from menu browsing, to cart selection, checkout, and payment.', icon: 'double_arrow' },
-                    { title: 'Responsive UI', desc: 'Optimized mobile ordering interface for on-the-go food delivery orders.', icon: 'smartphone' },
-                    { title: 'Secure Checkout', desc: 'Encryption checks and input sanitization preventing injection on fields.', icon: 'verified_user' },
-                    { title: 'User Dashboard', desc: 'Dedicated client panel showing past orders, transaction statuses, and profiles.', icon: 'dashboard' }
+                    { title: 'Responsive UI', desc: 'Fully responsive menus and dashboard pages adapting for on-the-go food ordering.', icon: 'smartphone' },
+                    { title: 'Order Flow', desc: 'Streamlined sequence tracking requests from checkout submission directly to payment verification.', icon: 'double_arrow' }
                 ],
                 techStack: ['Vanilla JS', 'Tailwind CSS', 'Nitro Server', 'Prisma ORM', 'PostgreSQL', 'Razorpay SDK', 'Vercel'],
                 challenges: `
                     <div class="space-y-4">
                         <div>
-                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">1. Razorpay Payment Integration Signature Validation</h4>
-                            <p class="text-xs text-slate-300">Preventing client-side price modification before gateway checkout. Resolved by creating orders on the Nitro server, passing order IDs to Razorpay, and checking payment signatures on webhook arrival.</p>
+                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">1. Secure payment integration validation</h4>
+                            <p class="text-xs text-slate-300">Preventing client-side tampering of purchase pricing parameters. Resolved by orchestrating order generation exclusively on the Nitro server and confirming payment signatures using Razorpay APIs upon webhook notification.</p>
                         </div>
                         <div>
-                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">2. Secure Webhook Verification</h4>
-                            <p class="text-xs text-slate-300">Processing webhooks from Razorpay without opening API vulnerability. Resolved by verifying the webhook signature using the crypto library on server routes.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">3. Environment Variable Security</h4>
-                            <p class="text-xs text-slate-300">Leaking payment keys inside compiled client code. Resolved by restricting secret keys to Vercel production variables and passing them exclusively through server routes.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">4. Checkout Flow State Coordination</h4>
-                            <p class="text-xs text-slate-300">Syncing active local storage shopping cart counts with database pricing models. Resolved by writing database validation hooks that recalculate totals before authorizing Razorpay checkouts.</p>
+                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">2. API Environment Variable Protection</h4>
+                            <p class="text-xs text-slate-300">Securing API secret keys during client network round-trips. Resolved by routing external gateway communication through secure backend handlers and storing keys in Vercel configuration env variables.</p>
                         </div>
                     </div>
                 `,
                 learnings: [
-                    { title: 'Technical Skill: Payment gateway integration', desc: 'Direct experience handling webhook events and signature verification.' },
-                    { title: 'Technical Skill: Backend security', desc: 'Sanitizing API payloads and securing server-side payment logic.' },
-                    { title: 'Technical Skill: API handling', desc: 'Designing unified REST API endpoints inside Nitro server routes.' },
-                    { title: 'Technical Skill: Deployment strategies', desc: 'Configuring environment variables and deploying the production stack to Vercel.' },
-                    { title: 'Technical Skill: Production debugging', desc: 'Analyzing logs, verifying webhook endpoints, and auditing database connections.' },
-                    { title: 'Future Improvement: Live Order Tracking', desc: 'Live map interfaces showing delivery rider progress and status updates.' },
-                    { title: 'Future Improvement: Restaurant Dashboard', desc: 'Custom control portal for kitchens to manage incoming orders and menu items.' },
-                    { title: 'Future Improvement: Push Notifications', desc: 'Real-time updates notifying customers when order preparation starts or delivery is near.' },
-                    { title: 'Future Improvement: Coupon System', desc: 'Dynamic discount code checker that validates user promo offers against carts.' },
-                    { title: 'Future Improvement: AI Food Recommendations', desc: 'Machine learning recommendation script that highlights popular items based on customer habits.' }
+                    { title: 'Technical Skill: Payment Gateway Integration', desc: 'Orchestrating safe card transaction flows, webhooks, and checking cryptographic payment tokens.' },
+                    { title: 'Technical Skill: Backend API Security', desc: 'Managing secure environment parameters and routing database data safe from client manipulation.' },
+                    { title: 'Technical Skill: Production Deployment', desc: 'Configuring variables, deployment pipelines, and managing Postgres server instances.' }
                 ],
                 gallery: [
-                    'images/bitego_gallery_1.png',
-                    'images/bitego_gallery_2.png'
+                    'images/ChatGPT Image Jul 25, 2026, 05_10_47 AM.png',
+                    'images/ChatGPT Image Jul 25, 2026, 05_09_50 AM.png',
+                    'images/ChatGPT Image Jul 25, 2026, 05_08_50 AM.png',
+                    'images/ChatGPT Image Jul 25, 2026, 04_55_54 AM.png'
                 ]
             }
         };
@@ -2476,8 +2571,8 @@ void main() {
             galleryContainer.innerHTML = '';
             data.gallery.forEach((imgSrc, idx) => {
                 const div = document.createElement('div');
-                div.className = 'aspect-[4/3] rounded-xl border border-slate-900 bg-slate-950/40 overflow-hidden cursor-pointer hover-zoom shadow-md case-study-reveal reveal-delay-' + (idx * 50);
-                div.innerHTML = `<img class="w-full h-full object-contain" src="${imgSrc}" alt="Gallery ${idx + 1}" />`;
+                div.className = 'aspect-video rounded-xl border border-slate-900 bg-slate-950/20 overflow-hidden cursor-pointer hover-zoom shadow-md case-study-reveal reveal-delay-' + (idx * 50);
+                div.innerHTML = `<img class="w-full h-full object-cover" src="${imgSrc}" alt="Gallery ${idx + 1}" />`;
                 div.addEventListener('click', () => {
                     openLightbox(idx, data.gallery);
                 });
@@ -2576,7 +2671,7 @@ void main() {
 
             const lightbox = document.getElementById('case-study-lightbox');
             const image = document.getElementById('lightbox-image');
-            
+
             image.src = gallery[idx];
             document.getElementById('lightbox-counter').textContent = (idx + 1) + ' / ' + gallery.length;
 
@@ -2652,7 +2747,7 @@ void main() {
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('nav a');
-            
+
             const observerOptions = {
                 root: document.getElementById('main-content') || null,
                 threshold: 0.25,
@@ -2698,4 +2793,5 @@ void main() {
         });
     </script>
 </body>
+
 </html>
