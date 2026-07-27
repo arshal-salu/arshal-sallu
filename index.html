@@ -326,8 +326,8 @@
             color: #FFFFFF;
         }
 
-        /* On mobile devices, always keep the tech cards fully illuminated */
-        @media (max-width: 767px) {
+        /* On mobile & tablet devices, always keep the tech cards fully illuminated */
+        @media (max-width: 1023px) {
             .tech-card-animate img {
                 filter: grayscale(0) opacity(1) !important;
             }
@@ -1666,11 +1666,11 @@
 
                     // 3. Update DOM text styles dynamically
                     activeTags.forEach((p, idx) => {
-                        const isMobile = (window.innerWidth < 768);
+                        const isMobileOrTablet = (window.innerWidth < 1024);
                         const isHoveringGlobe = (mouseX !== -9999);
                         const isTagHovered = (idx === hoveredTagIndex);
                         const isCategoryHovered = (currentActiveCategory && categories[currentActiveCategory] && categories[currentActiveCategory].includes(p.name));
-                        const shouldLightUp = isMobile || isHoveringGlobe || isTagHovered || isCategoryHovered;
+                        const shouldLightUp = isMobileOrTablet || isHoveringGlobe || isTagHovered || isCategoryHovered;
 
                         // Centralized dynamic DOM styling
                         if (shouldLightUp) {
