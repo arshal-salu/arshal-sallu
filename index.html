@@ -326,6 +326,16 @@
             color: #FFFFFF;
         }
 
+        /* On mobile devices, always keep the tech cards fully illuminated */
+        @media (max-width: 767px) {
+            .tech-card-animate img {
+                filter: grayscale(0) opacity(1) !important;
+            }
+            .tech-card-animate span {
+                color: #FFFFFF !important;
+            }
+        }
+
         /* Scroll Reveal animations */
         .reveal-hidden {
             opacity: 0;
