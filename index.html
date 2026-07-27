@@ -36,8 +36,10 @@
 
     <title>Arshal.dev | Full Stack Developer</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Geist:wght@500;600;700;800&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@300;400;500;600;700&amp;display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -50,7 +52,7 @@
                     fontFamily: {
                         sans: ["Inter", "sans-serif"],
                         mono: ["JetBrains Mono", "monospace"],
-                        display: ["Geist", "sans-serif"]
+                        display: ["Geist Sans", "Geist", "sans-serif"]
                     }
                 }
             }
@@ -627,7 +629,7 @@
                 </div>
 
                 <!-- Name Text -->
-                <h2 class="text-base font-extrabold text-slate-800 tracking-tight mt-4 font-display uppercase">
+                <h2 class="text-base font-semibold text-slate-800 tracking-tight mt-4 font-display uppercase">
                     Muhammed Arshal V
                 </h2>
 
@@ -652,7 +654,7 @@
                                 d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                         </svg>
                     </a>
-                    <a href="mailto:arshalsallu@gmail.com"
+                    <a href="mailto:arsgalsallu@gmail.com"
                         class="w-8 h-8 rounded-full bg-[#EBEBEB] hover:bg-[#FF3D00] text-slate-700 hover:text-white flex items-center justify-center hover:scale-110 transition-all duration-200 shadow-sm">
                         <span class="material-symbols-outlined text-[18px]">mail</span>
                     </a>
@@ -662,10 +664,10 @@
 
         <!-- Right Column - Scrollable Content Frame (Flex Grow 1) -->
         <div id="main-content"
-            class="w-full lg:flex-1 bg-transparent px-5 md:px-8 lg:pl-6 lg:pr-12 xl:pl-8 xl:pr-16 py-10 lg:py-20 flex flex-col gap-10 md:gap-16 relative z-10 text-white overflow-x-hidden lg:h-screen lg:overflow-y-auto">
+            class="w-full lg:flex-1 bg-transparent px-5 md:px-8 lg:pl-6 lg:pr-12 xl:pl-8 xl:pr-16 pt-0 pb-10 lg:pt-0 lg:pb-20 flex flex-col gap-10 md:gap-16 relative z-10 text-white overflow-x-hidden lg:h-screen lg:overflow-y-auto">
 
-            <!-- Floating Header/Navbar (Scrollable with main content) -->
-            <header class="w-full flex justify-center py-2 transition-all duration-300">
+            <!-- Floating Header/Navbar (Sticky/No scrolling with content) -->
+            <header class="w-full flex justify-center pt-6 pb-4 transition-all duration-300 sticky top-0 z-50 backdrop-blur-md bg-[#000000]/60">
                 <nav class="px-7 py-2.5 rounded-full flex items-center gap-10 text-slate-400 backdrop-blur-sm"
                     style="background-color: rgba(255, 255, 255, 0.03);">
                     <!-- Home -->
@@ -724,14 +726,14 @@
 
             <!-- Hero & About Section -->
             <section id="about"
-                class="scroll-mt-10 lg:scroll-mt-16 py-12 md:py-16 relative w-full flex flex-col items-center justify-center min-h-[480px] overflow-hidden">
+                class="scroll-mt-10 lg:scroll-mt-16 py-12 md:py-16 relative w-full flex flex-col items-center justify-center min-h-[480px]">
                 <!-- LightRays WebGL background -->
-                <div id="light-rays-bg" class="absolute inset-0 z-0 pointer-events-none opacity-40"></div>
+                <div id="light-rays-bg" class="absolute inset-0 z-0 pointer-events-none opacity-40 overflow-hidden"></div>
 
                 <!-- Centered text content -->
                 <div class="space-y-6 relative z-10 max-w-3xl text-center flex flex-col items-center justify-center">
                     <h1
-                        class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.05] font-display uppercase animate-fade-in">
+                        class="text-5xl sm:text-7xl font-bold tracking-tight leading-[1.35] font-display uppercase animate-fade-in py-2">
                         <span class="text-white">Building Fast,</span><br>
                         <span class="text-white">Scalable &</span><br>
                         <span
@@ -740,14 +742,14 @@
                     </h1>
 
                     <!-- Typing Effect for Hero values -->
-                    <h2 class="text-xl sm:text-2xl font-bold min-h-[40px] flex items-center justify-center text-center font-sans"
-                        style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">
+                    <h2 class="text-xl sm:text-2xl font-semibold min-h-[40px] flex items-center justify-center text-center font-sans"
+                        style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.85));">
                         Engineering web solutions that are&nbsp;<span id="typing-text"
-                            class="text-white border-r-2 border-white pr-1 animate-blink font-bold"></span>
+                            class="text-white border-r-2 border-white pr-1 animate-blink font-semibold"></span>
                     </h2>
 
                     <p class="text-sm sm:text-base leading-relaxed font-sans max-w-2xl text-center"
-                        style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">
+                        style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.85));">
                         I create production-ready web applications that combine modern frontend technologies, reliable
                         backend systems, and intelligent AI integrations to solve real-world problems.
                     </p>
@@ -755,11 +757,11 @@
                     <!-- Call To Actions -->
                     <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4 w-full font-sans">
                         <a href="#projects"
-                            class="w-full sm:w-auto text-center bg-transparent hover:bg-[#161414] text-white font-bold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm shadow-sm">
+                            class="w-full sm:w-auto text-center bg-transparent hover:bg-[#161414] text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm shadow-sm">
                             View Projects
                         </a>
                         <a href="#contact"
-                            class="w-full sm:w-auto text-center bg-transparent hover:bg-[#161414] text-white font-bold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm">
+                            class="w-full sm:w-auto text-center bg-transparent hover:bg-[#161414] text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm">
                             Contact Me
                         </a>
                     </div>
@@ -770,7 +772,7 @@
             <section id="skills" class="scroll-mt-10 lg:scroll-mt-16 w-full space-y-[20px]">
                 <div class="flex flex-col items-center gap-2 text-center w-full mb-4">
                     <h2
-                        class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.05] font-display uppercase animate-fade-in">
+                        class="text-5xl sm:text-7xl font-semibold tracking-tight leading-[1.05] font-display uppercase animate-fade-in">
                         <span class="text-white">My</span>
                         <span
                             style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">Skills</span>
@@ -808,7 +810,7 @@
             <section id="projects" class="scroll-mt-10 lg:scroll-mt-16 space-y-[20px]">
                 <div class="flex flex-col items-center gap-2 text-center w-full mb-4">
                     <h2
-                        class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.05] font-display uppercase animate-fade-in">
+                        class="text-5xl sm:text-7xl font-semibold tracking-tight leading-[1.05] font-display uppercase animate-fade-in">
                         <span class="text-white">Featured</span>
                         <span
                             style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">Projects</span>
@@ -848,20 +850,22 @@
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                             <div>
                                 <span id="detail-project-category"
-                                    class="text-xs text-slate-300 font-mono font-bold uppercase tracking-wider">Vue 3 /
+                                    class="text-xs text-slate-300 font-mono font-semibold uppercase tracking-wider">Vue
+                                    3 /
                                     Nuxt</span>
                                 <h3 id="detail-project-title"
-                                    class="text-2xl font-bold text-white tracking-tight mt-1 font-display">Nuxt School
+                                    class="text-2xl font-semibold text-white tracking-tight mt-1 font-display">Nuxt
+                                    School
                                     Manager</h3>
                             </div>
                             <div class="flex items-center gap-3">
                                 <button id="view-case-study-btn"
-                                    class="inline-flex items-center gap-1.5 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-white font-bold px-5 py-2.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-xs shadow-sm">
+                                    class="inline-flex items-center gap-1.5 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-xs shadow-sm">
                                     View Case Study
                                     <span class="material-symbols-outlined text-sm">article</span>
                                 </button>
                                 <a id="detail-project-link"
-                                    class="inline-flex items-center gap-1.5 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-white font-bold px-5 py-2.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-xs shadow-sm"
+                                    class="inline-flex items-center gap-1.5 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-xs shadow-sm"
                                     href="https://nuxt-app-plum-tau.vercel.app" target="_blank">
                                     Visit Live Project
                                     <span class="material-symbols-outlined text-sm">arrow_forward</span>
@@ -899,7 +903,7 @@
                     <div class="project-row cursor-pointer flex flex-col p-5 rounded-xl bg-transparent hover:bg-[#161414] transition-all duration-300"
                         data-project-id="nuxt-school-manager">
                         <div class="flex items-center mb-2">
-                            <span class="text-sm font-bold text-white font-display">Nuxt School Manager</span>
+                            <span class="text-sm font-semibold text-white font-display">Nuxt School Manager</span>
                         </div>
                         <span class="text-xs font-mono text-slate-500">Vue 3 / Nuxt</span>
                     </div>
@@ -908,7 +912,7 @@
                     <div class="project-row cursor-pointer flex flex-col p-5 rounded-xl bg-transparent hover:bg-[#161414] transition-all duration-300"
                         data-project-id="erola-engineering">
                         <div class="flex items-center mb-2">
-                            <span class="text-sm font-bold text-slate-300 font-display transition-colors">Erola
+                            <span class="text-sm font-semibold text-slate-300 font-display transition-colors">Erola
                                 Engineering</span>
                         </div>
                         <span class="text-xs font-mono text-slate-500">React / Next.js</span>
@@ -918,7 +922,7 @@
                     <div class="project-row cursor-pointer flex flex-col p-5 rounded-xl bg-transparent hover:bg-[#161414] transition-all duration-300"
                         data-project-id="bitego-delivery-app">
                         <div class="flex items-center mb-2">
-                            <span class="text-sm font-bold text-slate-300 font-display transition-colors">BiteGo
+                            <span class="text-sm font-semibold text-slate-300 font-display transition-colors">BiteGo
                                 Delivery App</span>
                         </div>
                         <span class="text-xs font-mono text-slate-500">Nitro / Prisma</span>
@@ -930,7 +934,7 @@
             <section id="contact" class="scroll-mt-10 lg:scroll-mt-16 space-y-[20px]">
                 <div class="flex flex-col items-center gap-2 text-center w-full mb-4">
                     <h2
-                        class="text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.05] font-display uppercase animate-fade-in">
+                        class="text-5xl sm:text-7xl font-semibold tracking-tight leading-[1.05] font-display uppercase animate-fade-in">
                         <span class="text-white">Let's Work</span>
                         <span
                             style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">Together</span>
@@ -940,7 +944,7 @@
 
                 <div class="w-full relative">
 
-                    <form class="space-y-6 font-sans w-full relative z-10" action="mailto:arshalsallu@gmail.com"
+                    <form class="space-y-6 font-sans w-full relative z-10" action="mailto:arsgalsallu@gmail.com"
                         method="post" enctype="text/plain">
                         <!-- Name and Email grid row -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -970,7 +974,7 @@
 
                         <!-- Submit Button -->
                         <button type="submit"
-                            class="w-full h-[54px] bg-[#2E2B2B] hover:bg-[#3D3A3A] active:bg-[#252323] text-white font-bold rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm flex items-center justify-center gap-2 border border-slate-700/40 hover:border-slate-600/60 shadow-md">
+                            class="w-full h-[54px] bg-[#2E2B2B] hover:bg-[#FF3D00] hover:border-transparent active:bg-[#D83400] text-white font-semibold rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm flex items-center justify-center gap-2 border border-slate-700/40 hover:border-slate-600/60 shadow-md">
                             Send Message
                             <span class="material-symbols-outlined text-sm">send</span>
                         </button>
@@ -989,10 +993,10 @@
                         © 2026 Muhammed Arshal V. Built with precision.
                     </p>
                     <div class="flex gap-6">
-                        <a class="text-slate-500 hover:text-cyan-400 text-xs transition-colors font-mono"
-                            href="https://github.com/arshal-salu">GitHub</a>
-                        <a class="text-slate-500 hover:text-cyan-400 text-xs transition-colors font-mono"
-                            href="mailto:arshalsallu@gmail.com">Email</a>
+                        <a class="text-slate-500 hover:text-[#FF3D00] active:text-[#D83400] text-xs transition-colors font-mono"
+                            href="https://github.com/arshal-salu" target="_blank">GitHub</a>
+                        <a class="text-slate-500 hover:text-[#FF3D00] active:text-[#D83400] text-xs transition-colors font-mono"
+                            href="mailto:arsgalsallu@gmail.com">Email</a>
                     </div>
                 </div>
             </footer>
@@ -1635,10 +1639,10 @@
                                 img.style.filter = 'drop-shadow(0 0 4px currentColor) grayscale(0) opacity(1)';
                             }
                         } else {
-                            p.element.style.color = '#8A8A8A';
+                            p.element.style.color = '#CCCCCC';
                             const img = p.element.querySelector('img');
                             if (img) {
-                                img.style.filter = 'drop-shadow(0 0 2px rgba(255,255,255,0.1)) grayscale(1) opacity(0.6)';
+                                img.style.filter = 'drop-shadow(0 0 2px rgba(255,255,255,0.15)) grayscale(0.4) opacity(0.8)';
                             }
                         }
                     });
@@ -1728,7 +1732,7 @@
                         const yPos = p.y * projectScale;
                         const scale = projectScale;
                         const opacity = (globeRadius - p.z) / (2 * globeRadius);
-                        const depthOpacity = Math.max(0.15, Math.min(1.0, opacity));
+                        const depthOpacity = Math.max(0.35, Math.min(1.0, opacity));
 
                         // Centered translate3d transform mapping
                         p.element.style.transform = `translate(-50%, -50%) translate3d(${xPos}px, ${yPos}px, 0) scale(${scale})`;
@@ -2023,7 +2027,7 @@ void main() {
                 BACK TO PORTFOLIO
             </button>
             <span id="header-project-title"
-                class="text-sm font-bold text-white tracking-tight font-display hidden sm:inline text-slate-400 uppercase tracking-widest">Case
+                class="text-sm font-semibold text-white tracking-tight font-display hidden sm:inline text-slate-400 uppercase tracking-widest">Case
                 Study</span>
             <button onclick="closeCaseStudy()"
                 class="w-8 h-8 rounded-full border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition-colors">
@@ -2067,9 +2071,9 @@ void main() {
                 <!-- Text metadata -->
                 <div class="space-y-4 max-w-4xl">
                     <span id="cs-hero-category"
-                        class="text-xs text-cyan-400 font-mono font-bold uppercase tracking-widest">Category</span>
+                        class="text-xs text-cyan-400 font-mono font-semibold uppercase tracking-widest">Category</span>
                     <h1 id="cs-hero-title"
-                        class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight font-display uppercase leading-tight">
+                        class="text-4xl sm:text-6xl font-bold text-white tracking-tight font-display uppercase leading-tight">
                         Project Title</h1>
                     <p id="cs-hero-tagline"
                         class="text-lg sm:text-xl text-slate-300 leading-relaxed font-sans max-w-3xl">Short tagline goes
@@ -2083,14 +2087,14 @@ void main() {
                     <!-- Action buttons -->
                     <div class="flex flex-wrap gap-4 pt-4">
                         <a id="cs-live-demo-link" href="javascript:void(0)" target="_blank"
-                            class="inline-flex items-center gap-2 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm border border-slate-850 shadow-md">
+                            class="inline-flex items-center gap-2 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm border border-slate-850 shadow-md">
                             Live Demo
                             <span class="material-symbols-outlined text-sm">open_in_new</span>
                         </a>
                         <a id="cs-github-link" href="javascript:void(0)" target="_blank"
-                            class="inline-flex items-center gap-2 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm border border-slate-850 shadow-md">
+                            class="inline-flex items-center gap-2 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm border border-slate-850 shadow-md">
                             GitHub Repository
-                            <span class="material-symbols-outlined text-sm font-bold">code</span>
+                            <span class="material-symbols-outlined text-sm font-semibold">code</span>
                         </a>
                     </div>
                 </div>
@@ -2123,7 +2127,7 @@ void main() {
                                 <span class="material-symbols-outlined text-2xl">warning</span>
                             </div>
                             <div class="space-y-2">
-                                <h3 class="text-base font-bold text-white font-display font-semibold">The Challenge &
+                                <h3 class="text-base font-semibold text-white font-display">The Challenge &
                                     Disconnections</h3>
                                 <p id="cs-problem" class="text-xs sm:text-sm leading-relaxed text-slate-300 font-sans">
                                     Description of the problem solved.
@@ -2138,22 +2142,25 @@ void main() {
                         <div class="h-[1px] w-12 bg-slate-850"></div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center pt-2">
-                            <p id="cs-solution"
-                                class="text-xs sm:text-sm leading-relaxed text-slate-300 font-sans">
+                            <p id="cs-solution" class="text-xs sm:text-sm leading-relaxed text-slate-300 font-sans">
                                 Explanation of how the application solves the problem.
                             </p>
                             <!-- Supporting screenshot frame -->
-                            <div class="w-full border border-slate-800/80 rounded-xl overflow-hidden shadow-2xl bg-slate-950/40">
+                            <div
+                                class="w-full border border-slate-800/80 rounded-xl overflow-hidden shadow-2xl bg-slate-950/40">
                                 <!-- Browser Header/Toolbar -->
-                                <div class="h-7 bg-slate-900/60 border-b border-slate-800/60 flex items-center px-3 relative">
+                                <div
+                                    class="h-7 bg-slate-900/60 border-b border-slate-800/60 flex items-center px-3 relative">
                                     <div class="flex items-center gap-1">
                                         <span class="w-2 h-2 rounded-full bg-[#ff5f56]"></span>
                                         <span class="w-2 h-2 rounded-full bg-[#ffbd2e]"></span>
                                         <span class="w-2 h-2 rounded-full bg-[#27c93f]"></span>
                                     </div>
                                 </div>
-                                <div class="w-full aspect-video bg-slate-950/30 flex items-center justify-center overflow-hidden">
-                                    <img id="cs-solution-image" class="w-full h-full object-cover" src="" alt="Solution Screenshot" />
+                                <div
+                                    class="w-full aspect-video bg-slate-950/30 flex items-center justify-center overflow-hidden">
+                                    <img id="cs-solution-image" class="w-full h-full object-cover" src=""
+                                        alt="Solution Screenshot" />
                                 </div>
                             </div>
                         </div>
@@ -2188,7 +2195,7 @@ void main() {
             <section class="case-study-reveal space-y-8">
                 <div class="flex flex-col items-center text-center space-y-3">
                     <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">04 / Core Features</h2>
-                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white font-display">POWERFUL PRODUCT
+                    <h3 class="text-2xl sm:text-3xl font-semibold text-white font-display">POWERFUL PRODUCT
                         CAPABILITIES</h3>
                     <div class="h-[1px] w-24 bg-slate-850"></div>
                 </div>
@@ -2203,7 +2210,7 @@ void main() {
                 <div class="flex flex-col items-center text-center space-y-3">
                     <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">05 / Architecture & Tooling
                     </h2>
-                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white font-display">THE TECH STACK</h3>
+                    <h3 class="text-2xl sm:text-3xl font-semibold text-white font-display">THE TECH STACK</h3>
                     <div class="h-[1px] w-24 bg-slate-850"></div>
                 </div>
 
@@ -2222,7 +2229,7 @@ void main() {
                     <div class="bg-red-950/10 border border-red-900/30 rounded-2xl p-6 md:p-8 space-y-6">
                         <div class="flex items-center gap-3 text-red-400">
                             <span class="material-symbols-outlined text-2xl">construction</span>
-                            <span class="font-bold text-sm tracking-wide font-mono">DEBUG_SESSION.LOG</span>
+                            <span class="font-semibold text-sm tracking-wide font-mono">DEBUG_SESSION.LOG</span>
                         </div>
                         <div id="cs-challenges"
                             class="space-y-4 font-sans text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -2245,7 +2252,7 @@ void main() {
             <section class="case-study-reveal space-y-8">
                 <div class="flex flex-col items-center text-center space-y-3">
                     <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">08 / Visual Gallery</h2>
-                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white font-display font-display">PROJECT
+                    <h3 class="text-2xl sm:text-3xl font-semibold text-white font-display">PROJECT
                         SCREENSHOTS</h3>
                     <div class="h-[1px] w-24 bg-slate-850"></div>
                 </div>
@@ -2266,7 +2273,7 @@ void main() {
                         <div class="flex items-center gap-2">
                             <span
                                 class="material-symbols-outlined text-slate-400 group-hover:-translate-x-1 transition-transform">arrow_back</span>
-                            <span id="cs-nav-prev-title" class="font-bold text-white font-display text-base">Project
+                            <span id="cs-nav-prev-title" class="font-semibold text-white font-display text-base">Project
                                 Name</span>
                         </div>
                     </button>
@@ -2276,7 +2283,7 @@ void main() {
                         <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-2">Next
                             Project</span>
                         <div class="flex items-center gap-2">
-                            <span id="cs-nav-next-title" class="font-bold text-white font-display text-base">Project
+                            <span id="cs-nav-next-title" class="font-semibold text-white font-display text-base">Project
                                 Name</span>
                             <span
                                 class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform">arrow_forward</span>
@@ -2286,7 +2293,7 @@ void main() {
 
                 <!-- Main CTA back to site -->
                 <button onclick="closeCaseStudy()"
-                    class="bg-transparent hover:bg-slate-900/80 text-white border border-slate-850 hover:border-slate-700 font-bold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm shadow-md flex items-center gap-2">
+                    class="bg-transparent hover:bg-slate-900/80 text-white border border-slate-850 hover:border-slate-700 font-semibold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm shadow-md flex items-center gap-2">
                     <span class="material-symbols-outlined text-sm">home</span>
                     Back to Portfolio
                 </button>
@@ -2348,15 +2355,15 @@ void main() {
                 challenges: `
                     <div class="space-y-4">
                         <div>
-                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">1. Relational Database Modeling</h4>
+                            <h4 class="font-semibold text-white font-display mb-1 text-xs uppercase tracking-wider">1. Relational Database Modeling</h4>
                             <p class="text-xs text-slate-300">Designing schema relationships between Students, Teachers, Classes, and Attendance records required careful configuration in Prisma to prevent cascade issues. Resolved by building detailed entity-relationship diagrams and utilizing Prisma's migration tools to enforce strong referential integrity constraint boundaries.</p>
                         </div>
                         <div>
-                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">2. Role-Based Authentication Routing</h4>
+                            <h4 class="font-semibold text-white font-display mb-1 text-xs uppercase tracking-wider">2. Role-Based Authentication Routing</h4>
                             <p class="text-xs text-slate-300">Restricting administrative routes from student read access. Resolved by creating dynamic server-side middleware that intercepts requests, decodes session tokens, and validates access privileges before resolving routes.</p>
                         </div>
                         <div>
-                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">3. Database Query Optimization</h4>
+                            <h4 class="font-semibold text-white font-display mb-1 text-xs uppercase tracking-wider">3. Database Query Optimization</h4>
                             <p class="text-xs text-slate-300">Slow dashboards due to fetching nested relations on large classes. Resolved by selecting specific fields in Prisma queries and utilizing indexed foreign keys to speed up analytics calculation loading times by 70%.</p>
                         </div>
                     </div>
@@ -2401,11 +2408,11 @@ void main() {
                 challenges: `
                     <div class="space-y-4">
                         <div>
-                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">1. Balancing Design with Responsiveness</h4>
+                            <h4 class="font-semibold text-white font-display mb-1 text-xs uppercase tracking-wider">1. Balancing Design with Responsiveness</h4>
                             <p class="text-xs text-slate-300">Translating detailed, high-fidelity UI specifications into fluid responsive layouts without design compromises. Resolved by implementing custom container queries and modular flex/grid classes to retain spacing proportions.</p>
                         </div>
                         <div>
-                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">2. Cross-Device Performance Tuning</h4>
+                            <h4 class="font-semibold text-white font-display mb-1 text-xs uppercase tracking-wider">2. Cross-Device Performance Tuning</h4>
                             <p class="text-xs text-slate-300">Preventing layout shifting and render blocking from large structural graphics assets. Resolved by applying Next.js next/image formatting, WebP file compression, and style hydration deferment.</p>
                         </div>
                     </div>
@@ -2448,11 +2455,11 @@ void main() {
                 challenges: `
                     <div class="space-y-4">
                         <div>
-                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">1. Secure payment integration validation</h4>
+                            <h4 class="font-semibold text-white font-display mb-1 text-xs uppercase tracking-wider">1. Secure payment integration validation</h4>
                             <p class="text-xs text-slate-300">Preventing client-side tampering of purchase pricing parameters. Resolved by orchestrating order generation exclusively on the Nitro server and confirming payment signatures using Razorpay APIs upon webhook notification.</p>
                         </div>
                         <div>
-                            <h4 class="font-bold text-white font-display mb-1 text-xs uppercase tracking-wider">2. API Environment Variable Protection</h4>
+                            <h4 class="font-semibold text-white font-display mb-1 text-xs uppercase tracking-wider">2. API Environment Variable Protection</h4>
                             <p class="text-xs text-slate-300">Securing API secret keys during client network round-trips. Resolved by routing external gateway communication through secure backend handlers and storing keys in Vercel configuration env variables.</p>
                         </div>
                     </div>
@@ -2541,7 +2548,7 @@ void main() {
                     <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400">
                         <span class="material-symbols-outlined text-xl">${feat.icon}</span>
                     </div>
-                    <h4 class="font-bold text-white font-display text-sm tracking-tight">${feat.title}</h4>
+                    <h4 class="font-semibold text-white font-display text-sm tracking-tight">${feat.title}</h4>
                     <p class="text-xs text-slate-400 leading-relaxed font-sans">${feat.desc}</p>
                 `;
                 featuresContainer.appendChild(div);
@@ -2567,7 +2574,7 @@ void main() {
                     <div class="absolute left-[-29px] top-[4px] w-4.5 h-4.5 rounded-full bg-slate-900 border-2 border-cyan-400 flex items-center justify-center z-10 shadow-sm">
                         <div class="w-1.5 h-1.5 rounded-full bg-cyan-400"></div>
                     </div>
-                    <h4 class="font-bold text-white font-display text-sm tracking-tight mb-1">${learn.title}</h4>
+                    <h4 class="font-semibold text-white font-display text-sm tracking-tight mb-1">${learn.title}</h4>
                     <p class="text-xs text-slate-400 leading-relaxed font-sans">${learn.desc}</p>
                 `;
                 learningsContainer.appendChild(div);
