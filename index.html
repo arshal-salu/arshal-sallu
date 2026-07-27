@@ -483,8 +483,8 @@
             left: 50%;
             width: 0;
             height: 2px;
-            background-color: #06b6d4;
-            /* cyan accent */
+            background-color: #FF3D00;
+            /* brand orange-red accent */
             border-radius: 9999px;
             transform: translateX(-50%);
             transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -493,6 +493,18 @@
         nav a:hover::after,
         nav a.active::after {
             width: 14px;
+        }
+
+        header {
+            transition: padding 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        header.scrolled {
+            padding-top: 0.5rem !important; /* pt-2 */
+            padding-bottom: 0.5rem !important; /* pb-2 */
+            background-color: rgba(11, 11, 13, 0.85) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
         }
 
         /* Social Icons custom lift, rotate, and glow */
@@ -1030,6 +1042,24 @@
                     }
                 });
             });
+            // Sticky header shrink on scroll
+            const headerEl = document.querySelector('header');
+            const mainContentEl = document.getElementById('main-content');
+            if (headerEl) {
+                const handleHeaderScroll = () => {
+                    const scrollTop = mainContentEl ? mainContentEl.scrollTop : window.scrollY;
+                    if (scrollTop > 20) {
+                        headerEl.classList.add('scrolled');
+                    } else {
+                        headerEl.classList.remove('scrolled');
+                    }
+                };
+                if (mainContentEl) {
+                    mainContentEl.addEventListener('scroll', handleHeaderScroll, { passive: true });
+                }
+                window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+                handleHeaderScroll();
+            }
 
             // Interactive Projects Selection and Detail View logic
             const projectRows = document.querySelectorAll('.project-row');
