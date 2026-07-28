@@ -1224,7 +1224,7 @@
             const avatarImage = document.getElementById('avatar-image');
 
             // Load saved avatar if exists
-            const savedAvatar = localStorage.getItem('arshal_avatar');
+            const savedAvatar = localStorage.getItem('arshal_avatar_v2');
             if (savedAvatar) {
                 avatarImage.src = savedAvatar;
             }
@@ -1237,7 +1237,7 @@
                     reader.onload = (event) => {
                         const dataUrl = event.target.result;
                         avatarImage.src = dataUrl;
-                        localStorage.setItem('arshal_avatar', dataUrl);
+                        localStorage.setItem('arshal_avatar_v2', dataUrl);
                     };
                     reader.readAsDataURL(file);
                 }
