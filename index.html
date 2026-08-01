@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <link rel="icon" type="image/png" href="/images/ChatGPT Image Jul 27, 2026, 01_24_55 PM.png" />
+    <link rel="icon" type="image/png" href="/images/ChatGPT Image Jul 31, 2026, 09_34_41 AM (1).png" />
 
     <!-- Primary Meta Tags -->
     <meta name="title" content="Arshal.dev | Full Stack Developer" />
@@ -59,6 +59,10 @@
         }
     </script>
     <style>
+        :root {
+            --token-71db196f-61cb-4b9d-a4b8-20a87c24d842: #94a3b8;
+        }
+
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
             display: inline-block;
@@ -70,16 +74,16 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #0B0F19;
+            background: #f1f1f1;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #1E293B;
+            background: #c1c1c1;
             border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #0EA5E9;
+            background: #013004;
         }
 
         .scrollbar-none::-webkit-scrollbar {
@@ -102,7 +106,7 @@
         }
 
         .bg-dot-grid {
-            background-image: radial-gradient(rgba(56, 189, 248, 0.08) 1.5px, transparent 1.5px);
+            background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1.5px, transparent 1.5px);
             background-size: 32px 32px;
             animation: drift-grid 28s linear infinite;
         }
@@ -227,6 +231,62 @@
             text-shadow: 0 0 10px currentColor;
         }
 
+        /* Infinite Marquee Styles */
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes marquee-reverse {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+        }
+
+        .animate-marquee-reverse {
+            display: flex;
+            width: max-content;
+            animation: marquee-reverse 25s linear infinite;
+        }
+
+        .animate-marquee:hover,
+        .animate-marquee-reverse:hover {
+            animation-play-state: paused;
+        }
+        
+        .skills-marquee-card {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 14px;
+            background-color: #0f1115;
+            border: 1px solid rgba(37, 38, 43, 0.8);
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .skills-marquee-card:hover {
+            border-color: #013004;
+            background-color: #13161c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(1, 48, 4, 0.1);
+        }
+
         @media (max-width: 767px) {
             .skills-sphere {
                 height: 300px;
@@ -278,14 +338,14 @@
             left: 0;
             right: 0;
             height: 2px;
-            background-color: rgba(212, 175, 55, 0.85);
-            /* Luxury Gold Underline */
+            background-color: #013004;
+            /* Burgundy Underline */
             transform: scale-x(0);
             transition: transform 0.3s ease;
         }
 
         .skill-tab-btn:hover {
-            color: #FFFFFF;
+            color: #ffffff;
         }
 
         .skill-tab-btn:hover::after {
@@ -293,7 +353,7 @@
         }
 
         .skill-tab-btn.active {
-            color: #FFFFFF;
+            color: #ffffff;
         }
 
         .skill-tab-btn.active::after {
@@ -323,7 +383,7 @@
         }
 
         #skills-grid-display.globe-hovered .tech-card-animate span {
-            color: #FFFFFF;
+            color: #ffffff;
         }
 
         /* On mobile & tablet devices, always keep the tech cards fully illuminated */
@@ -331,8 +391,9 @@
             .tech-card-animate img {
                 filter: grayscale(0) opacity(1) !important;
             }
+
             .tech-card-animate span {
-                color: #FFFFFF !important;
+                color: #ffffff !important;
             }
         }
 
@@ -365,7 +426,7 @@
         button:focus-visible,
         input:focus-visible,
         textarea:focus-visible {
-            outline: 2px solid rgba(6, 182, 212, 0.8) !important;
+            outline: 2px solid #013004 !important;
             outline-offset: 2px !important;
         }
 
@@ -431,9 +492,9 @@
 
         .project-row:hover {
             transform: translateY(-3px) scale(1.01) !important;
-            background-color: #161414 !important;
+            background-color: rgba(18, 18, 18, 0.95) !important;
             border-color: rgba(255, 255, 255, 0.08) !important;
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7) !important;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5) !important;
         }
 
         .project-row:active {
@@ -462,6 +523,9 @@
         #detail-project-tags span,
         #cs-hero-badges span,
         #cs-tech span {
+            background-color: #f8fafc !important;
+            border: 1px solid #e2e8f0 !important;
+            color: #35383b !important;
             transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -469,10 +533,10 @@
         #cs-hero-badges span:hover,
         #cs-tech span:hover {
             transform: scale(1.05);
-            background-color: #161414 !important;
-            color: #FFFFFF;
-            border-color: rgba(6, 182, 212, 0.4);
-            box-shadow: 0 0 10px rgba(6, 182, 212, 0.15);
+            background-color: #ffffff !important;
+            color: #35383b !important;
+            border-color: #e2e8f0 !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
         }
 
         /* Navigation Links animations */
@@ -482,8 +546,12 @@
         }
 
         nav a:hover {
-            color: #FFFFFF !important;
+            color: #15803d !important;
             transform: scale(1.1);
+        }
+
+        nav a.active {
+            color: #013004 !important;
         }
 
         nav a::after {
@@ -493,11 +561,15 @@
             left: 50%;
             width: 0;
             height: 2px;
-            background-color: #FF3D00;
-            /* brand orange-red accent */
+            background-color: #013004;
+            /* brand burgundy accent */
             border-radius: 9999px;
             transform: translateX(-50%);
-            transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+        }
+
+        nav a:hover::after {
+            background-color: #000000;
         }
 
         nav a:hover::after,
@@ -510,11 +582,13 @@
         }
 
         header.scrolled {
-            padding-top: 0.5rem !important; /* pt-2 */
-            padding-bottom: 0.5rem !important; /* pb-2 */
-            background-color: rgba(11, 11, 13, 0.85) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+            padding-top: 0.5rem !important;
+            /* pt-2 */
+            padding-bottom: 0.5rem !important;
+            /* pb-2 */
+            background-color: transparent !important;
+            border-bottom: none !important;
+            box-shadow: none !important;
         }
 
         /* Social Icons custom lift, rotate, and glow */
@@ -524,21 +598,21 @@
 
         aside .flex.gap-\[12px\] a:hover {
             transform: translateY(-3px) rotate(2deg) scale(1.05) !important;
-            box-shadow: 0 4px 12px rgba(255, 61, 0, 0.25) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
         }
 
         /* Contact Form custom focus effects */
         form input,
         form textarea {
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-            border: 1px solid transparent !important;
+            border: 1px solid #e2e8f0 !important;
         }
 
         form input:focus,
         form textarea:focus {
-            border-color: rgba(6, 182, 212, 0.4) !important;
-            box-shadow: 0 0 15px rgba(6, 182, 212, 0.15) !important;
-            background-color: #242222 !important;
+            border-color: #013004 !important;
+            box-shadow: 0 0 12px rgba(1, 48, 4, 0.15) !important;
+            background-color: #ffffff !important;
         }
 
         /* Placeholder transition */
@@ -557,7 +631,7 @@
         #case-study-progress-bar {
             height: 3px;
             width: 0%;
-            background: linear-gradient(90deg, #06b6d4, #3b82f6);
+            background: #013004;
             border-radius: 9999px;
             transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -586,8 +660,8 @@
             font-family: 'Material Symbols Outlined';
             position: absolute;
             inset: 0;
-            background-color: rgba(7, 9, 19, 0.4);
-            color: #FFFFFF;
+            background-color: rgba(11, 11, 13, 0.4);
+            color: #000000;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -598,6 +672,127 @@
 
         #cs-gallery div:hover::after {
             opacity: 1;
+        }
+
+
+
+        /* 3D Rotating Carousel styles */
+        .projects-carousel-container {
+            position: relative;
+            width: 100%;
+            height: 525px;
+            perspective: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+        }
+
+        .projects-carousel-stage {
+            position: relative;
+            width: 100%;
+            max-width: 680px;
+            height: 425px;
+            transform-style: preserve-3d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .projects-carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        /* 3D states */
+        .projects-carousel-slide.center {
+            transform: translate3d(0, 0, 0) scale(1) rotateY(0deg);
+            opacity: 1;
+            z-index: 30;
+            pointer-events: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 35px rgba(1, 48, 4, 0.1);
+        }
+
+        .projects-carousel-slide.center:hover {
+            transform: translate3d(0, -6px, 0) scale(1) rotateY(0deg) !important;
+        }
+
+        .projects-carousel-slide:hover>div {
+            border-color: #013004 !important;
+            box-shadow: 0 20px 40px -15px rgba(1, 48, 4, 0.15) !important;
+        }
+
+        .projects-carousel-slide.left {
+            transform: translate3d(-150px, 0, -200px) scale(0.8) rotateY(25deg);
+            opacity: 0.35;
+            z-index: 10;
+            pointer-events: auto;
+            filter: grayscale(0.6) blur(1px);
+        }
+
+        .projects-carousel-slide.right {
+            transform: translate3d(150px, 0, -200px) scale(0.8) rotateY(-25deg);
+            opacity: 0.35;
+            z-index: 10;
+            pointer-events: auto;
+            filter: grayscale(0.6) blur(1px);
+        }
+
+        .projects-carousel-slide:not(.center):hover {
+            opacity: 0.65;
+            filter: grayscale(0.3) blur(0px);
+        }
+
+        /* Mobile specific overrides */
+        @media (max-width: 768px) {
+            .projects-carousel-container {
+                height: 380px;
+            }
+
+            .projects-carousel-stage {
+                height: 280px;
+                max-width: 90%;
+            }
+
+            .projects-carousel-slide.left {
+                transform: translate3d(-80px, 0, -120px) scale(0.78) rotateY(20deg);
+                opacity: 0.2;
+            }
+
+            .projects-carousel-slide.right {
+                transform: translate3d(80px, 0, -120px) scale(0.78) rotateY(-20deg);
+                opacity: 0.2;
+            }
+        }
+
+        /* Direct click play overlay icon on active card hover */
+        .projects-carousel-slide .card-active-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(9, 9, 11, 0.7);
+            backdrop-filter: blur(4px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 20;
+            gap: 8px;
+        }
+
+        .projects-carousel-slide.center:hover .card-active-overlay {
+            opacity: 1;
+            pointer-events: auto;
         }
 
         /* Accessibility: respect user choice on animations */
@@ -612,95 +807,250 @@
                 transform: none !important;
             }
         }
+
+        /* Intro Splash Screen Styles */
+        #intro-splash {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background-color: #0F1115;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        #intro-splash.fade-out {
+            opacity: 0;
+            transform: scale(1.08);
+            pointer-events: none;
+        }
+
+        /* Prevent scroll class */
+        body.lock-scroll {
+            overflow: hidden !important;
+            height: 100vh !important;
+        }
+
+        /* Sleek pulsating logo */
+        .intro-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #013004 0%, #064e3b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display, sans-serif);
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffffff;
+            box-shadow: 0 0 30px rgba(1, 48, 4, 0.4);
+            animation: intro-pulse 2s infinite ease-in-out;
+            margin-bottom: 24px;
+        }
+
+        @keyframes intro-pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 30px rgba(1, 48, 4, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 45px rgba(6, 78, 59, 0.6);
+            }
+        }
+
+        /* Slide-up reveal animations */
+        .reveal-delay-1 {
+            animation: intro-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .reveal-delay-2 {
+            animation: intro-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .reveal-delay-3 {
+            animation: intro-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .reveal-delay-4 {
+            animation: intro-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes intro-reveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+
     </style>
 </head>
 
 <body
-    class="bg-[#0b0b0d] text-slate-100 font-sans selection:bg-cyan-500/30 selection:text-white min-h-screen overflow-x-hidden relative"
-    style="background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px); background-size: 24px 24px;">
+    class="bg-[#09090b] text-[#ffffff] font-sans selection:bg-[#013004] selection:text-white min-h-screen overflow-x-hidden relative"
+    style="background-color: #09090b;">
+        <!-- Intro Splash Screen -->
+    <!-- Intro Splash Screen -->
+    <div id="intro-splash">
+                <!-- DotGrid Background Container -->
+        <div id="splash-dotgrid-bg" class="absolute inset-0 z-0 pointer-events-none overflow-hidden w-full h-full opacity-[0.35]">
+            <canvas style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none !important;"></canvas>
+        </div>
+        <!-- Responsive Dashboard Container -->
+        <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 md:py-12 flex flex-col lg:flex-row gap-6 lg:gap-8 items-center justify-center min-h-screen">
+            
+                        <!-- Left Panel: Profile Sidebar Card -->
+            <div class="reveal-delay-1 w-full max-w-sm shrink-0">
+                <!-- Exact Profile Card Design -->
+                <div class="relative bg-[#ffffff] border border-[#e2e8f0] rounded-[24px] p-6 shadow-2xl w-full flex flex-col items-center overflow-hidden group">
+                    <!-- Profile Image -->
+                    <div class="relative w-full aspect-square rounded-[16px] overflow-hidden bg-gradient-to-tr from-slate-950 to-slate-800 transition-shadow duration-300">
+                        <label for="splash-avatar-upload" class="relative block w-full h-full cursor-pointer">
+                            <img id="splash-avatar-image" src="./images/ChatGPT Image Jul 28, 2026, 08_04_37 AM (1).png"
+                                alt="Muhammed Arshal V"
+                                class="w-full h-full object-cover filter drop-shadow-sm group-hover:scale-105 transition-transform duration-300" />
+                            <!-- Camera Hover Overlay -->
+                            <div class="absolute bottom-2 right-2 w-8 h-8 bg-slate-900 border border-[#e2e8f0]/80 text-black rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-[#013004] hover:border-transparent">
+                                <span class="material-symbols-outlined text-sm">photo_camera</span>
+                            </div>
+                            <input type="file" id="splash-avatar-upload" accept="image/*" class="hidden" />
+                        </label>
+                    </div>
 
+                    <!-- Name Text -->
+                    <h2 class="text-base font-bold text-[#000000] tracking-tight mt-4 font-display uppercase">
+                        Muhammed Arshal V
+                    </h2>
 
+                    <!-- Icon: Neutral circle with rocket/flame icon -->
+                    <div class="w-10 h-10 rounded-full bg-[#f8fafc] text-[#35383b] flex items-center justify-center mt-3">
+                        <span class="material-symbols-outlined text-xl">rocket_launch</span>
+                    </div>
 
+                    <!-- Bio Text -->
+                    <p class="text-[12px] text-[#35383b] leading-[1.6] text-center mt-[16px] font-sans font-medium uppercase tracking-wider">
+                        Full Stack Web Developer &bull; Seeking Internship
+                    </p>
 
-
-    <!-- Stack Wrapper (Grid Layout: 320px Left Column, 1fr Right Column) -->
-    <div
-        class="grid grid-cols-1 lg:grid-cols-[320px_1fr] min-h-screen lg:h-screen w-full max-w-[1280px] mx-auto relative z-10 bg-transparent lg:overflow-hidden">
-
-        <!-- Left Sidebar - Sticky 320px Width -->
-        <aside
-            class="w-full lg:sticky lg:top-0 lg:h-screen lg:z-50 bg-transparent px-5 py-8 md:p-8 lg:pl-8 lg:pr-4 flex flex-col justify-center items-center h-auto animate-fade-in">
-
-            <!-- Off-White Profile Card Design -->
-            <div
-                class="relative bg-[#FAF9F6] rounded-[24px] p-6 shadow-2xl w-full max-w-sm flex flex-col items-center overflow-hidden group">
-
-                <!-- Profile Image -->
-                <div
-                    class="relative w-full aspect-square rounded-[16px] overflow-hidden bg-gradient-to-tr from-[#FF3D00] to-[#FF6B00] group-hover:shadow-md transition-shadow duration-300">
-                    <label for="avatar-upload" class="relative block w-full h-full cursor-pointer">
-                        <img id="avatar-image" src="./images/ChatGPT Image Jul 28, 2026, 08_04_37 AM.png" alt="Muhammed Arshal V"
-                            class="w-full h-full object-cover filter drop-shadow-sm group-hover:scale-105 transition-transform duration-300" />
-                        <!-- Camera Hover Overlay (round badge at the bottom corner) -->
-                        <div
-                            class="absolute bottom-2 right-2 w-8 h-8 bg-slate-900 border border-slate-700/80 text-white rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-cyan-500 hover:border-transparent">
-                            <span class="material-symbols-outlined text-sm">photo_camera</span>
-                        </div>
-                        <input type="file" id="avatar-upload" accept="image/*" class="hidden" />
-                    </label>
-                </div>
-
-                <!-- Name Text -->
-                <h2 class="text-base font-semibold text-slate-800 tracking-tight mt-4 font-display uppercase">
-                    Muhammed Arshal V
-                </h2>
-
-                <!-- Icon: Orange circle with rocket/flame icon -->
-                <div
-                    class="w-10 h-10 rounded-full bg-[#FF3D00]/10 text-[#FF3D00] flex items-center justify-center mt-3">
-                    <span class="material-symbols-outlined text-xl">rocket_launch</span>
-                </div>
-
-                <!-- Bio Text -->
-                <p
-                    class="text-[12px] text-[#666666] leading-[1.6] text-center mt-[16px] font-sans font-medium uppercase tracking-wider">
-                    Full Stack Web Developer &bull; Seeking Internship
-                </p>
-
-                <!-- Social Icons Row -->
-                <div class="flex gap-[12px] mt-[20px]">
-                    <a href="https://github.com/arshal-salu" target="_blank"
-                        class="w-8 h-8 rounded-full bg-[#EBEBEB] hover:bg-[#FF3D00] text-slate-700 hover:text-white flex items-center justify-center hover:scale-110 transition-all duration-200 shadow-sm">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                            <path
-                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                        </svg>
-                    </a>
-                    <a href="mailto:arsgalsallu@gmail.com"
-                        class="w-8 h-8 rounded-full bg-[#EBEBEB] hover:bg-[#FF3D00] text-slate-700 hover:text-white flex items-center justify-center hover:scale-110 transition-all duration-200 shadow-sm">
-                        <span class="material-symbols-outlined text-[18px]">mail</span>
-                    </a>
+                    <!-- Social Icons Row -->
+                    <div class="flex gap-[12px] mt-[20px]">
+                        <a href="https://github.com/arshal-salu" target="_blank"
+                            class="w-8 h-8 rounded-full bg-[#f8fafc] border border-[#e2e8f0] hover:bg-[#013004] text-[#35383b] hover:text-black flex items-center justify-center hover:scale-110 transition-all duration-200 shadow-sm">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </a>
+                        <a href="mailto:arsgalsallu@gmail.com"
+                            class="w-8 h-8 rounded-full bg-[#f8fafc] border border-[#e2e8f0] hover:bg-[#013004] text-[#35383b] hover:text-black flex items-center justify-center hover:scale-110 transition-all duration-200 shadow-sm">
+                            <span class="material-symbols-outlined text-[18px]">mail</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </aside>
+            <!-- Right Panel: About Card & Explore Button -->
+            <div class="w-full lg:max-w-xl flex flex-col justify-between reveal-delay-2 min-h-[340px] lg:min-h-[420px]">
+                <div class="space-y-6">
+                    <!-- Header -->
+                    <div>
+                        <span class="text-[10px] font-bold tracking-widest text-[#013004] font-mono uppercase block mb-1">
+                            00 / Introduction
+                        </span>
+                        <h3 class="text-2xl sm:text-3xl font-black tracking-tight text-white uppercase font-display">
+                            About Me
+                        </h3>
+                    </div>
+                    
+                    <!-- Bio details -->
+                    <div class="space-y-4 text-sm leading-relaxed text-slate-700 font-sans">
+                        <p>
+                            I am a Full Stack Developer passionate about crafting highly responsive, performant, and premium web applications. I specialize in building type-safe database schemas, optimizing dashboard analytics, and integrating high-end user interface interactions.
+                        </p>
+                        <p>
+                            Combining front-end creativity with solid backend architecture, my work focuses on robust state management, clean database models, and micro-interactions that elevate the overall digital experience.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- CTA Enter button -->
+                <div class="mt-8">
+                    <button id="enter-portfolio-btn" onclick="enterPortfolio()"
+                        class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#013004] to-[#064e3b] text-white font-bold text-xs uppercase tracking-widest rounded-xl hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(1,48,4,0.3)] hover:shadow-[0_0_30px_rgba(6,78,59,0.5)]">
+                        Explore Full Portfolio
+                    </button>
+                    <script>
+                        window.enterPortfolio = function() {
+                            const splash = document.getElementById('intro-splash');
+                            if (splash) {
+                                try {
+                                    sessionStorage.setItem('portfolio-intro-visited', 'true');
+                                } catch (e) {}
+                                splash.classList.add('fade-out');
+                                document.body.classList.remove('lock-scroll');
+                                setTimeout(() => {
+                                    splash.remove();
+                                }, 800);
+                            }
+                        };
+                    </script>
+                </div>
+            </div>
+            
+        </div>
+    </div>
 
-        <!-- Right Column - Scrollable Content Frame (Flex Grow 1) -->
+    
+
+
+
+
+
+            <!-- DotField Background Container -->
+    <div id="dot-field-bg" class="fixed inset-0 z-0 pointer-events-none overflow-hidden w-full h-full">
+        <canvas style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none !important;"></canvas>
+        <svg style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;">
+            <defs>
+                <radialGradient id="dot-field-glow-gradient">
+                    <stop offset="0%" stop-color="#013004" stop-opacity="0.12" />
+                    <stop offset="100%" stop-color="transparent" stop-opacity="0" />
+                </radialGradient>
+            </defs>
+            <circle id="dot-field-glow-circle" cx="-9999" cy="-9999" r="160" fill="url(#dot-field-glow-gradient)" style="opacity: 0; will-change: opacity;" />
+        </svg>
+    </div>
+
+    <!-- Main Centered Layout Wrapper -->
+    <div class="min-h-screen w-full max-w-[1000px] mx-auto relative z-10 bg-transparent">
+
+        
+
+        <!-- Main Scrollable Content Frame -->
         <div id="main-content"
-            class="w-full lg:flex-1 bg-transparent px-5 md:px-8 lg:pl-6 lg:pr-12 xl:pl-8 xl:pr-16 pt-0 pb-10 lg:pt-0 lg:pb-20 flex flex-col gap-10 md:gap-16 relative z-10 text-white overflow-x-hidden lg:h-screen lg:overflow-y-auto">
+            class="w-full bg-transparent px-5 md:px-8 lg:px-12 xl:px-16 pt-0 pb-12 flex flex-col gap-0 relative z-10 text-slate-200 overflow-x-hidden">
 
             <!-- Floating Header/Navbar (Sticky/No scrolling with content) -->
-            <header class="w-full flex justify-center pt-6 pb-4 transition-all duration-300 sticky top-0 z-50 backdrop-blur-md bg-[#0b0b0d]/60">
+            <header
+                class="w-full flex justify-center pt-6 pb-4 transition-all duration-300 sticky top-0 z-50 bg-transparent">
                 <nav class="px-7 py-2.5 rounded-full flex items-center gap-10 text-slate-400 backdrop-blur-sm"
-                    style="background-color: rgba(255, 255, 255, 0.03);">
+                    style="background-color: rgba(15, 17, 21, 0.65); border: 1px solid rgba(255, 255, 255, 0.05);">
                     <!-- Home -->
                     <div class="relative group">
                         <a href="#about"
-                            class="flex items-center justify-center hover:text-white transition-colors py-1"
+                            class="flex items-center justify-center hover:text-[#15803d] transition-colors py-1"
                             title="Home">
                             <span class="material-symbols-outlined text-[22px]">home</span>
                         </a>
                         <span
-                            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-0.5 bg-[#000000]/95 border border-white/10 text-[10px] font-semibold uppercase tracking-wider text-slate-200 rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 -translate-y-1 group-hover:translate-y-0 backdrop-blur-sm">
+                            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-0.5 bg-[#ffffff]/95 border border-white/10 text-[10px] font-semibold uppercase tracking-wider text-slate-200 rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 -translate-y-1 group-hover:translate-y-0 backdrop-blur-sm">
                             Home
                         </span>
                     </div>
@@ -708,12 +1058,12 @@
                     <!-- Tools -->
                     <div class="relative group">
                         <a href="#skills"
-                            class="flex items-center justify-center hover:text-white transition-colors py-1"
+                            class="flex items-center justify-center hover:text-[#15803d] transition-colors py-1"
                             title="Tools">
                             <span class="material-symbols-outlined text-[22px]">build</span>
                         </a>
                         <span
-                            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-0.5 bg-[#000000]/95 border border-white/10 text-[10px] font-semibold uppercase tracking-wider text-slate-200 rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 -translate-y-1 group-hover:translate-y-0 backdrop-blur-sm">
+                            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-0.5 bg-[#ffffff]/95 border border-white/10 text-[10px] font-semibold uppercase tracking-wider text-slate-200 rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 -translate-y-1 group-hover:translate-y-0 backdrop-blur-sm">
                             Tools
                         </span>
                     </div>
@@ -721,12 +1071,12 @@
                     <!-- Projects -->
                     <div class="relative group">
                         <a href="#projects"
-                            class="flex items-center justify-center hover:text-white transition-colors py-1"
+                            class="flex items-center justify-center hover:text-[#15803d] transition-colors py-1"
                             title="Projects">
                             <span class="material-symbols-outlined text-[22px]">folder_open</span>
                         </a>
                         <span
-                            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-0.5 bg-[#000000]/95 border border-white/10 text-[10px] font-semibold uppercase tracking-wider text-slate-200 rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 -translate-y-1 group-hover:translate-y-0 backdrop-blur-sm">
+                            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-0.5 bg-[#ffffff]/95 border border-white/10 text-[10px] font-semibold uppercase tracking-wider text-slate-200 rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 -translate-y-1 group-hover:translate-y-0 backdrop-blur-sm">
                             Projects
                         </span>
                     </div>
@@ -734,12 +1084,12 @@
                     <!-- Contact -->
                     <div class="relative group">
                         <a href="#contact"
-                            class="flex items-center justify-center hover:text-white transition-colors py-1"
+                            class="flex items-center justify-center hover:text-[#15803d] transition-colors py-1"
                             title="Contact">
                             <span class="material-symbols-outlined text-[22px]">mail</span>
                         </a>
                         <span
-                            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-0.5 bg-[#000000]/95 border border-white/10 text-[10px] font-semibold uppercase tracking-wider text-slate-200 rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 -translate-y-1 group-hover:translate-y-0 backdrop-blur-sm">
+                            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-0.5 bg-[#ffffff]/95 border border-white/10 text-[10px] font-semibold uppercase tracking-wider text-slate-200 rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 -translate-y-1 group-hover:translate-y-0 backdrop-blur-sm">
                             Contact
                         </span>
                     </div>
@@ -748,12 +1098,12 @@
 
             <!-- Hero & About Section -->
             <section id="about"
-                class="scroll-mt-10 lg:scroll-mt-16 py-12 md:py-16 relative w-full flex flex-col items-center justify-center min-h-[480px]">
-                <!-- LightRays WebGL background -->
-                <div id="light-rays-bg" class="absolute inset-0 z-0 pointer-events-none opacity-40 overflow-hidden"></div>
+                class="scroll-mt-10 lg:scroll-mt-16 pt-10 pb-6 md:pt-14 md:pb-8 relative w-full flex flex-col items-start justify-center min-h-[420px]">
+                
+
 
                 <!-- Centered text content -->
-                <div class="space-y-6 relative z-10 max-w-3xl text-center flex flex-col items-center justify-center">
+                <div class="space-y-6 relative z-10 max-w-3xl text-left flex flex-col items-start justify-start mr-auto">
                     <h1
                         class="text-5xl sm:text-7xl font-bold tracking-tight leading-[1.35] font-display uppercase animate-fade-in py-2">
                         <span class="text-white">Building Fast,</span><br>
@@ -764,26 +1114,26 @@
                     </h1>
 
                     <!-- Typing Effect for Hero values -->
-                    <h2 class="text-xl sm:text-2xl font-semibold min-h-[40px] flex items-center justify-center text-center font-sans"
+                    <h2 class="text-xl sm:text-2xl font-semibold min-h-[40px] flex items-center justify-start text-left font-sans"
                         style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.85));">
                         Engineering web solutions that are&nbsp;<span id="typing-text"
                             class="text-white border-r-2 border-white pr-1 animate-blink font-semibold"></span>
                     </h2>
 
-                    <p class="text-sm sm:text-base leading-relaxed font-sans max-w-2xl text-center"
+                    <p class="text-sm sm:text-base leading-relaxed font-sans max-w-2xl text-left mr-auto"
                         style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.85));">
                         I create production-ready web applications that combine modern frontend technologies, reliable
                         backend systems, and intelligent AI integrations to solve real-world problems.
                     </p>
 
                     <!-- Call To Actions -->
-                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4 w-full font-sans">
+                    <div class="pt-2 flex flex-col sm:flex-row items-start justify-start gap-4 w-full font-sans">
                         <a href="#projects"
-                            class="w-full sm:w-auto text-center bg-transparent hover:bg-[#161414] text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm shadow-sm">
+                            class="w-full sm:w-auto text-center bg-[#013004] hover:bg-[#0a4c0e] text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm border border-transparent shadow-sm">
                             View Projects
                         </a>
                         <a href="#contact"
-                            class="w-full sm:w-auto text-center bg-transparent hover:bg-[#161414] text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm">
+                            class="w-full sm:w-auto text-center bg-[#013004] hover:bg-[#0a4c0e] text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm border border-transparent shadow-sm">
                             Contact Me
                         </a>
                     </div>
@@ -791,22 +1141,22 @@
             </section>
 
             <!-- Tech Stack Toolkit (My Skills 3D TagCloud Sphere) -->
-            <section id="skills" class="scroll-mt-10 lg:scroll-mt-16 w-full space-y-[20px]">
-                <div class="flex flex-col items-center gap-2 text-center w-full mb-4">
+            <section id="skills" class="scroll-mt-10 lg:scroll-mt-16 w-full pt-10 pb-8 md:pt-12 md:pb-8 border-t border-slate-100/80 space-y-6">
+                <div class="flex flex-col items-start gap-3 text-left w-full">
+                    <span class="text-[10px] font-bold tracking-widest text-[#013004] font-mono uppercase">01 / TECHNICAL TOOLKIT</span>
                     <h2
-                        class="text-5xl sm:text-7xl font-semibold tracking-tight leading-[1.05] font-display uppercase animate-fade-in">
+                        class="text-5xl sm:text-7xl font-semibold tracking-tight leading-none font-display uppercase animate-fade-in">
                         <span class="text-white">My</span>
                         <span
                             style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">Skills</span>
                     </h2>
-                    <div class="h-[1px] w-24 bg-slate-800/80 mt-4"></div>
                 </div>
 
-                <div class="w-full flex flex-col items-center justify-center relative">
+                <div class="w-full flex flex-col items-start justify-center relative">
 
                     <!-- Category Tabs -->
                     <div
-                        class="flex flex-wrap items-center justify-center gap-6 w-full max-w-2xl font-sans text-sm relative z-20 mb-6 mt-2">
+                        class="flex flex-wrap items-center justify-start gap-6 w-full max-w-2xl font-sans text-sm relative z-20 mb-6 mt-2 mr-auto">
                         <button class="skill-tab-btn" data-category="frontend">Frontend</button>
                         <button class="skill-tab-btn" data-category="backend">Backend</button>
                         <button class="skill-tab-btn" data-category="frameworks">Frameworks</button>
@@ -823,145 +1173,200 @@
                         </div>
                     </div>
 
-                    <!-- Tech grid display below the globe -->
-                    <div id="skills-grid-display"
-                        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 w-full max-w-4xl mt-12">
-                    </div>
-                </div>
-            </section> <!-- Featured Projects -->
-            <section id="projects" class="scroll-mt-10 lg:scroll-mt-16 space-y-[20px]">
-                <div class="flex flex-col items-center gap-2 text-center w-full mb-4">
-                    <h2
-                        class="text-5xl sm:text-7xl font-semibold tracking-tight leading-[1.05] font-display uppercase animate-fade-in">
-                        <span class="text-white">Featured</span>
-                        <span
-                            style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">Projects</span>
-                    </h2>
-                    <div class="h-[1px] w-24 bg-slate-800/80 mt-4"></div>
-                </div>
-
-                <div id="master-detail-showcase" class="w-full space-y-6 transition-all duration-300 ease-out">
-                    <!-- Browser Mockup Image Frame -->
-                    <div
-                        class="w-full border border-slate-800/80 rounded-xl overflow-hidden shadow-2xl bg-slate-950/40">
-                        <!-- Browser Header/Toolbar -->
-                        <div class="h-9 bg-slate-900/60 border-b border-slate-800/60 flex items-center px-4 relative">
-                            <!-- Window Controls -->
-                            <div class="flex items-center gap-1.5">
-                                <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></span>
-                                <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></span>
-                                <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></span>
-                            </div>
-                            <!-- Address Bar -->
-                            <div
-                                class="absolute left-1/2 -translate-x-1/2 w-48 sm:w-64 bg-slate-950/40 border border-slate-800/40 rounded-md py-1 px-3 text-[10px] text-slate-400 font-mono text-center truncate shadow-inner flex items-center justify-center gap-1">
-                                <span class="material-symbols-outlined text-[10px] text-slate-500">lock</span>
-                                <span id="mock-browser-url">nuxt-app-plum-tau.vercel.app</span>
-                            </div>
+                    <!-- Tech marquee display below the globe -->
+                    <div id="skills-marquee-container" class="w-full overflow-hidden relative z-10 py-4 mt-6 flex flex-col gap-4">
+                        <!-- Fade gradient edges -->
+                        <div class="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#09090b] to-transparent z-20 pointer-events-none"></div>
+                        <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#09090b] to-transparent z-20 pointer-events-none"></div>
+                        
+                        <div id="skills-marquee-track-1" class="flex gap-4 animate-marquee whitespace-nowrap">
                         </div>
-                        <!-- Viewport / Image Container -->
-                        <div
-                            class="w-full h-80 sm:h-96 md:h-[450px] bg-slate-950/30 flex items-center justify-center overflow-hidden relative group/image">
-                            <img id="detail-project-image" class="w-full h-full object-contain rounded"
-                                src="images/ChatGPT Image Jul 18, 2026, 07_07_02 AM.png" alt="Project Preview" />
+                        <div id="skills-marquee-track-2" class="flex gap-4 animate-marquee-reverse whitespace-nowrap">
                         </div>
-                    </div>
-
-                    <!-- Info details -->
-                    <div class="space-y-5 pt-2">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                            <div>
-                                <span id="detail-project-category"
-                                    class="text-xs text-slate-300 font-mono font-semibold uppercase tracking-wider">Vue
-                                    3 /
-                                    Nuxt</span>
-                                <h3 id="detail-project-title"
-                                    class="text-2xl font-semibold text-white tracking-tight mt-1 font-display">Nuxt
-                                    School
-                                    Manager</h3>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <button id="view-case-study-btn"
-                                    class="inline-flex items-center gap-1.5 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-xs shadow-sm">
-                                    View Case Study
-                                    <span class="material-symbols-outlined text-sm">article</span>
-                                </button>
-                                <a id="detail-project-link"
-                                    class="inline-flex items-center gap-1.5 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-xs shadow-sm"
-                                    href="https://nuxt-app-plum-tau.vercel.app" target="_blank">
-                                    Visit Live Project
-                                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="space-y-2 pt-2">
-                            <h4 class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Overview</h4>
-                            <p id="detail-project-description"
-                                class="text-xs sm:text-sm leading-relaxed font-sans text-white">
-                                A full-scale school management system featuring real-time data handling with Supabase
-                                database integrations and robust state management.
-                            </p>
-                        </div>
-
-                        <div class="space-y-2">
-                            <h4 class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Technologies</h4>
-                            <div id="detail-project-tags" class="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                                <span class="text-xs font-mono text-slate-300">Vue 3</span>
-                                <span class="text-slate-600 text-xs">&bull;</span>
-                                <span class="text-xs font-mono text-slate-300">Nuxt 3</span>
-                                <span class="text-slate-600 text-xs">&bull;</span>
-                                <span class="text-xs font-mono text-slate-300">Supabase</span>
-                                <span class="text-slate-600 text-xs">&bull;</span>
-                                <span class="text-xs font-mono text-slate-300">Tailwind CSS</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Selector Grid (Bottom) -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                    <!-- Row 1 -->
-                    <div class="project-row cursor-pointer flex flex-col p-5 rounded-xl bg-transparent hover:bg-[#161414] transition-all duration-300"
-                        data-project-id="nuxt-school-manager">
-                        <div class="flex items-center mb-2">
-                            <span class="text-sm font-semibold text-white font-display">Nuxt School Manager</span>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500">Vue 3 / Nuxt</span>
-                    </div>
-
-                    <!-- Row 2 -->
-                    <div class="project-row cursor-pointer flex flex-col p-5 rounded-xl bg-transparent hover:bg-[#161414] transition-all duration-300"
-                        data-project-id="erola-engineering">
-                        <div class="flex items-center mb-2">
-                            <span class="text-sm font-semibold text-slate-300 font-display transition-colors">Erola
-                                Engineering</span>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500">React / Next.js</span>
-                    </div>
-
-                    <!-- Row 3 -->
-                    <div class="project-row cursor-pointer flex flex-col p-5 rounded-xl bg-transparent hover:bg-[#161414] transition-all duration-300"
-                        data-project-id="bitego-delivery-app">
-                        <div class="flex items-center mb-2">
-                            <span class="text-sm font-semibold text-slate-300 font-display transition-colors">BiteGo
-                                Delivery App</span>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500">Nitro / Prisma</span>
                     </div>
                 </div>
             </section>
 
-            <!-- Contact & Form -->
-            <section id="contact" class="scroll-mt-10 lg:scroll-mt-16 space-y-[20px]">
-                <div class="flex flex-col items-center gap-2 text-center w-full mb-4">
+            <!-- Featured Projects -->
+            <section id="projects" class="scroll-mt-10 lg:scroll-mt-16 w-full pt-10 pb-8 md:pt-12 md:pb-8 border-t border-slate-100/80 space-y-6">
+                <div class="flex flex-col items-start gap-3 text-left w-full">
+                    <span class="text-[10px] font-bold tracking-widest text-[#013004] font-mono uppercase">02 / FEATURED WORK</span>
                     <h2
-                        class="text-5xl sm:text-7xl font-semibold tracking-tight leading-[1.05] font-display uppercase animate-fade-in">
+                        class="text-5xl sm:text-7xl font-semibold tracking-tight leading-none font-display uppercase animate-fade-in">
+                        <span class="text-white">Featured</span>
+                        <span
+                            style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">Projects</span>
+                    </h2>
+                </div>
+
+                <!-- 3D Rotating Carousel Container -->
+                <div class="relative w-full flex flex-col items-start select-none pt-4">
+                    <div class="projects-carousel-container w-full">
+                        <!-- Left Navigation Arrow -->
+                        <button id="carousel-prev-btn"
+                            class="absolute left-0 sm:left-2 z-40 w-10 h-10 rounded-full bg-zinc-900/80 border border-zinc-800 text-white flex items-center justify-center hover:bg-[#013004] active:bg-[#0a4c0e] transition-all cursor-pointer shadow-md">
+                            <span class="material-symbols-outlined">chevron_left</span>
+                        </button>
+
+                        <!-- Carousel Stage -->
+                        <div class="projects-carousel-stage">
+                            <!-- Nuxt School Manager Card -->
+                            <div class="projects-carousel-slide" data-project-id="nuxt-school-manager">
+                                <div
+                                    class="w-full h-full border border-zinc-800/80 bg-[#0f1115] rounded-2xl overflow-hidden shadow-2xl relative flex flex-col group">
+                                    <div
+                                        class="h-9 bg-[#13161c] border-b border-zinc-800/60 flex items-center justify-between px-4 shrink-0 font-sans text-xs font-semibold text-white relative">
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="w-2 h-2 rounded-full bg-[#ff5f56]/70"></span>
+                                            <span class="w-2 h-2 rounded-full bg-[#ffbd2e]/70"></span>
+                                            <span class="w-2 h-2 rounded-full bg-[#27c93f]/70"></span>
+                                        </div>
+                                        <span class="absolute left-1/2 -translate-x-1/2 text-[9px] font-mono text-slate-500 lowercase">nuxt-school.vercel.app</span>
+                                        <div class="w-10"></div>
+                                    </div>
+                                    <div
+                                        class="w-full grow bg-transparent flex items-center justify-center overflow-hidden relative">
+                                        <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                            src="images/ChatGPT Image Jul 18, 2026, 07_07_02 AM.png"
+                                            alt="Nuxt School Manager" />
+                                        <!-- Hover Overlay -->
+                                        <div class="card-active-overlay">
+                                            <div class="w-10 h-10 rounded-full bg-green-700/20 border border-green-500/30 flex items-center justify-center text-green-500 transition-transform duration-300">
+                                                <span class="material-symbols-outlined text-lg">visibility</span>
+                                            </div>
+                                            <span class="text-[9px] font-semibold text-white tracking-widest uppercase font-mono">Open Case Study</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Erola Engineering Card -->
+                            <div class="projects-carousel-slide" data-project-id="erola-engineering">
+                                <div
+                                    class="w-full h-full border border-zinc-800/80 bg-[#0f1115] rounded-2xl overflow-hidden shadow-2xl relative flex flex-col group">
+                                    <div
+                                        class="h-9 bg-[#13161c] border-b border-zinc-800/60 flex items-center justify-between px-4 shrink-0 font-sans text-xs font-semibold text-white relative">
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="w-2 h-2 rounded-full bg-[#ff5f56]/70"></span>
+                                            <span class="w-2 h-2 rounded-full bg-[#ffbd2e]/70"></span>
+                                            <span class="w-2 h-2 rounded-full bg-[#27c93f]/70"></span>
+                                        </div>
+                                        <span class="absolute left-1/2 -translate-x-1/2 text-[9px] font-mono text-slate-500 lowercase">ecrola-engineering.vercel.app</span>
+                                        <div class="w-10"></div>
+                                    </div>
+                                    <div
+                                        class="w-full grow bg-transparent flex items-center justify-center overflow-hidden relative">
+                                        <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                            src="images/ChatGPT Image Jul 24, 2026, 05_37_04 AM.png"
+                                            alt="Erola Engineering" />
+                                        <!-- Hover Overlay -->
+                                        <div class="card-active-overlay">
+                                            <div class="w-10 h-10 rounded-full bg-green-700/20 border border-green-500/30 flex items-center justify-center text-green-500 transition-transform duration-300">
+                                                <span class="material-symbols-outlined text-lg">visibility</span>
+                                            </div>
+                                            <span class="text-[9px] font-semibold text-white tracking-widest uppercase font-mono">Open Case Study</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- BiteGo Delivery App Card -->
+                            <div class="projects-carousel-slide" data-project-id="bitego-delivery-app">
+                                <div
+                                    class="w-full h-full border border-zinc-800/80 bg-[#0f1115] rounded-2xl overflow-hidden shadow-2xl relative flex flex-col group">
+                                    <div
+                                        class="h-9 bg-[#13161c] border-b border-zinc-800/60 flex items-center justify-between px-4 shrink-0 font-sans text-xs font-semibold text-white relative">
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="w-2 h-2 rounded-full bg-[#ff5f56]/70"></span>
+                                            <span class="w-2 h-2 rounded-full bg-[#ffbd2e]/70"></span>
+                                            <span class="w-2 h-2 rounded-full bg-[#27c93f]/70"></span>
+                                        </div>
+                                        <span class="absolute left-1/2 -translate-x-1/2 text-[9px] font-mono text-slate-500 lowercase">bitego-in.vercel.app</span>
+                                        <div class="w-10"></div>
+                                    </div>
+                                    <div
+                                        class="w-full grow bg-transparent flex items-center justify-center overflow-hidden relative">
+                                        <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                            src="images/ChatGPT Image Jul 21, 2026, 01_14_52 PM.png"
+                                            alt="BiteGo Delivery App" />
+                                        <!-- Hover Overlay -->
+                                        <div class="card-active-overlay">
+                                            <div class="w-10 h-10 rounded-full bg-green-700/20 border border-green-500/30 flex items-center justify-center text-green-500 transition-transform duration-300">
+                                                <span class="material-symbols-outlined text-lg">visibility</span>
+                                            </div>
+                                            <span class="text-[9px] font-semibold text-white tracking-widest uppercase font-mono">Open Case Study</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Navigation Arrow -->
+                        <button id="carousel-next-btn"
+                            class="absolute right-0 sm:right-2 z-40 w-10 h-10 rounded-full bg-zinc-900/80 border border-zinc-800 text-white flex items-center justify-center hover:bg-[#013004] active:bg-[#0a4c0e] transition-all cursor-pointer shadow-md">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
+                    </div>
+
+                    <!-- Bottom Indicator Dots -->
+                    <div id="carousel-dots-container" class="flex gap-2.5 mt-4 z-10">
+                        <span
+                            class="carousel-dot w-2 h-2 rounded-full bg-slate-700 hover:bg-slate-500 transition-all cursor-pointer"
+                            data-slide="0"></span>
+                        <span
+                            class="carousel-dot w-2 h-2 rounded-full bg-slate-700 hover:bg-slate-500 transition-all cursor-pointer"
+                            data-slide="1"></span>
+                        <span
+                            class="carousel-dot w-2 h-2 rounded-full bg-slate-700 hover:bg-slate-500 transition-all cursor-pointer"
+                            data-slide="2"></span>
+                    </div>
+
+                    <!-- Interactive Description Box for currently centered card -->
+                    <div id="carousel-details-box"
+                        class="w-full max-w-2xl mt-8 p-6 bg-[#0f1115] border border-zinc-800/80 rounded-2xl text-left flex flex-col items-start space-y-4 transition-all duration-300 z-10 mr-auto">
+                        <div>
+                            <span id="active-project-category"
+                                class="px-2 py-0.5 bg-[#13161c] border border-zinc-800 text-white rounded text-[9px] font-mono font-bold uppercase tracking-wider">Vue
+                                3 / Nuxt</span>
+                            <h3 id="active-project-title"
+                                class="text-2xl font-bold text-white tracking-tight mt-2 font-display">Nuxt School
+                                Manager</h3>
+                        </div>
+                        <p id="active-project-description"
+                            class="text-xs sm:text-sm leading-relaxed font-sans text-slate-400 max-w-xl text-left mr-auto">
+                            A full-scale school management system featuring real-time data handling with Supabase
+                            database integrations and robust state management.
+                        </p>
+                        <div id="active-project-tags"
+                            class="flex flex-wrap items-center justify-start gap-x-3 gap-y-1 text-xs font-mono text-slate-400 w-full">
+                            <!-- Dynamic Tag inserts -->
+                        </div>
+                        <div class="flex items-center justify-start gap-3 pt-2 w-full">
+                            <button id="active-case-study-btn"
+                                class="inline-flex items-center gap-1.5 bg-transparent border border-zinc-800 hover:bg-zinc-800/40 text-white font-semibold px-4 py-2 rounded-xl transition-all duration-300 text-xs shadow-sm cursor-pointer">
+                                View Case Study
+                                <span class="material-symbols-outlined text-sm">article</span>
+                            </button>
+                            <a id="active-live-link"
+                                class="inline-flex items-center gap-1.5 bg-transparent border border-zinc-800 hover:bg-zinc-800/40 text-white font-semibold px-4 py-2 rounded-xl transition-all duration-300 text-xs shadow-sm cursor-pointer"
+                                href="#" target="_blank">
+                                Visit Live Project
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+            </section>
+
+            <!-- Contact & Form -->
+            <section id="contact" class="scroll-mt-10 lg:scroll-mt-16 w-full pt-10 pb-8 md:pt-12 md:pb-8 border-t border-slate-100/80 space-y-6">
+                <div class="flex flex-col items-start gap-3 text-left w-full">
+                    <span class="text-[10px] font-bold tracking-widest text-[#013004] font-mono uppercase">03 / GET IN TOUCH</span>
+                    <h2
+                        class="text-5xl sm:text-7xl font-semibold tracking-tight leading-none font-display uppercase animate-fade-in">
                         <span class="text-white">Let's Work</span>
                         <span
                             style="color: var(--token-71db196f-61cb-4b9d-a4b8-20a87c24d842, rgba(182, 180, 189, 0.2));">Together</span>
                     </h2>
-                    <div class="h-[1px] w-24 bg-slate-800/80 mt-4"></div>
                 </div>
 
                 <div class="w-full relative">
@@ -974,14 +1379,14 @@
                                 <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">Your
                                     Name</label>
                                 <input type="text" name="name" required
-                                    class="w-full bg-[#2E2B2B] border border-transparent rounded-xl px-4 py-3.5 text-white text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-700/50 focus:border-slate-600/50 transition-all duration-300"
+                                    class="w-full bg-[#0f1115] border border-zinc-800 rounded-xl px-4 py-3.5 text-white text-sm placeholder-slate-500 transition-all duration-300 outline-none focus:bg-[#13161c]"
                                     placeholder="John Doe">
                             </div>
                             <div>
                                 <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">Email
                                     Address</label>
                                 <input type="email" name="email" required
-                                    class="w-full bg-[#2E2B2B] border border-transparent rounded-xl px-4 py-3.5 text-white text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-700/50 focus:border-slate-600/50 transition-all duration-300"
+                                    class="w-full bg-[#0f1115] border border-zinc-800 rounded-xl px-4 py-3.5 text-white text-sm placeholder-slate-500 transition-all duration-300 outline-none focus:bg-[#13161c]"
                                     placeholder="john@example.com">
                             </div>
                         </div>
@@ -990,13 +1395,13 @@
                         <div>
                             <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">Message</label>
                             <textarea name="message" rows="5" required
-                                class="w-full bg-[#2E2B2B] border border-transparent rounded-xl px-4 py-3.5 text-white text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-700/50 focus:border-slate-600/50 transition-all duration-300 resize-none"
+                                class="w-full bg-[#0f1115] border border-zinc-800 rounded-xl px-4 py-3.5 text-white text-sm placeholder-slate-500 transition-all duration-300 resize-none outline-none focus:bg-[#13161c]"
                                 placeholder="Hey Arshal, I'd love to chat about a project..."></textarea>
                         </div>
 
                         <!-- Submit Button -->
                         <button type="submit"
-                            class="w-full h-[54px] bg-[#2E2B2B] hover:bg-[#FF3D00] hover:border-transparent active:bg-[#D83400] text-white font-semibold rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm flex items-center justify-center gap-2 border border-slate-700/40 hover:border-slate-600/60 shadow-md">
+                            class="w-full h-[54px] bg-[#013004] hover:bg-[#0a4c0e] text-white border border-transparent font-semibold rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm flex items-center justify-center gap-2 shadow-sm">
                             Send Message
                             <span class="material-symbols-outlined text-sm">send</span>
                         </button>
@@ -1005,19 +1410,19 @@
             </section>
 
             <!-- Footer -->
-            <footer class="w-full py-12 bg-transparent border-t border-slate-900 mt-auto">
+            <footer class="w-full py-12 bg-transparent border-t border-[#e2e8f0] mt-auto">
                 <div
-                    class="flex flex-col md:flex-row justify-between items-center max-w-[1300px] mx-auto px-4 md:px-8 gap-4 text-center md:text-left">
-                    <div class="font-mono text-xs text-slate-400 tracking-wider">
-                        <span class="text-cyan-400">&lt;</span>ARSHAL SALLU<span class="text-cyan-400">/&gt;</span>
+                    class="flex flex-col md:flex-row justify-between items-start max-w-[1300px] mx-auto px-4 md:px-8 gap-4 text-left">
+                    <div class="font-mono text-xs text-[#35383b] tracking-wider">
+                        <span class="text-[#013004]">&lt;</span>ARSHAL SALLU<span class="text-[#013004]">/&gt;</span>
                     </div>
-                    <p class="text-xs text-slate-500 font-sans">
+                    <p class="text-xs text-[#35383b] font-sans">
                         © 2026 Muhammed Arshal V. Built with precision.
                     </p>
                     <div class="flex gap-6">
-                        <a class="text-slate-500 hover:text-[#FF3D00] active:text-[#D83400] text-xs transition-colors font-mono"
+                        <a class="text-[#35383b] hover:text-[#15803d] active:text-[#0a4c0e] text-xs transition-colors font-mono"
                             href="https://github.com/arshal-salu" target="_blank">GitHub</a>
-                        <a class="text-slate-500 hover:text-[#FF3D00] active:text-[#D83400] text-xs transition-colors font-mono"
+                        <a class="text-[#35383b] hover:text-[#15803d] active:text-[#0a4c0e] text-xs transition-colors font-mono"
                             href="mailto:arsgalsallu@gmail.com">Email</a>
                     </div>
                 </div>
@@ -1028,7 +1433,7 @@
 
     <!-- Smooth Scroll and Avatar Upload Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        const runSetup = () => {
             // Smooth scroll for anchors
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -1071,177 +1476,223 @@
                 handleHeaderScroll();
             }
 
-            // Interactive Projects Selection and Detail View logic
-            const projectRows = document.querySelectorAll('.project-row');
-            const showcaseEl = document.getElementById('master-detail-showcase');
+            // 3D Carousel Implementation
+            const carouselSlides = Array.from(document.querySelectorAll('.projects-carousel-slide'));
+            const carouselDots = Array.from(document.querySelectorAll('.carousel-dot'));
+            const prevBtn = document.getElementById('carousel-prev-btn');
+            const nextBtn = document.getElementById('carousel-next-btn');
 
-            const detailCategory = document.getElementById('detail-project-category');
-            const detailImage = document.getElementById('detail-project-image');
-            const detailTitle = document.getElementById('detail-project-title');
-            const detailLink = document.getElementById('detail-project-link');
-            const detailDescription = document.getElementById('detail-project-description');
-            const detailTags = document.getElementById('detail-project-tags');
+            const activeCategory = document.getElementById('active-project-category');
+            const activeTitle = document.getElementById('active-project-title');
+            const activeDescription = document.getElementById('active-project-description');
+            const activeTags = document.getElementById('active-project-tags');
+            const activeCaseStudyBtn = document.getElementById('active-case-study-btn');
+            const activeLiveLink = document.getElementById('active-live-link');
 
             const projectsData = {
                 'nuxt-school-manager': {
+                    id: 'nuxt-school-manager',
                     title: 'Nuxt School Manager',
                     category: 'Vue 3 / Nuxt',
-                    image: 'images/ChatGPT Image Jul 18, 2026, 07_07_02 AM.png',
-                    accentColor: 'cyan',
                     description: 'A full-scale school management system featuring real-time data handling with Supabase database integrations and robust state management.',
                     tags: ['Vue 3', 'Nuxt 3', 'Supabase', 'Tailwind CSS', 'State Management'],
                     link: 'https://nuxt-app-plum-tau.vercel.app'
                 },
                 'erola-engineering': {
+                    id: 'erola-engineering',
                     title: 'Erola Engineering',
                     category: 'React / Next.js',
-                    image: 'images/ChatGPT Image Jul 24, 2026, 05_37_04 AM.png',
-                    accentColor: 'indigo',
                     description: 'Modern corporate website built with Next.js 16 and Framer Motion for high-fidelity animations, SEO optimization, and exceptional web performance scores.',
                     tags: ['React', 'Next.js 16', 'Framer Motion', 'Tailwind CSS', 'SEO Optimization'],
                     link: 'https://ecrola-engineering.vercel.app'
                 },
                 'bitego-delivery-app': {
+                    id: 'bitego-delivery-app',
                     title: 'BiteGo Delivery App',
                     category: 'Nitro / Prisma',
-                    image: 'images/ChatGPT Image Jul 21, 2026, 01_14_52 PM.png',
-                    accentColor: 'cyan',
                     description: 'A comprehensive food delivery platform with a custom Nitro backend server, Prisma ORM database mapping, and secure Razorpay payment gateway integration.',
                     tags: ['Nitro Server', 'Prisma ORM', 'Razorpay API', 'Postgres Database', 'Tailwind CSS'],
                     link: 'https://bitego-in.vercel.app'
                 }
             };
 
-            let currentProjectId = 'nuxt-school-manager';
-            function selectProject(id, clickedRow) {
-                currentProjectId = id;
-                const project = projectsData[id];
-                if (!project) return;
+            const projectOrder = ['nuxt-school-manager', 'erola-engineering', 'bitego-delivery-app'];
+            let currentSlideIndex = 0;
+            let autoRotateTimer = null;
 
-                // Update Row Visuals
-                projectRows.forEach(row => {
-                    row.classList.remove('active');
+            function updateCarousel() {
+                const total = projectOrder.length;
 
-                    const text = row.querySelector('span.font-display');
-                    if (text) {
-                        text.classList.remove('text-white');
-                        text.classList.add('text-slate-300');
+                // Determine layout mapping
+                carouselSlides.forEach(slide => {
+                    const id = slide.getAttribute('data-project-id');
+                    const idx = projectOrder.indexOf(id);
+
+                    slide.classList.remove('center', 'left', 'right');
+
+                    // Logic to find slide position relative to currentSlideIndex
+                    const relativeIdx = (idx - currentSlideIndex + total) % total;
+
+                    if (relativeIdx === 0) {
+                        slide.classList.add('center');
+                    } else if (relativeIdx === 1 || (total === 2 && relativeIdx === 1)) {
+                        slide.classList.add('right');
+                    } else {
+                        slide.classList.add('left');
                     }
                 });
 
-                clickedRow.classList.add('active');
+                // Update dots
+                carouselDots.forEach((dot, idx) => {
+                    dot.classList.remove('bg-[#013004]', 'shadow-[0_0_10px_#013004]');
+                    dot.classList.add('bg-slate-700');
+                    if (idx === currentSlideIndex) {
+                        dot.classList.remove('bg-slate-700');
+                        dot.classList.add('bg-[#013004]', 'shadow-[0_0_10px_#013004]');
+                    }
+                });
 
-                const activeText = clickedRow.querySelector('span.font-display');
-                if (activeText) {
-                    activeText.classList.remove('text-slate-300');
-                    activeText.classList.add('text-white');
-                }
+                // Update description details box with animation fade
+                const activeId = projectOrder[currentSlideIndex];
+                const activeProject = projectsData[activeId];
 
-                // Fade out showcase content
-                if (showcaseEl) {
-                    showcaseEl.style.opacity = '0.3';
-                    showcaseEl.style.transform = 'translateY(4px)';
+                const detailsBox = document.getElementById('carousel-details-box');
+                if (detailsBox) {
+                    detailsBox.style.opacity = '0.3';
+                    detailsBox.style.transform = 'translateY(4px)';
                 }
 
                 setTimeout(() => {
-                    if (detailCategory) detailCategory.textContent = project.category;
-                    if (detailImage) {
-                        detailImage.src = project.image;
-                        detailImage.alt = project.title;
-                    }
-                    if (detailTitle) detailTitle.textContent = project.title;
-                    if (detailLink) detailLink.href = project.link;
-                    if (detailDescription) detailDescription.textContent = project.description;
+                    if (activeCategory) activeCategory.textContent = activeProject.category;
+                    if (activeTitle) activeTitle.textContent = activeProject.title;
+                    if (activeDescription) activeDescription.textContent = activeProject.description;
 
-                    // Dynamic mock browser address update
-                    const mockUrlEl = document.getElementById('mock-browser-url');
-                    if (mockUrlEl) {
-                        try {
-                            const url = new URL(project.link);
-                            mockUrlEl.textContent = url.hostname;
-                        } catch (e) {
-                            mockUrlEl.textContent = project.link.replace('https://', '').replace('http://', '');
-                        }
-                    }
-
-                    // Clear and render tech tags
-                    if (detailTags) {
-                        detailTags.innerHTML = '';
-                        project.tags.forEach((tag, index) => {
+                    if (activeTags) {
+                        activeTags.innerHTML = '';
+                        activeProject.tags.forEach((tag, idx) => {
                             const tagEl = document.createElement('span');
-                            tagEl.className = 'text-xs font-mono text-slate-300';
                             tagEl.textContent = tag;
-                            detailTags.appendChild(tagEl);
+                            activeTags.appendChild(tagEl);
 
-                            if (index < project.tags.length - 1) {
-                                const dotEl = document.createElement('span');
-                                dotEl.className = 'text-slate-600 text-xs';
-                                dotEl.innerHTML = '&bull;';
-                                detailTags.appendChild(dotEl);
+                            if (idx < activeProject.tags.length - 1) {
+                                const dot = document.createElement('span');
+                                dot.className = 'text-slate-600';
+                                dot.innerHTML = ' &bull; ';
+                                activeTags.appendChild(dot);
                             }
                         });
                     }
 
-                    // Fade in showcase content
-                    if (showcaseEl) {
-                        showcaseEl.style.opacity = '1';
-                        showcaseEl.style.transform = 'translateY(0)';
+                    if (activeLiveLink) activeLiveLink.href = activeProject.link;
+
+                    if (detailsBox) {
+                        detailsBox.style.opacity = '1';
+                        detailsBox.style.transform = 'translateY(0)';
                     }
                 }, 200);
             }
 
-            // Bind click events on rows
-            projectRows.forEach(row => {
-                row.addEventListener('click', () => {
-                    const id = row.getAttribute('data-project-id');
-                    selectProject(id, row);
-                });
-            });
-
-            const viewCaseStudyBtn = document.getElementById('view-case-study-btn');
-            if (viewCaseStudyBtn) {
-                viewCaseStudyBtn.addEventListener('click', () => {
-                    openCaseStudy(currentProjectId);
-                });
+            function nextSlide() {
+                currentSlideIndex = (currentSlideIndex + 1) % projectOrder.length;
+                updateCarousel();
             }
 
-            // Initialize first project selection
-            const firstRow = document.querySelector('.project-row[data-project-id="nuxt-school-manager"]');
-            if (firstRow) {
-                firstRow.classList.add('active');
-                const project = projectsData['nuxt-school-manager'];
-                if (project) {
-                    const text = firstRow.querySelector('span.font-display');
-                    if (text) {
-                        text.classList.remove('text-slate-300');
-                        text.classList.add('text-white');
-                    }
+            function prevSlide() {
+                currentSlideIndex = (currentSlideIndex - 1 + projectOrder.length) % projectOrder.length;
+                updateCarousel();
+            }
+
+            function startAutoRotate() {
+                stopAutoRotate();
+                autoRotateTimer = setInterval(nextSlide, 2000);
+            }
+
+            function stopAutoRotate() {
+                if (autoRotateTimer) {
+                    clearInterval(autoRotateTimer);
+                    autoRotateTimer = null;
                 }
             }
 
+            // Bind UI event handlers
+            if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); startAutoRotate(); });
+            if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); startAutoRotate(); });
+
+            carouselDots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const slideIdx = parseInt(dot.getAttribute('data-slide'));
+                    currentSlideIndex = slideIdx;
+                    updateCarousel();
+                    startAutoRotate();
+                });
+            });
+
+            carouselSlides.forEach(slide => {
+                slide.addEventListener('click', (e) => {
+                    const id = slide.getAttribute('data-project-id');
+                    const idx = projectOrder.indexOf(id);
+
+                    if (idx === currentSlideIndex) {
+                        // Clicked center slide -> open case study fullscreen modal
+                        openCaseStudy(id);
+                    } else {
+                        // Clicked left/right side slide -> rotate it to center
+                        currentSlideIndex = idx;
+                        updateCarousel();
+                        startAutoRotate();
+                    }
+                });
+            });
+
+            // Description box actions
+            if (activeCaseStudyBtn) {
+                activeCaseStudyBtn.addEventListener('click', () => {
+                    const activeId = projectOrder[currentSlideIndex];
+                    openCaseStudy(activeId);
+                });
+            }
+
+            // Pause on hover
+            const carouselContainer = document.querySelector('.projects-carousel-container');
+            if (carouselContainer) {
+                carouselContainer.addEventListener('pointerenter', stopAutoRotate);
+                carouselContainer.addEventListener('pointerleave', startAutoRotate);
+            }
+
+            // Initialize
+            updateCarousel();
+            startAutoRotate();
+
             // Client-side Avatar Upload and Persistence
-            const avatarUpload = document.getElementById('avatar-upload');
-            const avatarImage = document.getElementById('avatar-image');
+            const avatarUpload = document.getElementById('avatar-upload') || document.getElementById('splash-avatar-upload');
+            const avatarImage = document.getElementById('avatar-image') || document.getElementById('splash-avatar-image');
 
             // Load saved avatar if exists
-            const savedAvatar = localStorage.getItem('arshal_avatar_v2');
-            if (savedAvatar) {
+            let savedAvatar = null;
+            try {
+                savedAvatar = localStorage.getItem('arshal_avatar_v2');
+            } catch (err) {}
+            if (savedAvatar && avatarImage) {
                 avatarImage.src = savedAvatar;
             }
 
             // Handle upload
-            avatarUpload.addEventListener('change', (e) => {
-                const file = e.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = (event) => {
-                        const dataUrl = event.target.result;
-                        avatarImage.src = dataUrl;
-                        localStorage.setItem('arshal_avatar_v2', dataUrl);
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
+            if (avatarUpload && avatarImage) {
+                avatarUpload.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (event) => {
+                            const dataUrl = event.target.result;
+                            avatarImage.src = dataUrl;
+                            try {
+                                localStorage.setItem('arshal_avatar_v2', dataUrl);
+                            } catch (err) {}
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
 
             // Typewriter effect for Hero subText
             const words = ["scalable.", "efficient.", "intelligent.", "production-ready."];
@@ -1291,9 +1742,14 @@
                     const email = this.querySelector('input[name="email"]').value;
                     const message = this.querySelector('textarea[name="message"]').value;
 
-                    const formattedMessage = `*New Portfolio Message*\n\n` +
-                        `*Name:* ${name}\n` +
-                        `*Email:* ${email}\n\n` +
+                    const formattedMessage = `*New Portfolio Message*
+
+` +
+                        `*Name:* ${name}
+` +
+                        `*Email:* ${email}
+
+` +
                         `*Message:* ${message}`;
 
                     const encodedMessage = encodeURIComponent(formattedMessage);
@@ -1304,7 +1760,7 @@
 
                     submitBtn.disabled = true;
                     submitBtn.innerHTML = `
-                        <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-black inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
@@ -1320,7 +1776,7 @@
             }
 
             // 3D Interactive Rotating Globe and Skills tag cloud script
-            window.addEventListener('load', () => {
+            const runGlobeSetup = () => {
                 const hexToRgb = (hex) => {
                     hex = hex.replace('#', '');
                     if (hex.length === 3) {
@@ -1341,21 +1797,21 @@
                 };
 
                 const skills = [
-                    { name: 'TypeScript', color: '#3178C6', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
-                    { name: 'JavaScript', color: '#F7DF1E', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-                    { name: 'Tailwind CSS', color: '#06B6D4', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
-                    { name: 'HTML', color: '#E34F26', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-                    { name: 'CSS', color: '#1572B6', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-                    { name: 'Postgres SQL', color: '#4169E1', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
-                    { name: 'Supabase', color: '#3ECF8E', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg' },
-                    { name: 'Next.js', color: '#FFFFFF', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-line.svg' },
-                    { name: 'React', color: '#61DAFB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-                    { name: 'Nuxt', color: '#00DC82', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg' },
-                    { name: 'Vue 3', color: '#4FC08D', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg' },
-                    { name: 'Docker', color: '#2496ED', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
-                    { name: 'Git', color: '#F05032', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-                    { name: 'Vercel', color: '#FFFFFF', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-line.svg' },
-                    { name: 'Firebase', color: '#FFCA28', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' }
+                    { name: 'TypeScript', color: '#000000', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+                    { name: 'JavaScript', color: '#000000', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+                    { name: 'Tailwind CSS', color: '#000000', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
+                    { name: 'HTML', color: '#000000', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+                    { name: 'CSS', color: '#000000', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+                    { name: 'Postgres SQL', color: '#000000', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+                    { name: 'Supabase', color: '#000000', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg' },
+                    { name: 'Next.js', color: '#000000', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-line.svg' },
+                    { name: 'React', color: '#000000', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+                    { name: 'Nuxt', color: '#000000', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg' },
+                    { name: 'Vue 3', color: '#000000', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg' },
+                    { name: 'Docker', color: '#000000', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+                    { name: 'Git', color: '#000000', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+                    { name: 'Vercel', color: '#000000', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-line.svg' },
+                    { name: 'Firebase', color: '#000000', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' }
                 ];
 
                 const categories = {
@@ -1395,10 +1851,11 @@
 
                 // Track currently hovered tag
                 let hoveredTagIndex = -1;
+                let globeActiveTags = [];
 
                 const buildTagSphere = (skillsList) => {
                     sphereContainer.innerHTML = '';
-                    activeTags = [];
+                    globeActiveTags = [];
                     hoveredTagIndex = -1; // Reset on rebuild
 
                     const M = skillsList.length;
@@ -1416,13 +1873,14 @@
                         const tag = document.createElement('span');
                         tag.className = 'tagcloud--item absolute cursor-pointer select-none font-sans font-semibold flex items-center gap-1.5';
                         tag.style.color = '#8A8A8A'; // Grayscale color by default
+                        tag.style.transition = 'color 0.25s ease';
 
                         const img = document.createElement('img');
                         img.src = skill.icon;
                         img.style.width = '18px';
                         img.style.height = '18px';
                         img.style.display = 'inline-block';
-                        img.style.filter = 'drop-shadow(0 0 2px rgba(255,255,255,0.1)) grayscale(1) opacity(0.6)';
+                        img.style.filter = 'drop-shadow(0 0 2px rgba(255,255,255,0.05)) opacity(0.85)';
                         img.style.transition = 'filter 0.3s ease, opacity 0.3s ease';
 
                         tag.appendChild(img);
@@ -1438,12 +1896,13 @@
 
                         sphereContainer.appendChild(tag);
 
-                        activeTags.push({
+                        globeActiveTags.push({
                             x: x,
                             y: y * globeRadius,
                             z: z,
                             element: tag,
-                            color: skill.color
+                            color: skill.color,
+                            name: skill.name
                         });
                     });
                 };
@@ -1455,51 +1914,50 @@
                     }
                     buildTagSphere(filtered);
 
-                    // Update grid display below the globe
-                    const gridDisplay = document.getElementById('skills-grid-display');
-                    if (gridDisplay) {
-                        // Clear existing cards
-                        gridDisplay.innerHTML = '';
+                    // Update marquee display below the globe
+                    const track1 = document.getElementById('skills-marquee-track-1');
+                    const track2 = document.getElementById('skills-marquee-track-2');
+                    
+                    if (track1 && track2) {
+                        track1.innerHTML = '';
+                        track2.innerHTML = '';
 
-                        // Populate with matching tech cards
-                        filtered.forEach((skill, index) => {
-                            const card = document.createElement('div');
-                            card.className = 'tech-card-animate flex items-center gap-3 p-2 bg-transparent border-transparent rounded-xl transition-all duration-300 group/card';
-                            card.style.transitionDelay = `${index * 40}ms`; // Stagger delay
+                        // Split skills into two lists
+                        const half = Math.ceil(filtered.length / 2);
+                        let row1Skills = filtered.slice(0, half);
+                        let row2Skills = filtered.slice(half);
 
-                            const img = document.createElement('img');
-                            img.src = skill.icon;
-                            img.className = 'w-6 h-6 object-contain filter grayscale opacity-60 group-hover/card:grayscale-0 group-hover/card:opacity-100 group-hover/card:scale-110 transition-all duration-300';
-                            img.alt = skill.name;
-
-                            const name = document.createElement('span');
-                            name.className = 'text-xs font-semibold text-slate-400 font-sans group-hover/card:text-white transition-colors';
-                            name.textContent = skill.name;
-
-                            card.appendChild(img);
-                            card.appendChild(name);
-                            gridDisplay.appendChild(card);
-                        });
-
-                        // Set up IntersectionObserver to trigger entry/exit animations on scroll
-                        if (gridDisplay._observer) {
-                            gridDisplay._observer.disconnect();
+                        // Fallback if one row is empty
+                        if (row2Skills.length === 0) {
+                            row2Skills = [...row1Skills];
                         }
 
-                        const observer = new IntersectionObserver((entries) => {
-                            entries.forEach(entry => {
-                                const cards = entry.target.querySelectorAll('.tech-card-animate');
-                                if (entry.isIntersecting) {
-                                    cards.forEach(card => card.classList.add('active'));
-                                } else {
-                                    // Remove active class to make them invisible when scrolled out of view ("broken")
-                                    cards.forEach(card => card.classList.remove('active'));
-                                }
-                            });
-                        }, { threshold: 0.15 });
+                        // Helper function to build cards in track
+                        const buildTrack = (track, list) => {
+                            const repeats = list.length < 5 ? 5 : 3;
+                            for (let r = 0; r < repeats; r++) {
+                                list.forEach((skill) => {
+                                    const card = document.createElement('div');
+                                    card.className = 'skills-marquee-card';
 
-                        observer.observe(gridDisplay);
-                        gridDisplay._observer = observer;
+                                    const img = document.createElement('img');
+                                    img.src = skill.icon;
+                                    img.className = 'w-6 h-6 object-contain transition-all duration-300';
+                                    img.alt = skill.name;
+
+                                    const name = document.createElement('span');
+                                    name.className = 'text-xs font-semibold text-slate-200 font-sans transition-colors';
+                                    name.textContent = skill.name;
+
+                                    card.appendChild(img);
+                                    card.appendChild(name);
+                                    track.appendChild(card);
+                                });
+                            }
+                        };
+
+                        buildTrack(track1, row1Skills);
+                        buildTrack(track2, row2Skills);
                     }
                 };
 
@@ -1592,17 +2050,16 @@
                             centerOffsetY,
                             globeRadius
                         );
-                        grad.addColorStop(0, 'rgba(255, 255, 255, 0.12)');
-                        grad.addColorStop(0.3, 'rgba(212, 175, 55, 0.05)');
-                        grad.addColorStop(0.7, 'rgba(255, 255, 255, 0.02)');
-                        grad.addColorStop(1, 'rgba(0, 0, 0, 0.55)');
+                        grad.addColorStop(0, 'rgba(34, 197, 94, 0.12)');
+                        grad.addColorStop(0.4, 'rgba(1, 48, 4, 0.04)');
+                        grad.addColorStop(1, 'rgba(9, 9, 11, 0)');
 
                         gCtx.beginPath();
                         gCtx.arc(centerOffsetX, centerOffsetY, globeRadius, 0, 2 * Math.PI);
                         gCtx.fillStyle = grad;
                         gCtx.fill();
 
-                        gCtx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+                        gCtx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
                         gCtx.lineWidth = 1.0;
                         gCtx.stroke();
                     }
@@ -1639,7 +2096,7 @@
                     });
 
                     // 2. Rotate text tag coordinates with EXACT same math matrix
-                    activeTags.forEach(p => {
+                    globeActiveTags.forEach(p => {
                         let xRotY = p.x * cosY - p.z * sinY;
                         let zRotY = p.z * cosY + p.x * sinY;
                         let yRotX = p.y * cosX - zRotY * sinX;
@@ -1653,8 +2110,8 @@
 
                     // Determine active category based on hovered tag or category tab
                     let activeHoveredCategory = null;
-                    if (hoveredTagIndex !== -1 && activeTags[hoveredTagIndex]) {
-                        const hoveredTagName = activeTags[hoveredTagIndex].name;
+                    if (hoveredTagIndex !== -1 && globeActiveTags[hoveredTagIndex]) {
+                        const hoveredTagName = globeActiveTags[hoveredTagIndex].name;
                         for (const [catKey, list] of Object.entries(categories)) {
                             if (list.includes(hoveredTagName)) {
                                 activeHoveredCategory = catKey;
@@ -1665,25 +2122,26 @@
                     const currentActiveCategory = activeHoveredCategory || hoveredCategory;
 
                     // 3. Update DOM text styles dynamically
-                    activeTags.forEach((p, idx) => {
+                    globeActiveTags.forEach((p, idx) => {
                         const isMobileOrTablet = (window.innerWidth < 1024);
-                        const isHoveringGlobe = (mouseX !== -9999);
                         const isTagHovered = (idx === hoveredTagIndex);
                         const isCategoryHovered = (currentActiveCategory && categories[currentActiveCategory] && categories[currentActiveCategory].includes(p.name));
-                        const shouldLightUp = isMobileOrTablet || isHoveringGlobe || isTagHovered || isCategoryHovered;
+                        
+                        const shouldHighlight = isTagHovered || isCategoryHovered;
 
-                        // Centralized dynamic DOM styling
-                        if (shouldLightUp) {
-                            p.element.style.color = p.color;
+                        if (shouldHighlight) {
+                            p.element.style.color = '#ffffff'; // Pure White
+                            p.element.style.zIndex = '99999'; // Bring to front
                             const img = p.element.querySelector('img');
                             if (img) {
-                                img.style.filter = 'drop-shadow(0 0 4px currentColor) grayscale(0) opacity(1)';
+                                img.style.filter = 'drop-shadow(0 2px 4px rgba(255,255,255,0.08)) opacity(1)';
                             }
                         } else {
-                            p.element.style.color = '#CCCCCC';
+                            p.element.style.color = '#94a3b8'; // Muted slate grey
+                            p.element.style.zIndex = Math.round(1000 - p.z);
                             const img = p.element.querySelector('img');
                             if (img) {
-                                img.style.filter = 'drop-shadow(0 0 2px rgba(255,255,255,0.15)) grayscale(0.4) opacity(0.8)';
+                                img.style.filter = 'drop-shadow(0 0 2px rgba(255,255,255,0.05)) opacity(0.7)';
                             }
                         }
                     });
@@ -1691,10 +2149,10 @@
                     // Draw lines connecting all nodes inside the active category (Constellation Web)
                     if (currentActiveCategory && categories[currentActiveCategory]) {
                         const catList = categories[currentActiveCategory];
-                        const catNodes = activeTags.filter(t => catList.includes(t.name));
+                        const catNodes = globeActiveTags.filter(t => catList.includes(t.name));
 
                         gCtx.beginPath();
-                        gCtx.strokeStyle = 'rgba(212, 175, 55, 0.32)'; // Glowing Gold/Amber category connector lines
+                        gCtx.strokeStyle = 'rgba(34, 197, 94, 0.45)'; // Glowing Emerald green category connector lines
                         gCtx.lineWidth = 1.0;
 
                         for (let i = 0; i < catNodes.length; i++) {
@@ -1720,7 +2178,7 @@
                     // 4. Draw canvas latitude lines (pulsating alpha, Grayscale)
                     for (let i = 0; i <= latLines; i++) {
                         gCtx.beginPath();
-                        gCtx.strokeStyle = `rgba(255, 255, 255, ${lineAlphaPulse * 0.8})`;
+                        gCtx.strokeStyle = `rgba(255, 255, 255, ${lineAlphaPulse * 0.4})`;
                         gCtx.lineWidth = 0.6;
                         for (let j = 0; j <= longLines; j++) {
                             const pointIndex = i * longLines + (j % longLines);
@@ -1738,7 +2196,7 @@
                     // Draw canvas longitude lines (pulsating alpha, Grayscale)
                     for (let j = 0; j < longLines; j++) {
                         gCtx.beginPath();
-                        gCtx.strokeStyle = `rgba(255, 255, 255, ${lineAlphaPulse * 0.8})`;
+                        gCtx.strokeStyle = `rgba(255, 255, 255, ${lineAlphaPulse * 0.4})`;
                         gCtx.lineWidth = 0.6;
                         for (let i = 0; i <= latLines; i++) {
                             const pointIndex = i * longLines + j;
@@ -1766,19 +2224,20 @@
                     });
 
                     // 5. Update DOM absolute positioning on HTML tags
-                    activeTags.forEach(p => {
+                    globeActiveTags.forEach((p, idx) => {
                         if (!p.element) return;
+                        const isTagHovered = (idx === hoveredTagIndex);
                         const projectScale = fieldOfView / (fieldOfView + p.z);
                         const xPos = p.x * projectScale;
                         const yPos = p.y * projectScale;
-                        const scale = projectScale;
+                        const scale = isTagHovered ? projectScale * 1.15 : projectScale; // Scale up the hovered tag slightly
                         const opacity = (globeRadius - p.z) / (2 * globeRadius);
                         const depthOpacity = Math.max(0.35, Math.min(1.0, opacity));
 
                         // Centered translate3d transform mapping
                         p.element.style.transform = `translate(-50%, -50%) translate3d(${xPos}px, ${yPos}px, 0) scale(${scale})`;
                         p.element.style.opacity = depthOpacity;
-                        p.element.style.zIndex = Math.round(1000 - p.z);
+                        p.element.style.zIndex = isTagHovered ? 99999 : Math.round(1000 - p.z);
                     });
 
                     requestAnimationFrame(animate);
@@ -1823,246 +2282,56 @@
                         }
                     });
                 });
-            });
-        });
-    </script>
 
-    <!-- LightRays OGL WebGL Script -->
-    <script type="module">
-        import { Renderer, Program, Triangle, Mesh } from 'https://cdn.jsdelivr.net/npm/ogl@0.0.116/dist/index.mjs';
-
-        const hexToRgb = hex => {
-            const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-            return m ? [parseInt(m[1], 16) / 255, parseInt(m[2], 16) / 255, parseInt(m[3], 16) / 255] : [0, 1, 1];
-        };
-
-        const getAnchorAndDir = (origin, w, h) => {
-            const outside = 0.2;
-            switch (origin) {
-                case 'top-left':
-                    return { anchor: [0, -outside * h], dir: [0, 1] };
-                case 'top-right':
-                    return { anchor: [w, -outside * h], dir: [0, 1] };
-                case 'left':
-                    return { anchor: [-outside * w, 0.5 * h], dir: [1, 0] };
-                case 'right':
-                    return { anchor: [(1 + outside) * w, 0.5 * h], dir: [-1, 0] };
-                case 'bottom-left':
-                    return { anchor: [0, (1 + outside) * h], dir: [0, -1] };
-                case 'bottom-center':
-                    return { anchor: [0.5 * w, (1 + outside) * h], dir: [0, -1] };
-                case 'bottom-right':
-                    return { anchor: [w, (1 + outside) * h], dir: [0, -1] };
-                default: // "top-center"
-                    return { anchor: [0.5 * w, -outside * h], dir: [0, 1] };
-            }
-        };
-
-        const config = {
-            raysOrigin: 'top-center',
-            raysColor: '#00ffff',
-            raysSpeed: 1.5,
-            lightSpread: 0.8,
-            rayLength: 1.2,
-            pulsating: false,
-            fadeDistance: 1.0,
-            saturation: 1.0,
-            followMouse: true,
-            mouseInfluence: 0.1,
-            noiseAmount: 0.1,
-            distortion: 0.05
-        };
-
-        const container = document.getElementById('light-rays-bg');
-        if (container) {
-            const renderer = new Renderer({
-                dpr: Math.min(window.devicePixelRatio, 2),
-                alpha: true
-            });
-            const gl = renderer.gl;
-            gl.canvas.style.width = '100%';
-            gl.canvas.style.height = '100%';
-            container.appendChild(gl.canvas);
-
-            const vert = `
-attribute vec2 position;
-varying vec2 vUv;
-void main() {
-  vUv = position * 0.5 + 0.5;
-  gl_Position = vec4(position, 0.0, 1.0);
-}`;
-
-            const frag = `precision highp float;
-
-uniform float iTime;
-uniform vec2  iResolution;
-
-uniform vec2  rayPos;
-uniform vec2  rayDir;
-uniform vec3  raysColor;
-uniform float raysSpeed;
-uniform float lightSpread;
-uniform float rayLength;
-uniform float pulsating;
-uniform float fadeDistance;
-uniform float saturation;
-uniform vec2  mousePos;
-uniform float mouseInfluence;
-uniform float noiseAmount;
-uniform float distortion;
-
-varying vec2 vUv;
-
-float noise(vec2 st) {
-  return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
-}
-
-float rayStrength(vec2 raySource, vec2 rayRefDirection, vec2 coord,
-                  float seedA, float seedB, float speed) {
-  vec2 sourceToCoord = coord - raySource;
-  vec2 dirNorm = normalize(sourceToCoord);
-  float cosAngle = dot(dirNorm, rayRefDirection);
-
-  float distortedAngle = cosAngle + distortion * sin(iTime * 2.0 + length(sourceToCoord) * 0.01) * 0.2;
-  
-  float spreadFactor = pow(max(distortedAngle, 0.0), 1.0 / max(lightSpread, 0.001));
-
-  float distance = length(sourceToCoord);
-  float maxDistance = iResolution.x * rayLength;
-  float lengthFalloff = clamp((maxDistance - distance) / maxDistance, 0.0, 1.0);
-  
-  float fadeFalloff = clamp((iResolution.x * fadeDistance - distance) / (iResolution.x * fadeDistance), 0.5, 1.0);
-  float pulse = pulsating > 0.5 ? (0.8 + 0.2 * sin(iTime * speed * 3.0)) : 1.0;
-
-  float baseStrength = clamp(
-    (0.45 + 0.15 * sin(distortedAngle * seedA + iTime * speed)) +
-    (0.3 + 0.2 * cos(-distortedAngle * seedB + iTime * speed)),
-    0.0, 1.0
-  );
-
-  return baseStrength * lengthFalloff * fadeFalloff * spreadFactor * pulse;
-}
-
-void mainImage(out vec4 fragColor, in vec2 fragCoord) {
-  vec2 coord = vec2(fragCoord.x, iResolution.y - fragCoord.y);
-  
-  vec2 finalRayDir = rayDir;
-  if (mouseInfluence > 0.0) {
-    vec2 mouseScreenPos = mousePos * iResolution.xy;
-    vec2 mouseDirection = normalize(mouseScreenPos - rayPos);
-    finalRayDir = normalize(mix(rayDir, mouseDirection, mouseInfluence));
-  }
-
-  vec4 rays1 = vec4(1.0) *
-               rayStrength(rayPos, finalRayDir, coord, 36.2214, 21.11349,
-                           1.5 * raysSpeed);
-  vec4 rays2 = vec4(1.0) *
-               rayStrength(rayPos, finalRayDir, coord, 22.3991, 18.0234,
-                           1.1 * raysSpeed);
-
-  fragColor = rays1 * 0.5 + rays2 * 0.4;
-
-  if (noiseAmount > 0.0) {
-    float n = noise(coord * 0.01 + iTime * 0.1);
-    fragColor.rgb *= (1.0 - noiseAmount + noiseAmount * n);
-  }
-
-  float brightness = 1.0 - (coord.y / iResolution.y);
-  fragColor.x *= 0.1 + brightness * 0.8;
-  fragColor.y *= 0.3 + brightness * 0.6;
-  fragColor.z *= 0.5 + brightness * 0.5;
-
-  if (saturation != 1.0) {
-    float gray = dot(fragColor.rgb, vec3(0.299, 0.587, 0.114));
-    fragColor.rgb = mix(vec3(gray), fragColor.rgb, saturation);
-  }
-
-  fragColor.rgb *= raysColor;
-}
-
-void main() {
-  vec4 color;
-  mainImage(color, gl_FragCoord.xy);
-  gl_FragColor  = color;
-}`;
-
-            const uniforms = {
-                iTime: { value: 0 },
-                iResolution: { value: [1, 1] },
-
-                rayPos: { value: [0, 0] },
-                rayDir: { value: [0, 1] },
-
-                raysColor: { value: hexToRgb(config.raysColor) },
-                raysSpeed: { value: config.raysSpeed },
-                lightSpread: { value: config.lightSpread },
-                rayLength: { value: config.rayLength },
-                pulsating: { value: config.pulsating ? 1.0 : 0.0 },
-                fadeDistance: { value: config.fadeDistance },
-                saturation: { value: config.saturation },
-                mousePos: { value: [0.5, 0.5] },
-                mouseInfluence: { value: config.mouseInfluence },
-                noiseAmount: { value: config.noiseAmount },
-                distortion: { value: config.distortion }
-            };
-
-            const geometry = new Triangle(gl);
-            const program = new Program(gl, {
-                vertex: vert,
-                fragment: frag,
-                uniforms
-            });
-            const mesh = new Mesh(gl, { geometry, program });
-
-            const updatePlacement = () => {
-                renderer.dpr = Math.min(window.devicePixelRatio, 2);
-                const { clientWidth: wCSS, clientHeight: hCSS } = container;
-                renderer.setSize(wCSS, hCSS);
-                const dpr = renderer.dpr;
-                const w = wCSS * dpr;
-                const h = hCSS * dpr;
-                uniforms.iResolution.value = [w, h];
-                const { anchor, dir } = getAnchorAndDir(config.raysOrigin, w, h);
-                uniforms.rayPos.value = anchor;
-                uniforms.rayDir.value = dir;
-            };
-
-            const mouse = { x: 0.5, y: 0.5 };
-            const smoothMouse = { x: 0.5, y: 0.5 };
-
-            window.addEventListener('mousemove', e => {
-                const rect = container.getBoundingClientRect();
-                mouse.x = (e.clientX - rect.left) / rect.width;
-                mouse.y = (e.clientY - rect.top) / rect.height;
-            });
-
-            const loop = t => {
-                uniforms.iTime.value = t * 0.001;
-                if (config.followMouse && config.mouseInfluence > 0.0) {
-                    const smoothing = 0.92;
-                    smoothMouse.x = smoothMouse.x * smoothing + mouse.x * (1 - smoothing);
-                    smoothMouse.y = smoothMouse.y * smoothing + mouse.y * (1 - smoothing);
-                    uniforms.mousePos.value = [smoothMouse.x, smoothMouse.y];
+            // Intro splash screen transition logic
+            const splashEl = document.getElementById('intro-splash');
+            const enterBtn = document.getElementById('enter-portfolio-btn');
+            
+            let introVisited = false;
+            try {
+                introVisited = sessionStorage.getItem('portfolio-intro-visited') === 'true';
+            } catch (err) {}
+            if (splashEl) {
+                if (introVisited) {
+                    splashEl.style.display = 'none';
+                    document.body.classList.remove('lock-scroll');
+                } else {
+                    document.body.classList.add('lock-scroll');
+                    if (enterBtn) {
+                        enterBtn.addEventListener('click', () => {
+                            try {
+                                sessionStorage.setItem('portfolio-intro-visited', 'true');
+                            } catch (err) {}
+                            splashEl.classList.add('fade-out');
+                            document.body.classList.remove('lock-scroll');
+                            setTimeout(() => {
+                                splashEl.remove();
+                            }, 800);
+                        });
+                    }
                 }
-                renderer.render({ scene: mesh });
-                requestAnimationFrame(loop);
+            }
             };
-
-            window.addEventListener('resize', updatePlacement);
-            updatePlacement();
-            requestAnimationFrame(loop);
+            runGlobeSetup();
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', runSetup);
+        } else {
+            runSetup();
         }
     </script>
+
+            
     <!-- Case Study Fullscreen Overlay Modal -->
     <div id="case-study-overlay"
-        class="fixed inset-0 z-[100] bg-[#070913] backdrop-blur-md overflow-y-auto hidden opacity-0 transition-all duration-500 flex-col scroll-smooth"
-        style="background-color: #070913;">
+        class="fixed inset-0 z-[100] bg-[#09090b] backdrop-blur-md overflow-y-auto hidden opacity-0 transition-all duration-500 flex-col scroll-smooth"
+        style="background-color: #09090b;">
         <!-- Persistent sticky blur header -->
         <header
-            class="sticky top-0 z-[110] w-full backdrop-blur-md border-b border-slate-900/60 bg-[#070913]/85 px-6 py-4 flex items-center justify-between"
-            style="background-color: rgba(7, 9, 19, 0.85);">
+            class="sticky top-0 z-[110] w-full backdrop-blur-md border-b border-zinc-800/60 bg-[#09090b]/85 px-6 py-4 flex items-center justify-between"
+            style="background-color: rgba(9, 9, 11, 0.85);">
             <button onclick="closeCaseStudy()"
-                class="flex items-center gap-2 text-slate-400 hover:text-white font-mono text-xs transition-colors group">
+                class="flex items-center gap-2 text-slate-400 hover:text-[#15803d] font-mono text-xs transition-colors group">
                 <span
                     class="material-symbols-outlined text-sm transform group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
                 BACK TO PORTFOLIO
@@ -2071,11 +2340,11 @@ void main() {
                 class="text-sm font-semibold text-white tracking-tight font-display hidden sm:inline text-slate-400 uppercase tracking-widest">Case
                 Study</span>
             <button onclick="closeCaseStudy()"
-                class="w-8 h-8 rounded-full border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition-colors">
+                class="w-8 h-8 rounded-full border border-zinc-800 flex items-center justify-center text-slate-400 hover:text-[#15803d] hover:border-zinc-700 transition-colors">
                 <span class="material-symbols-outlined text-lg">close</span>
             </button>
             <!-- Progress indicator at bottom of header -->
-            <div class="absolute bottom-0 left-0 w-full h-[2px] bg-slate-900">
+            <div class="absolute bottom-0 left-0 w-full h-[2px] bg-zinc-800">
                 <div id="case-study-progress-bar"></div>
             </div>
         </header>
@@ -2087,32 +2356,32 @@ void main() {
             <section class="case-study-reveal space-y-8">
                 <!-- Large Project Mockup Image Frame -->
                 <div
-                    class="w-full border border-slate-800/80 rounded-2xl overflow-hidden shadow-2xl bg-slate-950/40 hover-zoom">
+                    class="w-full border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl bg-[#0f1115] hover-zoom">
                     <!-- Browser toolbar mock -->
-                    <div class="h-9 bg-slate-900/60 border-b border-slate-800/60 flex items-center px-4 relative">
+                    <div class="h-9 bg-[#13161c]/60 border-b border-zinc-800 flex items-center px-4 relative">
                         <div class="flex items-center gap-1.5">
                             <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></span>
                             <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></span>
                             <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></span>
                         </div>
                         <div
-                            class="absolute left-1/2 -translate-x-1/2 w-48 sm:w-64 bg-slate-950/40 border border-slate-800/40 rounded-md py-1 px-3 text-[10px] text-slate-400 font-mono text-center truncate flex items-center justify-center gap-1">
-                            <span class="material-symbols-outlined text-[10px] text-slate-500">lock</span>
+                            class="absolute left-1/2 -translate-x-1/2 w-48 sm:w-64 bg-[#0f1115] border border-zinc-800 rounded-md py-1 px-3 text-[10px] text-slate-400 font-mono text-center truncate flex items-center justify-center gap-1">
+                            <span class="material-symbols-outlined text-[10px] text-slate-400">lock</span>
                             <span id="cs-browser-url">project.vercel.app</span>
                         </div>
                     </div>
                     <!-- Mockup image display -->
                     <div
-                        class="w-full aspect-[16/9] md:aspect-[21/9] bg-slate-950/30 flex items-center justify-center overflow-hidden">
+                        class="w-full aspect-[16/9] md:aspect-[21/9] bg-[#f8fafc]/30 flex items-center justify-center overflow-hidden">
                         <img id="cs-hero-image" class="w-full h-full object-contain" src=""
                             alt="Project Hero Screenshot" />
                     </div>
                 </div>
-
+ 
                 <!-- Text metadata -->
                 <div class="space-y-4 max-w-4xl">
                     <span id="cs-hero-category"
-                        class="text-xs text-cyan-400 font-mono font-semibold uppercase tracking-widest">Category</span>
+                        class="text-xs text-green-500 font-mono font-semibold uppercase tracking-widest">Category</span>
                     <h1 id="cs-hero-title"
                         class="text-4xl sm:text-6xl font-bold text-white tracking-tight font-display uppercase leading-tight">
                         Project Title</h1>
@@ -2128,12 +2397,12 @@ void main() {
                     <!-- Action buttons -->
                     <div class="flex flex-wrap gap-4 pt-4">
                         <a id="cs-live-demo-link" href="javascript:void(0)" target="_blank"
-                            class="inline-flex items-center gap-2 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm border border-slate-850 shadow-md">
+                            class="inline-flex items-center gap-2 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-[#15803d] font-semibold px-6 py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm border border-zinc-800 shadow-md">
                             Live Demo
                             <span class="material-symbols-outlined text-sm">open_in_new</span>
                         </a>
                         <a id="cs-github-link" href="javascript:void(0)" target="_blank"
-                            class="inline-flex items-center gap-2 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm border border-slate-850 shadow-md">
+                            class="inline-flex items-center gap-2 bg-transparent hover:bg-[#161414] text-slate-300 hover:text-[#15803d] font-semibold px-6 py-3 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm border border-zinc-800 shadow-md">
                             GitHub Repository
                             <span class="material-symbols-outlined text-sm font-semibold">code</span>
                         </a>
@@ -2147,9 +2416,9 @@ void main() {
                 <div class="space-y-12 md:space-y-16">
                     <!-- Overview -->
                     <section class="case-study-reveal space-y-4">
-                        <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">01 / Project Overview
+                        <h2 class="text-xs font-mono text-slate-400 uppercase tracking-widest">01 / Project Overview
                         </h2>
-                        <div class="h-[1px] w-12 bg-slate-850"></div>
+                        <div class="h-[1px] w-12 bg-zinc-800"></div>
                         <p id="cs-overview" class="text-sm sm:text-base leading-relaxed text-slate-300 font-sans">
                             Detailed overview content.
                         </p>
@@ -2157,14 +2426,14 @@ void main() {
 
                     <!-- Section 3: The Problem -->
                     <section class="case-study-reveal space-y-4">
-                        <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">02 / The Problem</h2>
-                        <div class="h-[1px] w-12 bg-slate-850"></div>
+                        <h2 class="text-xs font-mono text-slate-400 uppercase tracking-widest">02 / The Problem</h2>
+                        <div class="h-[1px] w-12 bg-zinc-800"></div>
 
                         <!-- Beautiful Glass Card -->
                         <div
-                            class="relative bg-slate-900/30 border border-slate-800/80 rounded-2xl p-6 md:p-8 overflow-hidden backdrop-blur-md flex gap-4 md:gap-6">
+                            class="relative bg-[#0f1115]/30 border border-zinc-800 rounded-2xl p-6 md:p-8 overflow-hidden backdrop-blur-md flex gap-4 md:gap-6">
                             <div
-                                class="w-12 h-12 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center shrink-0">
+                                class="w-12 h-12 rounded-xl bg-green-500/10 text-green-500 flex items-center justify-center shrink-0">
                                 <span class="material-symbols-outlined text-2xl">warning</span>
                             </div>
                             <div class="space-y-2">
@@ -2179,8 +2448,8 @@ void main() {
 
                     <!-- Section 4: The Solution -->
                     <section class="case-study-reveal space-y-4">
-                        <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">03 / The Solution</h2>
-                        <div class="h-[1px] w-12 bg-slate-850"></div>
+                        <h2 class="text-xs font-mono text-slate-400 uppercase tracking-widest">03 / The Solution</h2>
+                        <div class="h-[1px] w-12 bg-zinc-800"></div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center pt-2">
                             <p id="cs-solution" class="text-xs sm:text-sm leading-relaxed text-slate-300 font-sans">
@@ -2188,10 +2457,10 @@ void main() {
                             </p>
                             <!-- Supporting screenshot frame -->
                             <div
-                                class="w-full border border-slate-800/80 rounded-xl overflow-hidden shadow-2xl bg-slate-950/40">
+                                class="w-full border border-zinc-800 rounded-xl overflow-hidden shadow-2xl bg-[#0f1115]">
                                 <!-- Browser Header/Toolbar -->
                                 <div
-                                    class="h-7 bg-slate-900/60 border-b border-slate-800/60 flex items-center px-3 relative">
+                                    class="h-7 bg-[#13161c]/60 border-b border-zinc-800 flex items-center px-3 relative">
                                     <div class="flex items-center gap-1">
                                         <span class="w-2 h-2 rounded-full bg-[#ff5f56]"></span>
                                         <span class="w-2 h-2 rounded-full bg-[#ffbd2e]"></span>
@@ -2199,7 +2468,7 @@ void main() {
                                     </div>
                                 </div>
                                 <div
-                                    class="w-full aspect-video bg-slate-950/30 flex items-center justify-center overflow-hidden">
+                                    class="w-full aspect-video bg-[#f8fafc]/30 flex items-center justify-center overflow-hidden">
                                     <img id="cs-solution-image" class="w-full h-full object-cover" src=""
                                         alt="Solution Screenshot" />
                                 </div>
@@ -2212,9 +2481,9 @@ void main() {
                 <div class="space-y-12">
                     <!-- Section 5: My Role -->
                     <section class="case-study-reveal space-y-4">
-                        <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest font-semibold">My Role
+                        <h2 class="text-xs font-mono text-slate-400 uppercase tracking-widest font-semibold">My Role
                         </h2>
-                        <div class="h-[1px] w-12 bg-slate-850 mb-6"></div>
+                        <div class="h-[1px] w-12 bg-zinc-800 mb-6"></div>
                         <div id="cs-roles" class="flex flex-col gap-3">
                             <!-- Role cards generated dynamically -->
                         </div>
@@ -2222,9 +2491,9 @@ void main() {
 
                     <!-- Section 11: Results -->
                     <section class="case-study-reveal space-y-4">
-                        <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest font-semibold">Key
+                        <h2 class="text-xs font-mono text-slate-400 uppercase tracking-widest font-semibold">Key
                             Achievements</h2>
-                        <div class="h-[1px] w-12 bg-slate-850 mb-6"></div>
+                        <div class="h-[1px] w-12 bg-zinc-800 mb-6"></div>
                         <div id="cs-results" class="flex flex-col gap-3">
                             <!-- Results checklist generated dynamically -->
                         </div>
@@ -2235,10 +2504,10 @@ void main() {
             <!-- Section 6: Key Features -->
             <section class="case-study-reveal space-y-8">
                 <div class="flex flex-col items-center text-center space-y-3">
-                    <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">04 / Core Features</h2>
+                    <h2 class="text-xs font-mono text-slate-400 uppercase tracking-widest">04 / Core Features</h2>
                     <h3 class="text-2xl sm:text-3xl font-semibold text-white font-display">POWERFUL PRODUCT
                         CAPABILITIES</h3>
-                    <div class="h-[1px] w-24 bg-slate-850"></div>
+                    <div class="h-[1px] w-24 bg-zinc-800"></div>
                 </div>
 
                 <div id="cs-features" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -2249,10 +2518,10 @@ void main() {
             <!-- Section 7: Technology Stack -->
             <section class="case-study-reveal space-y-8">
                 <div class="flex flex-col items-center text-center space-y-3">
-                    <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">05 / Architecture & Tooling
+                    <h2 class="text-xs font-mono text-slate-400 uppercase tracking-widest">05 / Architecture & Tooling
                     </h2>
                     <h3 class="text-2xl sm:text-3xl font-semibold text-white font-display">THE TECH STACK</h3>
-                    <div class="h-[1px] w-24 bg-slate-850"></div>
+                    <div class="h-[1px] w-24 bg-zinc-800"></div>
                 </div>
 
                 <div id="cs-tech" class="flex flex-wrap items-center justify-center gap-3 max-w-4xl mx-auto font-sans">
@@ -2264,11 +2533,11 @@ void main() {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
                 <!-- Challenges -->
                 <section class="case-study-reveal space-y-4">
-                    <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">06 / Engineering Challenges
+                    <h2 class="text-xs font-mono text-slate-400 uppercase tracking-widest">06 / Engineering Challenges
                     </h2>
-                    <div class="h-[1px] w-12 bg-slate-850 mb-6"></div>
-                    <div class="bg-red-950/10 border border-red-900/30 rounded-2xl p-6 md:p-8 space-y-6">
-                        <div class="flex items-center gap-3 text-red-400">
+                    <div class="h-[1px] w-12 bg-zinc-800 mb-6"></div>
+                    <div class="bg-[#0f1115] border border-zinc-800 rounded-2xl p-6 md:p-8 space-y-6 hover:border-green-500/20 transition-all duration-300">
+                        <div class="flex items-center gap-3 text-green-500">
                             <span class="material-symbols-outlined text-2xl">construction</span>
                             <span class="font-semibold text-sm tracking-wide font-mono">DEBUG_SESSION.LOG</span>
                         </div>
@@ -2281,9 +2550,9 @@ void main() {
 
                 <!-- Lessons Learned -->
                 <section class="case-study-reveal space-y-4">
-                    <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">07 / What I Learned</h2>
-                    <div class="h-[1px] w-12 bg-slate-850 mb-6"></div>
-                    <div id="cs-learnings" class="space-y-6 relative pl-6 border-l border-slate-800/80">
+                    <h2 class="text-xs font-mono text-slate-400 uppercase tracking-widest">07 / What I Learned</h2>
+                    <div class="h-[1px] w-12 bg-zinc-800 mb-6"></div>
+                    <div id="cs-learnings" class="space-y-6 relative pl-6 border-l border-zinc-800">
                         <!-- timeline items populated dynamically -->
                     </div>
                 </section>
@@ -2292,10 +2561,10 @@ void main() {
             <!-- Section 10: Project Gallery -->
             <section class="case-study-reveal space-y-8">
                 <div class="flex flex-col items-center text-center space-y-3">
-                    <h2 class="text-xs font-mono text-slate-500 uppercase tracking-widest">08 / Visual Gallery</h2>
+                    <h2 class="text-xs font-mono text-slate-400 uppercase tracking-widest">08 / Visual Gallery</h2>
                     <h3 class="text-2xl sm:text-3xl font-semibold text-white font-display">PROJECT
                         SCREENSHOTS</h3>
-                    <div class="h-[1px] w-24 bg-slate-850"></div>
+                    <div class="h-[1px] w-24 bg-zinc-800"></div>
                 </div>
 
                 <div id="cs-gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -2304,12 +2573,12 @@ void main() {
             </section>
 
             <!-- Section 12: Navigation / Next-Prev Switcher -->
-            <footer class="case-study-reveal border-t border-slate-900 pt-16 flex flex-col items-center gap-12">
+            <footer class="case-study-reveal border-t border-zinc-800 pt-16 flex flex-col items-center gap-12">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl">
                     <!-- Prev project link -->
                     <button onclick="navigateProject('prev')"
-                        class="flex flex-col items-start p-6 rounded-xl border border-slate-900 bg-[#070913]/30 hover:bg-slate-900/40 hover:border-slate-800 transition-all duration-300 text-left group">
-                        <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-2">Previous
+                        class="flex flex-col items-start p-6 rounded-xl border border-zinc-800 bg-[#0f1115]/30 hover:bg-[#13161c] hover:border-zinc-700 transition-all duration-300 text-left group">
+                        <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider mb-2">Previous
                             Project</span>
                         <div class="flex items-center gap-2">
                             <span
@@ -2320,8 +2589,8 @@ void main() {
                     </button>
                     <!-- Next project link -->
                     <button onclick="navigateProject('next')"
-                        class="flex flex-col items-end p-6 rounded-xl border border-slate-900 bg-[#070913]/30 hover:bg-slate-900/40 hover:border-slate-800 transition-all duration-300 text-right group">
-                        <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-2">Next
+                        class="flex flex-col items-end p-6 rounded-xl border border-zinc-800 bg-[#0f1115]/30 hover:bg-[#13161c] hover:border-zinc-700 transition-all duration-300 text-right group">
+                        <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider mb-2">Next
                             Project</span>
                         <div class="flex items-center gap-2">
                             <span id="cs-nav-next-title" class="font-semibold text-white font-display text-base">Project
@@ -2334,7 +2603,7 @@ void main() {
 
                 <!-- Main CTA back to site -->
                 <button onclick="closeCaseStudy()"
-                    class="bg-transparent hover:bg-slate-900/80 text-white border border-slate-850 hover:border-slate-700 font-semibold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm shadow-md flex items-center gap-2">
+                    class="bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-800 hover:border-zinc-700 font-semibold px-8 py-3.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 text-sm shadow-md flex items-center gap-2">
                     <span class="material-symbols-outlined text-sm">home</span>
                     Back to Portfolio
                 </button>
@@ -2348,21 +2617,21 @@ void main() {
         class="fixed inset-0 z-[200] bg-black/95 flex flex-col items-center justify-center hidden opacity-0 transition-opacity duration-300">
         <header
             class="absolute top-0 left-0 w-full px-6 py-4 flex items-center justify-between z-10 bg-gradient-to-b from-black/80 to-transparent">
-            <span id="lightbox-counter" class="text-xs font-mono text-slate-400">1 / 4</span>
+            <span id="lightbox-counter" class="text-xs font-mono text-slate-600">1 / 4</span>
             <button onclick="closeLightbox()"
-                class="w-10 h-10 rounded-full bg-slate-900/60 border border-slate-800/80 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+                class="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-slate-400 hover:text-[#15803d] transition-colors">
                 <span class="material-symbols-outlined text-xl">close</span>
             </button>
         </header>
         <button onclick="navigateLightbox('prev')"
-            class="absolute left-4 w-12 h-12 rounded-full bg-slate-900/60 border border-slate-850 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+            class="absolute left-4 w-12 h-12 rounded-full bg-[#f8fafc]/60 border border-[#e2e8f0] flex items-center justify-center text-slate-600 hover:text-[#15803d] transition-colors">
             <span class="material-symbols-outlined text-2xl">chevron_left</span>
         </button>
         <img id="lightbox-image"
             class="max-w-[90%] max-h-[80vh] object-contain rounded-lg shadow-2xl transition-transform duration-300"
             src="" alt="Lightbox View" />
         <button onclick="navigateLightbox('next')"
-            class="absolute right-4 w-12 h-12 rounded-full bg-slate-900/60 border border-slate-850 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+            class="absolute right-4 w-12 h-12 rounded-full bg-[#f8fafc]/60 border border-[#e2e8f0] flex items-center justify-center text-slate-600 hover:text-[#15803d] transition-colors">
             <span class="material-symbols-outlined text-2xl">chevron_right</span>
         </button>
     </div>
@@ -2554,7 +2823,7 @@ void main() {
             badgesContainer.innerHTML = '';
             data.techStack.slice(0, 4).forEach(tech => {
                 const span = document.createElement('span');
-                span.className = 'text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-slate-300';
+                span.className = 'text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-[#0f1115] border border-zinc-800 text-slate-300';
                 span.textContent = tech;
                 badgesContainer.appendChild(span);
             });
@@ -2564,8 +2833,8 @@ void main() {
             rolesContainer.innerHTML = '';
             data.roles.forEach((role, idx) => {
                 const div = document.createElement('div');
-                div.className = 'flex items-center gap-2.5 p-3.5 rounded-xl border border-slate-900 bg-slate-950/20 text-slate-300 text-xs font-medium backdrop-blur-sm hover:bg-[#161414] hover:text-white transition-all duration-300 case-study-reveal reveal-delay-' + (idx * 50);
-                div.innerHTML = `<span class="material-symbols-outlined text-emerald-400 text-base">check_circle</span>${role}`;
+                div.className = 'flex items-center gap-2.5 p-3.5 rounded-xl border border-zinc-800 bg-[#0f1115]/80 text-slate-300 text-xs font-medium backdrop-blur-sm hover:bg-[#13161c] transition-all duration-300 case-study-reveal reveal-delay-' + (idx * 50);
+                div.innerHTML = `<span class="material-symbols-outlined text-green-500 text-base">check_circle</span>${role}`;
                 rolesContainer.appendChild(div);
             });
 
@@ -2574,8 +2843,8 @@ void main() {
             resultsContainer.innerHTML = '';
             data.results.forEach((res, idx) => {
                 const div = document.createElement('div');
-                div.className = 'flex items-center gap-2.5 p-3.5 rounded-xl border border-slate-900 bg-slate-950/20 text-slate-300 text-xs font-medium backdrop-blur-sm hover:bg-[#161414] hover:text-white transition-all duration-300 case-study-reveal reveal-delay-' + (idx * 50);
-                div.innerHTML = `<span class="material-symbols-outlined text-cyan-400 text-base">done</span>${res}`;
+                div.className = 'flex items-center gap-2.5 p-3.5 rounded-xl border border-zinc-800 bg-[#0f1115]/80 text-slate-300 text-xs font-medium backdrop-blur-sm hover:bg-[#13161c] transition-all duration-300 case-study-reveal reveal-delay-' + (idx * 50);
+                div.innerHTML = `<span class="material-symbols-outlined text-green-500 text-base">done</span>${res}`;
                 resultsContainer.appendChild(div);
             });
 
@@ -2584,9 +2853,9 @@ void main() {
             featuresContainer.innerHTML = '';
             data.features.forEach((feat, idx) => {
                 const div = document.createElement('div');
-                div.className = 'p-6 rounded-2xl border border-slate-900/60 bg-slate-950/20 backdrop-blur-sm hover:bg-[#161414] hover:border-slate-800/80 transition-all duration-300 space-y-3 hover:translate-y-[-4px] case-study-reveal reveal-delay-' + ((idx % 3) * 100);
+                div.className = 'p-6 rounded-2xl border border-zinc-800 bg-[#0f1115]/80 backdrop-blur-sm hover:bg-[#13161c] hover:border-zinc-700 hover:shadow-sm transition-all duration-300 space-y-3 hover:translate-y-[-4px] case-study-reveal reveal-delay-' + ((idx % 3) * 100);
                 div.innerHTML = `
-                    <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400">
+                    <div class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-slate-300">
                         <span class="material-symbols-outlined text-xl">${feat.icon}</span>
                     </div>
                     <h4 class="font-semibold text-white font-display text-sm tracking-tight">${feat.title}</h4>
@@ -2600,7 +2869,7 @@ void main() {
             techContainer.innerHTML = '';
             data.techStack.forEach((tech, idx) => {
                 const span = document.createElement('span');
-                span.className = 'text-xs font-mono px-4 py-2 rounded-xl bg-slate-900/40 border border-slate-900 text-slate-300 cursor-default hover:text-white transition-colors badge-glow case-study-reveal reveal-delay-' + ((idx % 4) * 100);
+                span.className = 'text-xs font-mono px-4 py-2 rounded-xl bg-[#0f1115] border border-zinc-800 text-slate-300 cursor-default transition-all case-study-reveal reveal-delay-' + ((idx % 4) * 100);
                 span.textContent = tech;
                 techContainer.appendChild(span);
             });
@@ -2612,8 +2881,8 @@ void main() {
                 const div = document.createElement('div');
                 div.className = 'relative pl-6 pb-6 last:pb-0 case-study-reveal reveal-delay-' + (idx * 100);
                 div.innerHTML = `
-                    <div class="absolute left-[-29px] top-[4px] w-4.5 h-4.5 rounded-full bg-slate-900 border-2 border-cyan-400 flex items-center justify-center z-10 shadow-sm">
-                        <div class="w-1.5 h-1.5 rounded-full bg-cyan-400"></div>
+                    <div class="absolute left-[-29px] top-[4px] w-4.5 h-4.5 rounded-full bg-[#09090b] border-2 border-green-500 flex items-center justify-center z-10 shadow-sm">
+                        <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
                     </div>
                     <h4 class="font-semibold text-white font-display text-sm tracking-tight mb-1">${learn.title}</h4>
                     <p class="text-xs text-slate-400 leading-relaxed font-sans">${learn.desc}</p>
@@ -2626,7 +2895,7 @@ void main() {
             galleryContainer.innerHTML = '';
             data.gallery.forEach((imgSrc, idx) => {
                 const div = document.createElement('div');
-                div.className = 'aspect-video rounded-xl border border-slate-900 bg-slate-950/20 overflow-hidden cursor-pointer hover-zoom shadow-md case-study-reveal reveal-delay-' + (idx * 50);
+                div.className = 'aspect-video rounded-xl border border-zinc-800 bg-[#0f1115]/20 overflow-hidden cursor-pointer hover-zoom shadow-md case-study-reveal reveal-delay-' + (idx * 50);
                 div.innerHTML = `<img class="w-full h-full object-cover" src="${imgSrc}" alt="Gallery ${idx + 1}" />`;
                 div.addEventListener('click', () => {
                     openLightbox(idx, data.gallery);
@@ -2799,12 +3068,12 @@ void main() {
         }
 
         // Active Navigation scroll highlighter & Section Reveals
-        document.addEventListener('DOMContentLoaded', () => {
+        const runScrollObserver = () => {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('nav a');
 
             const observerOptions = {
-                root: document.getElementById('main-content') || null,
+                root: null,
                 threshold: 0.25,
                 rootMargin: '-10% 0px -50% 0px'
             };
@@ -2839,13 +3108,420 @@ void main() {
                     }
                 });
             }, {
-                root: document.getElementById('main-content') || null,
+                root: null,
                 threshold: 0.08,
                 rootMargin: '0px 0px -5% 0px'
             });
 
             revealElements.forEach(el => revealObserver.observe(el));
-        });
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', runScrollObserver);
+        } else {
+            runScrollObserver();
+        }
+    </script>
+
+            
+
+        <!-- DotField Interactive Background Script -->
+    <script type="module">
+        const TWO_PI = Math.PI * 2;
+
+        const config = {
+            dotRadius: 1.5,
+            dotSpacing: 14,
+            cursorRadius: 500,
+            cursorForce: 0.1,
+            bulgeOnly: true,
+            bulgeStrength: 67,
+            glowRadius: 160,
+            sparkle: false,
+            waveAmplitude: 0,
+            gradientFrom: 'rgba(1, 48, 4, 0.18)',
+            gradientTo: 'rgba(1, 48, 4, 0.08)'
+        };
+
+        const container = document.getElementById('dot-field-bg');
+        if (container) {
+            const canvas = container.querySelector('canvas');
+            const glowEl = container.querySelector('#dot-field-glow-circle');
+            const ctx = canvas.getContext('2d', { alpha: true });
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+            let dots = [];
+            const mouse = { x: -9999, y: -9999, prevX: -9999, prevY: -9999, speed: 0 };
+            const size = { w: 0, h: 0, offsetX: 0, offsetY: 0 };
+            let glowOpacity = 0;
+            let engagement = 0;
+            let frameCount = 0;
+            let rafId = null;
+            let resizeTimer = null;
+
+            function resize() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(doResize, 100);
+            }
+
+            function doResize() {
+                const rect = container.getBoundingClientRect();
+                const w = rect.width;
+                const h = rect.height;
+
+                canvas.width = w * dpr;
+                canvas.height = h * dpr;
+                canvas.style.width = `${w}px`;
+                canvas.style.height = `${h}px`;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+                size.w = w;
+                size.h = h;
+                size.offsetX = rect.left + window.scrollX;
+                size.offsetY = rect.top + window.scrollY;
+
+                buildDots(w, h);
+            }
+
+            function buildDots(w, h) {
+                const step = config.dotRadius + config.dotSpacing;
+                const cols = Math.floor(w / step);
+                const rows = Math.floor(h / step);
+                const padX = (w % step) / 2;
+                const padY = (h % step) / 2;
+                dots = new Array(rows * cols);
+                let idx = 0;
+
+                for (let row = 0; row < rows; row++) {
+                    for (let col = 0; col < cols; col++) {
+                        const ax = padX + col * step + step / 2;
+                        const ay = padY + row * step + step / 2;
+                        dots[idx++] = { ax, ay, sx: ax, sy: ay, vx: 0, vy: 0, x: ax, y: ay };
+                    }
+                }
+            }
+
+            function onMouseMove(e) {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            }
+
+            function updateMouseSpeed() {
+                const dx = mouse.prevX - mouse.x;
+                const dy = mouse.prevY - mouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                mouse.speed += (dist - mouse.speed) * 0.5;
+                if (mouse.speed < 0.001) mouse.speed = 0;
+                mouse.prevX = mouse.x;
+                mouse.prevY = mouse.y;
+            }
+
+            const speedInterval = setInterval(updateMouseSpeed, 20);
+
+            function tick() {
+                frameCount++;
+                const len = dots.length;
+                const t = frameCount * 0.02;
+
+                const targetEngagement = Math.min(mouse.speed / 5, 1);
+                engagement += (targetEngagement - engagement) * 0.06;
+                if (engagement < 0.001) engagement = 0;
+
+                glowOpacity += (engagement - glowOpacity) * 0.08;
+
+                if (glowEl) {
+                    glowEl.setAttribute('cx', mouse.x);
+                    glowEl.setAttribute('cy', mouse.y);
+                    glowEl.style.opacity = glowOpacity;
+                }
+
+                ctx.clearRect(0, 0, size.w, size.h);
+
+                const grad = ctx.createLinearGradient(0, 0, size.w, size.h);
+                grad.addColorStop(0, config.gradientFrom);
+                grad.addColorStop(1, config.gradientTo);
+                ctx.fillStyle = grad;
+
+                const cr = config.cursorRadius;
+                const crSq = cr * cr;
+                const rad = config.dotRadius / 2;
+                const isBulge = config.bulgeOnly;
+
+                ctx.beginPath();
+
+                for (let i = 0; i < len; i++) {
+                    const d = dots[i];
+                    if (!d) continue;
+                    const dx = mouse.x - d.ax;
+                    const dy = mouse.y - d.ay;
+                    const distSq = dx * dx + dy * dy;
+
+                    if (distSq < crSq && engagement > 0.01) {
+                        const dist = Math.sqrt(distSq);
+                        if (isBulge) {
+                            const tempT = 1 - dist / cr;
+                            const push = tempT * tempT * config.bulgeStrength * engagement;
+                            const angle = Math.atan2(dy, dx);
+                            d.sx += (d.ax - Math.cos(angle) * push - d.sx) * 0.15;
+                            d.sy += (d.ay - Math.sin(angle) * push - d.sy) * 0.15;
+                        } else {
+                            const angle = Math.atan2(dy, dx);
+                            const move = (500 / dist) * (mouse.speed * config.cursorForce);
+                            d.vx += Math.cos(angle) * -move;
+                            d.vy += Math.sin(angle) * -move;
+                        }
+                    } else if (isBulge) {
+                        d.sx += (d.ax - d.sx) * 0.1;
+                        d.sy += (d.ay - d.sy) * 0.1;
+                    }
+
+                    if (!isBulge) {
+                        d.vx *= 0.9;
+                        d.vy *= 0.9;
+                        d.x = d.ax + d.vx;
+                        d.y = d.ay + d.vy;
+                        d.sx += (d.x - d.sx) * 0.1;
+                        d.sy += (d.y - d.sy) * 0.1;
+                    }
+
+                    let drawX = d.sx;
+                    let drawY = d.sy;
+                    if (config.waveAmplitude > 0) {
+                        drawY += Math.sin(d.ax * 0.03 + t) * config.waveAmplitude;
+                        drawX += Math.cos(d.ay * 0.03 + t * 0.7) * config.waveAmplitude * 0.5;
+                    }
+
+                    if (config.sparkle) {
+                        const hash = ((i * 2654435761) ^ (frameCount >> 3)) >>> 0;
+                        if ((hash % 100) < 3) {
+                            ctx.moveTo(drawX + rad * 1.8, drawY);
+                            ctx.arc(drawX, drawY, rad * 1.8, 0, TWO_PI);
+                        } else {
+                            ctx.moveTo(drawX + rad, drawY);
+                            ctx.arc(drawX, drawY, rad, 0, TWO_PI);
+                        }
+                    } else {
+                        ctx.moveTo(drawX + rad, drawY);
+                        ctx.arc(drawX, drawY, rad, 0, TWO_PI);
+                    }
+                }
+
+                ctx.fill();
+
+                rafId = requestAnimationFrame(tick);
+            }
+
+            doResize();
+            window.addEventListener('resize', resize);
+            window.addEventListener('mousemove', onMouseMove, { passive: true });
+            rafId = requestAnimationFrame(tick);
+        }
+    </script>
+
+    
+
+        <!-- DotGrid Interactive Background Script -->
+    <script type="module">
+        const TWO_PI = Math.PI * 2;
+
+        function hexToRgb(hex) {
+            const m = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
+            if (!m) return { r: 10, g: 76, b: 14 };
+            return {
+                r: parseInt(m[1], 16),
+                g: parseInt(m[2], 16),
+                b: parseInt(m[3], 16)
+            };
+        }
+
+        const config = {
+            dotSize: 6,
+            gap: 20,
+            baseColor: 'rgba(255, 255, 255, 0.15)',
+            activeColor: '#0a4c0e',
+            proximity: 120,
+            speedTrigger: 100,
+            shockRadius: 250,
+            shockStrength: 5,
+            maxSpeed: 5000,
+            resistance: 750,
+            returnDuration: 1.5
+        };
+
+        const activeRgb = hexToRgb(config.activeColor);
+
+        const container = document.getElementById('splash-dotgrid-bg');
+        if (container) {
+            const canvas = container.querySelector('canvas');
+            const ctx = canvas.getContext('2d', { alpha: true });
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+            let dots = [];
+            const mouse = { x: -9999, y: -9999, prevX: -9999, prevY: -9999, speed: 0, vx: 0, vy: 0, lastTime: 0 };
+            const size = { w: 0, h: 0, offsetX: 0, offsetY: 0 };
+            let rafId = null;
+            let resizeTimer = null;
+
+            function resize() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(doResize, 100);
+            }
+
+            function doResize() {
+                const rect = container.getBoundingClientRect();
+                const w = rect.width;
+                const h = rect.height;
+
+                canvas.width = w * dpr;
+                canvas.height = h * dpr;
+                canvas.style.width = `${w}px`;
+                canvas.style.height = `${h}px`;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+                size.w = w;
+                size.h = h;
+                size.offsetX = rect.left + window.scrollX;
+                size.offsetY = rect.top + window.scrollY;
+
+                buildGrid(w, h);
+            }
+
+            function buildGrid(w, h) {
+                const cell = config.dotSize + config.gap;
+                const cols = Math.floor((w + config.gap) / cell);
+                const rows = Math.floor((h + config.gap) / cell);
+
+                dots = [];
+                const startX = (w - (cell * cols - config.gap)) / 2 + config.dotSize / 2;
+                const startY = (h - (cell * rows - config.gap)) / 2 + config.dotSize / 2;
+
+                for (let y = 0; y < rows; y++) {
+                    for (let x = 0; x < cols; x++) {
+                        const cx = startX + x * cell;
+                        const cy = startY + y * cell;
+                        dots.push({ cx, cy, xOffset: 0, yOffset: 0, vx: 0, vy: 0 });
+                    }
+                }
+            }
+
+            function onMouseMove(e) {
+                const now = performance.now();
+                const dt = mouse.lastTime ? now - mouse.lastTime : 16;
+                const clientX = e.clientX;
+                const clientY = e.clientY;
+                
+                const dx = clientX - mouse.prevX;
+                const dy = clientY - mouse.prevY;
+                
+                let vx = (dx / dt) * 1000;
+                let vy = (dy / dt) * 1000;
+                let speed = Math.hypot(vx, vy);
+
+                if (speed > config.maxSpeed) {
+                    const scale = config.maxSpeed / speed;
+                    vx *= scale;
+                    vy *= scale;
+                    speed = config.maxSpeed;
+                }
+
+                mouse.lastTime = now;
+                mouse.prevX = clientX;
+                mouse.prevY = clientY;
+                mouse.vx = vx;
+                mouse.vy = vy;
+                mouse.speed = speed;
+
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = clientX - rect.left;
+                mouse.y = clientY - rect.top;
+
+                const proxSq = config.proximity * config.proximity;
+                if (speed > config.speedTrigger) {
+                    for (let i = 0; i < dots.length; i++) {
+                        const d = dots[i];
+                        const deltaX = d.cx - mouse.x;
+                        const deltaY = d.cy - mouse.y;
+                        const distSq = deltaX * deltaX + deltaY * deltaY;
+                        if (distSq < proxSq) {
+                            const dist = Math.sqrt(distSq) || 0.001;
+                            const pushX = (deltaX / dist) * (vx * 0.08);
+                            const pushY = (deltaY / dist) * (vy * 0.08);
+                            d.vx += pushX;
+                            d.vy += pushY;
+                        }
+                    }
+                }
+            }
+
+            function onClick(e) {
+                const rect = canvas.getBoundingClientRect();
+                const cx = e.clientX - rect.left;
+                const cy = e.clientY - rect.top;
+                const radiusSq = config.shockRadius * config.shockRadius;
+
+                for (let i = 0; i < dots.length; i++) {
+                    const d = dots[i];
+                    const deltaX = d.cx - cx;
+                    const deltaY = d.cy - cy;
+                    const distSq = deltaX * deltaX + deltaY * deltaY;
+                    if (distSq < radiusSq) {
+                        const dist = Math.sqrt(distSq) || 0.001;
+                        const falloff = 1 - dist / config.shockRadius;
+                        const push = falloff * config.shockStrength * 4;
+                        d.vx += (deltaX / dist) * push;
+                        d.vy += (deltaY / dist) * push;
+                    }
+                }
+            }
+
+            function tick() {
+                ctx.clearRect(0, 0, size.w, size.h);
+                const len = dots.length;
+                const proxSq = config.proximity * config.proximity;
+
+                const springStrength = 0.08;
+                const damping = 0.88;
+
+                for (let i = 0; i < len; i++) {
+                    const d = dots[i];
+
+                    const forceX = -d.xOffset * springStrength;
+                    const forceY = -d.yOffset * springStrength;
+                    d.vx = (d.vx + forceX) * damping;
+                    d.vy = (d.vy + forceY) * damping;
+                    d.xOffset += d.vx;
+                    d.yOffset += d.vy;
+
+                    const dx = d.cx - mouse.x;
+                    const dy = d.cy - mouse.y;
+                    const dsq = dx * dx + dy * dy;
+
+                    let color = config.baseColor;
+                    if (dsq <= proxSq) {
+                        const dist = Math.sqrt(dsq);
+                        const t = 1 - dist / config.proximity;
+                        const r = Math.round(255 + (activeRgb.r - 255) * t);
+                        const g = Math.round(255 + (activeRgb.g - 255) * t);
+                        const b = Math.round(255 + (activeRgb.b - 255) * t);
+                        color = `rgba(${r},${g},${b},${0.15 + 0.85 * t})`;
+                    }
+
+                    ctx.fillStyle = color;
+                    ctx.beginPath();
+                    ctx.arc(d.cx + d.xOffset, d.cy + d.yOffset, config.dotSize / 2, 0, TWO_PI);
+                    ctx.fill();
+                }
+
+                rafId = requestAnimationFrame(tick);
+            }
+
+            doResize();
+            window.addEventListener('resize', resize);
+            window.addEventListener('mousemove', onMouseMove, { passive: true });
+            window.addEventListener('click', onClick);
+            rafId = requestAnimationFrame(tick);
+        }
     </script>
 </body>
 
